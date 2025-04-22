@@ -1,0 +1,35 @@
+# Ignore PlatformIO build files
+.pio
+
+# Ignore PlatformIO configuration files
+.vscode
+
+# Ignore compiled object files
+*.o
+*.d
+*.a
+*.so
+
+# Ignore compiled binary files
+*.elf
+*.bin
+*.hex
+
+# Ignore backup and temporary files
+*~
+*.tmp
+*.bak
+*.swp
+.DS_Store
+
+# Ignore SConsign files
+.sconsign*
+
+# Ignore library dependencies
+libdeps
+
+# Ignore test output
+*.test
+*.log
+
+*.code-workspace

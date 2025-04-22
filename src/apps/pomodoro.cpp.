@@ -1,0 +1,143 @@
+// #include <Adafruit_GFX.h>
+#include <Arduino.h>
+#include <DigiFont.h>
+#include <TFT_eSPI.h>
+
+#include "ctTimer.h"
+
+// TODO: rewrite this to app
+#define TFT_BACKLIGHT 5
+#define PIEZO_PIN 4
+#define TOUCH_PIN 16
+
+#define RGBto565(r, g, b) ((((r) & 0xF8) << 8) | (((g) & 0xFC) << 3) | ((b) >> 3))
+
+TFT_eSPI tft = TFT_eSPI();
+DigiFont digi([](int x0, int x1, int y, int c) { tft.drawFastHLine(x0, y, x1 - x0 + 1, c); },
+              [](int x, int y0, int y1, int c) {
+                tft.drawFastVLine(x, y0, y1 - y0 + 1, c);
+              },
+              [](int x, int y, int w, int h, int c) {
+                tft.fillRect(x, y, w, h, c);
+              });
+
+ctTimer timer;
+
+void beep(uint8_t p, int f, unsigned long d = 1000) {
+  tone(p, f, d);
+}
+
+void toggleDuration() {
+  static const unsigned long durations[] = {1, 5, 10, 25, 45};
+  unsigned long minutes = timer.getRemainingMinutes();
+  Serial.print("Remaining: ");
+  Serial.println(minutes);
+
+  for (size_t i = 0; i < sizeof(durations) / sizeof(durations[0]); ++i) {
+    if (minutes < durations[i]) {
+      timer.setDuration(durations[i], 0);
+      return;
+    }
+  }
+  timer.setDuration(durations[0], 0);  // Reset to the first duration
+}
+
+void displayDigit(int digit, int x, int y, int fg_col, int bg_col) {
+  digi.setColors(fg_col, bg_col);
+  digi.drawDigit1(digit, x, y);
+}
+
+void displayTime(bool forceRefresh = false) {
+  static unsigned long previousSeconds = 0;
+  static unsigned long previousMinutes = 0;
+  static unsigned long lastUpdateTime = 0;
+
+  unsigned long currentMillis = millis();
+  if (!forceRefresh && (currentMillis - lastUpdateTime < 1000)) return;
+  lastUpdateTime = currentMillis;
+
+  unsigned long minutes = timer.getRemainingMinutes();
+  unsigned long seconds = timer.getRemainingSeconds();
+
+  int t = 10, w = (240 - t - 10) / 4, y = (240 - w * 2) / 2;
+  digi.setSize1(w - 3, w * 2, t);
+
+  int fg_col = (!timer.isRunning() && (currentMillis / 1000) % 2) ? RGBto565(0, 40, 0) : RGBto565(0, 120, 0);
+  int bg_col = RGBto565(0, 40, 0);
+
+  if (forceRefresh || minutes / 10 != previousMinutes / 10 || !timer.isRunning()) {
+    displayDigit(minutes / 10, 0 * w, y, fg_col, bg_col);
+  }
+  if (forceRefresh || minutes % 10 != previousMinutes % 10 || !timer.isRunning()) {
+    displayDigit(minutes % 10, 1 * w, y, fg_col, bg_col);
+  }
+  digi.setColors((seconds % 2) ? fg_col : bg_col, (seconds % 2) ? bg_col : fg_col);
+  digi.drawDigit1(':', 2 * w + 5 - 3, y);
+
+  fg_col = RGBto565(0, 120, 0);
+  if (forceRefresh || seconds / 10 != previousSeconds / 10) {
+    displayDigit(seconds / 10, t + 10 - 3 + 2 * w, y, fg_col, bg_col);
+  }
+  if (forceRefresh || seconds % 10 != previousSeconds % 10) {
+    displayDigit(seconds % 10, t + 10 - 3 + 3 * w, y, fg_col, bg_col);
+  }
+
+  previousMinutes = minutes;
+  previousSeconds = seconds;
+}
+
+void handleClick() {
+  beep(PIEZO_PIN, 900, 100);
+
+  if (!timer.isRunning()) {
+    timer.start();
+    displayTime(true);
+  } else if (timer.isPaused()) {
+    timer.resume();
+  } else {
+    timer.pause();
+  }
+}
+
+void handleLongClick() {
+  beep(PIEZO_PIN, 900, 300);
+
+  if (!timer.isRunning()) {
+    toggleDuration();
+  } else if (timer.isPaused()) {
+    timer.stop();
+  } else {
+    timer.reset();
+    displayTime(true);
+  }
+}
+
+void setup() {
+  pinMode(TFT_BACKLIGHT, OUTPUT);
+  pinMode(PIEZO_PIN, OUTPUT);
+  beep(PIEZO_PIN, 1000, 1000);
+
+  analogWrite(TFT_BACKLIGHT, 220);
+  tft.fillScreen(RGBto565(0, 0, 0));
+
+  timer.setEventCallback([](const char* message) {
+    Serial.println(message);
+  });
+
+  timer.setTickCallback([]() {
+    Serial.println("Timer finished!");
+    beep(PIEZO_PIN, 1000, 1000);
+  });
+  timer.setDuration(0, 10);  // Default duration
+                             //   unsigned long minutes, seconds;
+  displayTime(true);
+  Serial.print("Running: ");
+  Serial.print(timer.isRunning() ? "true" : "false");
+  Serial.print(" Paused: ");
+  Serial.println(timer.isPaused() ? "true" : "false");
+}
+
+void pomodoroLoop() {
+  timer.tick();
+  displayTime();
+}
