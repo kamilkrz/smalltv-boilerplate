@@ -64,8 +64,8 @@ void AppLauncher::handleShortClick() {
 void AppLauncher::prepMenuSpecs() {
   menu->setInfiniteScroll(true);
   menu->getTitleSpec().setFont(4);
-  menu->getTitleSpec().setMargins(10, 20, 10, 20);  // Top, Left, Bottom, Right
-  menu->getTitleSpec().setBorder(1, 1, 1, 1);       // Top, Left, Bottom, Right
+  menu->getTitleSpec().setMargins(10, 2, 10, 2);  // Top, Left, Bottom, Right
+  menu->getTitleSpec().setBorder(1, 1, 1, 1);     // Top, Left, Bottom, Right
   menu->getTitleSpec().setItemColors(
       RGBto565(0, 0, 120),      // Background
       RGBto565(255, 255, 255),  // Foreground
@@ -99,8 +99,8 @@ void AppLauncher::prepMenuSpecs() {
   );
 
   // Configure status spec
-  menu->getStatusSpec().setFont(1);
-  menu->getStatusSpec().setMargins(1, 1, 1, 1);  // Top, Left, Bottom, Right
+  menu->getStatusSpec().setFont(2);
+  menu->getStatusSpec().setMargins(2, 2, 2, 2);  // Top, Left, Bottom, Right
   menu->getStatusSpec().setBorder(0, 0, 0, 0);   // Top, Left, Bottom, Right
   menu->getStatusSpec().setItemColors(
       RGBto565(50, 50, 50),     // Background

@@ -4,7 +4,7 @@
 #include <Arduino.h>
 #include <eSPI_Menu.h>
 
-#include "../App.h"
+#include "core/App.h"
 
 class AppLauncher : public App {
  public:
@@ -18,7 +18,7 @@ class AppLauncher : public App {
   }
 
  private:
-  AppLauncher() ;
+  AppLauncher();
   ~AppLauncher();
 
   AppLauncher(const AppLauncher&) = delete;
