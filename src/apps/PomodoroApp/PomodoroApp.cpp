@@ -29,8 +29,6 @@ PomodoroApp::~PomodoroApp() {
 void PomodoroApp::toggleDuration() {
   static const unsigned long durations[] = {1, 5, 10, 25, 45};
   unsigned long minutes = timer.getRemainingMinutes();
-  Serial.print("Remaining: ");
-  Serial.println(minutes);
 
   for (size_t i = 0; i < sizeof(durations) / sizeof(durations[0]); ++i) {
     if (minutes < durations[i]) {
@@ -244,7 +242,6 @@ void PomodoroApp::handleMenuShortClick() {
 
 void PomodoroApp::handleMenuLongClick() {
   PomodoroApp& instance = getInstance();
-  Serial.println(instance.menu->getSelectedText());
   Piezo.beep(300, 50);
   delay(50);
   Piezo.beep(500, 50);

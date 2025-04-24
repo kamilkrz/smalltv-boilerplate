@@ -32,7 +32,6 @@ void AppLauncher::init() {
     menu->setStatus("No apps found");
   }
   for (size_t i = 1; i < apps.size(); ++i) {
-    Serial.println(apps[i].c_str());
     menu->addItem(apps[i].c_str(), i == 1 ? eSPIMenu::State::selected : eSPIMenu::State::none);
   }
 

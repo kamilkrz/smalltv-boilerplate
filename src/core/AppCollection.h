@@ -15,8 +15,6 @@ class AppCollection {
   }
 
   void addApp(App* app) {
-    Serial.print("Adding app: ");
-    Serial.println(app->appName);
     apps.push_back(app);
   }
 
@@ -54,8 +52,6 @@ class AppCollection {
     std::vector<String> appNames;
     for (const App* app : apps) {
       if (app && app->appName) {
-        Serial.print("Pushing: ");
-        Serial.println(app->appName);
         appNames.emplace_back(app->appName);  // Use std::string to manage memory safely
       }
     }
