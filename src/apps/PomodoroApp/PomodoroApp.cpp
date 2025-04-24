@@ -26,18 +26,16 @@ PomodoroApp::~PomodoroApp() {
   delete menu;
 }
 
-unsigned long PomodoroApp::toggleDuration() {
+void PomodoroApp::toggleDuration() {
   static const unsigned long durations[] = {1, 5, 10, 25, 45};
   unsigned long minutes = timer.getRemainingMinutes();
 
   for (size_t i = 0; i < sizeof(durations) / sizeof(durations[0]); ++i) {
     if (minutes < durations[i]) {
       timer.setDuration(durations[i], 0);
-      return durations[i];
     }
   }
   timer.setDuration(durations[0], 0);  // Reset to the first duration
-  return durations[0];
 }
 
 void PomodoroApp::displayDigit(int digit, int x, int y, int fg_col, int bg_col) {
@@ -124,6 +122,9 @@ bool PomodoroApp::shouldExit() {
 void PomodoroApp::initTimerState() {
   timer.reset();
   Display.fillScreen(TFT_BLACK);
+  if (timer.getRemainingMinutes() == 0) {
+    timer.setDuration(25, 0);  // Default to 25 minutes
+  }
   displayTime(true);
   timer.start();
   Button.attachClick(handleTimerClick);
@@ -170,7 +171,7 @@ void PomodoroApp::initMenuState() {
   );
 
   // Configure status spec
-  menu->getStatusSpec().setFont(1);
+  menu->getStatusSpec().setFont(2);
   menu->getStatusSpec().setMargins(1, 1, 5, 1);  // Top, Left, Bottom, Right
   menu->getStatusSpec().setBorder(0, 0, 0, 0);   // Top, Left, Bottom, Right
   menu->getStatusSpec().setItemColors(
@@ -242,7 +243,8 @@ void PomodoroApp::handleMenuLongClick() {
     instance.init();
   } else if (strcmp(instance.menu->getSelectedText(), "Set Duration") == 0) {
     char buffer[20];
-    snprintf(buffer, sizeof(buffer), "Duration: %lu min", instance.toggleDuration());
+    instance.toggleDuration();
+    snprintf(buffer, sizeof(buffer), "Duration: %lu min", instance.timer.getRemainingMinutes());
     instance.menu->setStatus(buffer);
     instance.menu->show();
   } else if (strcmp(instance.menu->getSelectedText(), "Back to Main") == 0) {

@@ -24,19 +24,18 @@ class PomodoroApp : public App {
 
   enum class State { Timer,
                      Menu };  // Define states
-  State currentState;         // Track current state
-
   static void handleTimerClick();
   static void handleTimerLongClick();
   static void handleMenuShortClick();
   static void handleMenuLongClick();
 
+  State currentState;         // Track current state
   ctTimer timer;
   DigiFont digi;
   eSPIMenu::Menu* menu;
   bool shouldExitApp = false;
 
-  unsigned long toggleDuration();
+  void toggleDuration();
   void displayDigit(int digit, int x, int y, int fg_col, int bg_col);
   void displayTime(bool forceRefresh = false);
 

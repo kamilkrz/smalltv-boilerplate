@@ -9,7 +9,7 @@ class ctTimer {
  private:
   bool running;
   bool paused;
-  unsigned long duration;
+  unsigned long duration = 0;
   unsigned long start_time;
   unsigned long pause_offset;
   std::function<void(const char*)> onDebug;
