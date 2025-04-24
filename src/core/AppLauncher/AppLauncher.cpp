@@ -1,31 +1,41 @@
-#include "MainMenu.h"
+#include "AppLauncher.h"
 
-#include "SharedState.h"
+#include "core/AppCollection.h"
 #include "hardware/Button.h"
 #include "hardware/Display.h"
 #include "hardware/Piezo.h"
 
-MainMenu& MainMenu::getInstance() {
-  static MainMenu instance;  // Guaranteed to be destroyed and instantiated on first use
+AppLauncher& AppLauncher::getInstance() {
+  static AppLauncher instance;  // Guaranteed to be destroyed and instantiated on first use
   return instance;
 }
 
-MainMenu::MainMenu() {
+AppLauncher::AppLauncher() : App("Main Menu") {
   menu = new eSPIMenu::Menu(&Display);
 }
 
-MainMenu::~MainMenu() {
+AppLauncher::~AppLauncher() {
   delete menu;
 }
 
-void MainMenu::init() {
+void AppLauncher::init() {
+  Display.fillScreen(TFT_DARKGREY);
   menu->reset();
   prepMenuSpecs();
-  menu->setTitle("Pomodoro Timer");
-  menu->addItem("Basic Pomodoro", eSPIMenu::State::selected);
-  menu->addItem("  55m+5m", eSPIMenu::State::none);
-  menu->addItem("Open Clock", eSPIMenu::State::none);
-  menu->addItem("Googly Eyes", eSPIMenu::State::none);
+  menu->setTitle("Main Menu");
+
+  // Dynamically add apps from AppCollection to the menu
+  AppCollection& appCollection = AppCollection::getInstance();
+  std::vector<String> apps = appCollection.listApps();
+  if (apps.empty()) {
+    menu->addItem("No Apps Available", eSPIMenu::State::disabled);
+    menu->setStatus("No apps found");
+  }
+  for (size_t i = 1; i < apps.size(); ++i) {
+    Serial.println(apps[i].c_str());
+    menu->addItem(apps[i].c_str(), i == 1 ? eSPIMenu::State::selected : eSPIMenu::State::none);
+  }
+
   menu->setStatus("Press: cycle, Hold: select");
 
   Button.attachClick(handleShortClick);          // Attach static function
@@ -33,38 +43,26 @@ void MainMenu::init() {
   menu->show();
 }
 
-void MainMenu::update() {
+void AppLauncher::update() {
   Button.tick();  // Process button events
 }
 
-void MainMenu::render() {
+void AppLauncher::render() {
 }
 
-void MainMenu::handleShortClick() {
-  MainMenu& instance = getInstance();
+void AppLauncher::handleShortClick() {
+  AppLauncher& instance = getInstance();
   int prevIndex = instance.menu->getSelectedItem();
   instance.menu->down();  // Navigate down on Button click
   int newIndex = instance.menu->getSelectedItem();
-  Piezo.beep(PIEZO_PIN, 500, 50);
+  Piezo.beep(500, 50);
   if (prevIndex > newIndex) {
     delay(50);
-    Piezo.beep(PIEZO_PIN, 300, 50);
+    Piezo.beep(300, 50);
   }
 }
 
-void MainMenu::handleLongClick() {
-  MainMenu& instance = getInstance();
-  Serial.println(instance.menu->getSelectedText());
-  Piezo.beep(PIEZO_PIN, 300, 50);
-  delay(50);
-  Piezo.beep(PIEZO_PIN, 500, 50);
-  // Example: Transition to googly eyes task on a specific menu item
-  if (strcmp(instance.menu->getSelectedText(), "Googly Eyes") == 0) {
-    SharedState::getInstance().setState(STATE_GOOGLYEYES);
-  }
-}
-
-void MainMenu::prepMenuSpecs() {
+void AppLauncher::prepMenuSpecs() {
   menu->setInfiniteScroll(true);
   menu->getTitleSpec().setFont(4);
   menu->getTitleSpec().setMargins(10, 20, 10, 20);  // Top, Left, Bottom, Right
@@ -118,4 +116,17 @@ void MainMenu::prepMenuSpecs() {
       RGBto565(0, 120, 0),  // Selected Border
       RGBto565(50, 50, 50)  // Disabled Border
   );
+}
+
+void AppLauncher::handleLongClick() {
+  AppLauncher& instance = getInstance();
+  unsigned int selectedIndex = instance.menu->getSelectedItem() + 1;  // +1 to skip the Launcher
+  AppCollection& appCollection = AppCollection::getInstance();
+
+  if (selectedIndex >= 0 && selectedIndex < appCollection.listApps().size()) {
+    Piezo.beep(300, 50);
+    delay(50);
+    Piezo.beep(500, 50);
+    appCollection.switchToApp(selectedIndex);
+  }
 }

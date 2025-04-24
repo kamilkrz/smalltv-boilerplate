@@ -1,12 +1,19 @@
 #include <Arduino.h>
 // #include <DigiFont.h>
 
-#include "apps/GooglyEyes.h"
-#include "apps/MainMenu.h"
-#include "apps/SharedState.h"
+#include <memory>
+#include <vector>
+
+// CORE
+#include "core/AppCollection.h"
+#include "core/AppLauncher/AppLauncher.h"
 #include "hardware/Display.h"
 #include "hardware/Piezo.h"
+// APPS
+#include "apps/GooglyEyes/GooglyEyes.h"
+#include "apps/PomodoroApp/PomodoroApp.h"
 
+// Add MainMenu, GooglyEyes, and PomodoroApp to the collection
 void setup() {
   // SERIAL
   Serial.begin(115200);
@@ -17,47 +24,27 @@ void setup() {
   Display.fillScreen(RGBto565(0, 60, 60));
   Display.setBacklight(255);
   // Prep Piezo
-  Piezo.beep(PIEZO_PIN, 600, 200);
+  Piezo.beep(600, 200);
   delay(200);
 
-  SharedState::getInstance().setState(STATE_MENU);
+  // Register apps
+  AppCollection& appCollection = AppCollection::getInstance();
+  appCollection.addApp(&AppLauncher::getInstance());  // Main Menu
+  appCollection.addApp(&googlyEyes::getInstance());
+  appCollection.addApp(&PomodoroApp::getInstance());
 
-  // Configure Button actions
+  // Start with the first app
+  appCollection.switchToApp(0);
 }
 
-AppState previousState = STATE_INIT;  // Track the previous state
-
 void loop() {
-  AppState state = SharedState::getInstance().getState();
+  AppCollection& appCollection = AppCollection::getInstance();
 
-  // Call init only when the state changes
-  if (state != previousState) {
-    switch (state) {
-      case STATE_MENU:
-        MainMenu::getInstance().init();
-        break;
-      case STATE_GOOGLYEYES:
-        googlyEyes::getInstance().init();
-        break;
-      // Add other cases as needed
-      default:
-        break;
-    }
-    previousState = state;  // Update the previous state
-  }
+  appCollection.updateCurrentApp();
+  appCollection.renderCurrentApp();
 
-  // Handle updates and rendering
-  switch (state) {
-    case STATE_MENU:
-      MainMenu::getInstance().update();
-      MainMenu::getInstance().render();
-      break;
-    case STATE_GOOGLYEYES:
-      googlyEyes::getInstance().update();
-      googlyEyes::getInstance().render();
-      break;
-    // Add other cases as needed
-    default:
-      break;
+  // Check if the current app wants to exit
+  if (appCollection.shouldExitCurrentApp()) {
+    appCollection.returnToMainMenu();
   }
 }

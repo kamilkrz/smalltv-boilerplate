@@ -8,5 +8,4 @@
 #endif
 
 extern OneButton Button;  // Declare Button as an external variable
-
 #endif  // BUTTON_H

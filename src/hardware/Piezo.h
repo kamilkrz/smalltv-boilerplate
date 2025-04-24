@@ -11,8 +11,9 @@ class piezo {
   piezo(int pin = PIEZO_PIN) {
     pinMode(PIEZO_PIN, OUTPUT);
   }
-  void beep(uint8_t p, int f, unsigned long d = 1000) {
-    tone(p, f, d);
+  void beep(int f, unsigned long d = 1000) {
+    // TODO: Hush during development
+    tone(PIEZO_PIN, f, d);
   }
 };
 

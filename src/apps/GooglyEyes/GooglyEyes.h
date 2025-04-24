@@ -3,7 +3,7 @@
 
 #include <Arduino.h>
 
-#include "App.h"
+#include "core/App.h"
 
 class googlyEyes : public App {
  public:
@@ -11,12 +11,14 @@ class googlyEyes : public App {
   void init() override;
   void update() override;
   void render() override;
+  bool shouldExit() override;
 
  private:
   googlyEyes();
   ~googlyEyes();
   googlyEyes(const googlyEyes&) = delete;
   googlyEyes& operator=(const googlyEyes&) = delete;
+  bool shouldExitApp = false;
 };
 
 #endif  // GOOGLYEYES_H

@@ -1,23 +1,23 @@
 #include "GooglyEyes.h"
 
-#include "SharedState.h"
 #include "hardware/Button.h"
 #include "hardware/Display.h"
-#include "hardware/Piezo.h"
 
 googlyEyes& googlyEyes::getInstance() {
   static googlyEyes instance;
   return instance;
 }
 
-googlyEyes::googlyEyes() = default;
+googlyEyes::googlyEyes() : App("Googly Eyes") {}
 
 googlyEyes::~googlyEyes() = default;
 
 void googlyEyes::init() {
+  shouldExitApp = false;
   Display.fillScreen(RGBto565(0, 60, 60));
+  Button.attachClick([]() {});
   Button.attachLongPressStart([]() {
-    SharedState::getInstance().setState(STATE_MENU);
+    googlyEyes::getInstance().shouldExitApp = true;
   });
 }
 
@@ -44,4 +44,8 @@ void googlyEyes::render() {
     Display.fillCircle(xl, yl, 15, TFT_BLACK);
     Display.fillCircle(xr, yr, 15, TFT_BLACK);
   }
+}
+
+bool googlyEyes::shouldExit() {
+  return shouldExitApp;
 }
