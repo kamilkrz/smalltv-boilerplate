@@ -136,8 +136,8 @@ void PomodoroApp::initMenuState() {
   menu->reset();
   menu->setInfiniteScroll(true);
   menu->getTitleSpec().setFont(4);
-  menu->getTitleSpec().setMargins(10, 20, 10, 20);  // Top, Left, Bottom, Right
-  menu->getTitleSpec().setBorder(1, 1, 1, 1);       // Top, Left, Bottom, Right
+  menu->getTitleSpec().setMargins(10, 2, 10, 2);  // Top, Left, Bottom, Right
+  menu->getTitleSpec().setBorder(1, 1, 1, 1);     // Top, Left, Bottom, Right
   menu->getTitleSpec().setItemColors(
       RGBto565(0, 0, 120),      // Background
       RGBto565(255, 255, 255),  // Foreground
