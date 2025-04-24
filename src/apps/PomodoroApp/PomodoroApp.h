@@ -8,6 +8,9 @@
 #include "core/App.h"
 #include "ctTimer.h"
 
+enum class State { Timer,
+                   Menu };  // Define states
+
 class PomodoroApp : public App {
  public:
   static PomodoroApp& getInstance();
@@ -22,14 +25,12 @@ class PomodoroApp : public App {
   PomodoroApp(const PomodoroApp&) = delete;
   PomodoroApp& operator=(const PomodoroApp&) = delete;
 
-  enum class State { Timer,
-                     Menu };  // Define states
   static void handleTimerClick();
   static void handleTimerLongClick();
   static void handleMenuShortClick();
   static void handleMenuLongClick();
 
-  State currentState;         // Track current state
+  State currentState;  // Track current state
   ctTimer timer;
   DigiFont digi;
   eSPIMenu::Menu* menu;

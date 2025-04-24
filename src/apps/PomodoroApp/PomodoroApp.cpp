@@ -13,13 +13,13 @@ PomodoroApp& PomodoroApp::getInstance() {
   return instance;
 }
 
-PomodoroApp::PomodoroApp() : currentState(State::Menu),
-                             App("Pomodoro Timer"),
+PomodoroApp::PomodoroApp() : App("Pomodoro Timer"),
                              digi(
                                  [](int x0, int x1, int y, int c) { Display.drawFastHLine(x0, y, x1 - x0 + 1, c); },
                                  [](int x, int y0, int y1, int c) { Display.drawFastVLine(x, y0, y1 - y0 + 1, c); },
                                  [](int x, int y, int w, int h, int c) { Display.fillRect(x, y, w, h, c); }) {
   menu = new eSPIMenu::Menu(&Display);
+  currentState = State::Menu;
 }
 
 PomodoroApp::~PomodoroApp() {
