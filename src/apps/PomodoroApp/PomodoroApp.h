@@ -36,7 +36,7 @@ class PomodoroApp : public App {
   eSPIMenu::Menu* menu;
   bool shouldExitApp = false;
 
-  void toggleDuration();
+  unsigned long toggleDuration();
   void displayDigit(int digit, int x, int y, int fg_col, int bg_col);
   void displayTime(bool forceRefresh = false);
 

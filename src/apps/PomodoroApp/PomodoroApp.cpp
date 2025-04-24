@@ -26,17 +26,18 @@ PomodoroApp::~PomodoroApp() {
   delete menu;
 }
 
-void PomodoroApp::toggleDuration() {
+unsigned long PomodoroApp::toggleDuration() {
   static const unsigned long durations[] = {1, 5, 10, 25, 45};
   unsigned long minutes = timer.getRemainingMinutes();
 
   for (size_t i = 0; i < sizeof(durations) / sizeof(durations[0]); ++i) {
     if (minutes < durations[i]) {
       timer.setDuration(durations[i], 0);
-      return;
+      return durations[i];
     }
   }
   timer.setDuration(durations[0], 0);  // Reset to the first duration
+  return durations[0];
 }
 
 void PomodoroApp::displayDigit(int digit, int x, int y, int fg_col, int bg_col) {
@@ -71,11 +72,10 @@ void PomodoroApp::displayTime(bool forceRefresh) {
   digi.setColors((seconds % 2) ? fg_col : bg_col, (seconds % 2) ? bg_col : fg_col);
   digi.drawDigit1(':', 2 * w + 5 - 3, y);
 
-  fg_col = RGBto565(0, 220, 0);
-  if (forceRefresh || seconds / 10 != previousSeconds / 10) {
+  if (forceRefresh || seconds / 10 != previousSeconds / 10 || !timer.isRunning()) {
     displayDigit(seconds / 10, t + 10 - 3 + 2 * w, y, fg_col, bg_col);
   }
-  if (forceRefresh || seconds % 10 != previousSeconds % 10) {
+  if (forceRefresh || seconds % 10 != previousSeconds % 10 || !timer.isRunning()) {
     displayDigit(seconds % 10, t + 10 - 3 + 3 * w, y, fg_col, bg_col);
   }
 
@@ -124,8 +124,8 @@ bool PomodoroApp::shouldExit() {
 void PomodoroApp::initTimerState() {
   timer.reset();
   Display.fillScreen(TFT_BLACK);
-  timer.setDuration(25, 0);
-  timer.start();  // Set default duration to 25 minutes
+  displayTime(true);
+  timer.start();
   Button.attachClick(handleTimerClick);
   Button.attachLongPressStart(handleTimerLongClick);
 }
@@ -171,7 +171,7 @@ void PomodoroApp::initMenuState() {
 
   // Configure status spec
   menu->getStatusSpec().setFont(1);
-  menu->getStatusSpec().setMargins(1, 1, 1, 1);  // Top, Left, Bottom, Right
+  menu->getStatusSpec().setMargins(1, 1, 5, 1);  // Top, Left, Bottom, Right
   menu->getStatusSpec().setBorder(0, 0, 0, 0);   // Top, Left, Bottom, Right
   menu->getStatusSpec().setItemColors(
       RGBto565(50, 50, 50),     // Background
@@ -186,11 +186,10 @@ void PomodoroApp::initMenuState() {
       RGBto565(0, 120, 0),  // Selected Border
       RGBto565(50, 50, 50)  // Disabled Border
   );
-  menu->setTitle("Pomodoro Options");
+  menu->setTitle("Options");
   menu->addItem("Start Timer", eSPIMenu::State::selected);
   menu->addItem("Set Duration", eSPIMenu::State::none);
   menu->addItem("Back to Main", eSPIMenu::State::none);
-  // TODO: add timer duration to status
   menu->setStatus("Press: cycle, Hold: select");
 
   Button.attachClick(handleMenuShortClick);
@@ -217,15 +216,6 @@ void PomodoroApp::handleTimerLongClick() {
   Piezo.beep(900, 300);
   instance.currentState = State::Menu;
   instance.init();
-
-  // if (!instance.timer.isRunning()) {
-  //   instance.toggleDuration();
-  // } else if (instance.timer.isPaused()) {
-  //   instance.timer.stop();
-  // } else {
-  //   instance.timer.reset();
-  //   instance.displayTime(true);
-  // }
 }
 
 void PomodoroApp::handleMenuShortClick() {
@@ -242,6 +232,7 @@ void PomodoroApp::handleMenuShortClick() {
 
 void PomodoroApp::handleMenuLongClick() {
   PomodoroApp& instance = getInstance();
+  Serial.println(instance.menu->getSelectedText());
   Piezo.beep(300, 50);
   delay(50);
   Piezo.beep(500, 50);
@@ -250,7 +241,10 @@ void PomodoroApp::handleMenuLongClick() {
     instance.currentState = State::Timer;
     instance.init();
   } else if (strcmp(instance.menu->getSelectedText(), "Set Duration") == 0) {
-    instance.toggleDuration();
+    char buffer[20];
+    snprintf(buffer, sizeof(buffer), "Duration: %lu min", instance.toggleDuration());
+    instance.menu->setStatus(buffer);
+    instance.menu->show();
   } else if (strcmp(instance.menu->getSelectedText(), "Back to Main") == 0) {
     instance.shouldExitApp = true;
   }
