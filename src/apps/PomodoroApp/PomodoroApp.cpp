@@ -8,6 +8,8 @@
 #include "hardware/Display.h"
 #include "hardware/Piezo.h"
 
+// TODO: as this should be pomodoro timer its rather logical to add second timer for break
+
 PomodoroApp& PomodoroApp::getInstance() {
   static PomodoroApp instance;
   return instance;
@@ -27,7 +29,7 @@ PomodoroApp::~PomodoroApp() {
 }
 
 void PomodoroApp::toggleDuration() {
-  static const unsigned long durations[] = {1, 5, 10, 25, 45};
+  static const unsigned long durations[] = {1, 5, 10, 25, 45, 55};
   unsigned long minutes = timer.getRemainingMinutes();
 
   for (size_t i = 0; i < sizeof(durations) / sizeof(durations[0]); ++i) {
@@ -55,7 +57,9 @@ void PomodoroApp::displayTime(bool forceRefresh) {
   unsigned long minutes = timer.getRemainingMinutes();
   unsigned long seconds = timer.getRemainingSeconds();
 
-  int t = 10, w = (240 - t - 10) / 4, y = (240 - w * 2) / 2;
+  uint8_t t = 10;
+  uint8_t w = (Display.width() - t - 10) / 4;
+  uint8_t y = (Display.height() - w * 2) / 2;
   digi.setSize1(w - 3, w * 2, t);
 
   int fg_col = (!timer.isRunning() && (currentMillis / 1000) % 2) ? RGBto565(0, 40, 0) : RGBto565(0, 220, 0);
