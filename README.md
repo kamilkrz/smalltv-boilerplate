@@ -18,6 +18,7 @@ This project is a boilerplate designed for easy development of applications for 
 - **core/**: Core functionality, including app management and navigation.
 - **hardware/**: Hardware abstraction for display and piezo buzzer.
 - **apps/**: Placeholder for user-defined app implementations.
+- **boards/**: Boards definition
 
 ## Adding New Apps
 1. Create a new folder under `apps/` for your app.
@@ -38,6 +39,7 @@ This project is a boilerplate designed for easy development of applications for 
   - [x] Handle screen
   - [x] Handle touch button
   - [x] Handle piezo buzzer
+  - [ ] Handle different variants of smalltv
   - [ ] Handle LED (Present, hidden in enclosure but hey, still part of hardware specs)
   - [ ] Improve documentation for hardware abstraction layers.
   - [ ] Handle ESP32 version?

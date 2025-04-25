@@ -1,0 +1,28 @@
+{
+    "build": {
+        "core": "esp8266",
+        "extra_flags": "-DESP8266 -DARDUINO_ARCH_ESP8266 -DUSER_SETUP_LOADED=1 -DST7789_DRIVER=1 -DTFT_WIDTH=240 -DTFT_HEIGHT=240 -DTFT_MISO=12  -DTFT_MOSI=13  -DTFT_SCLK=14  -DTFT_CS=15  -DTFT_DC=0  -DTFT_RST=2  -DLOAD_GLCD=1  -DLOAD_FONT2=1  -DLOAD_FONT4=1  -DSPI_FREQUENCY=27000000  -DTFT_RGB_ORDER=TFT_GRB -DTFT_INVERSION_ON=1",
+        "f_cpu": "80000000L",
+        "f_flash": "40000000L",
+        "flash_mode": "dio",
+        "ldscript": "eagle.flash.4m1m.ld",
+        "mcu": "esp8266",
+        "variant": "d1_mini"
+    },
+    "connectivity": [
+        "wifi"
+    ],
+    "frameworks": [
+        "arduino"
+    ],
+    "name": "Smalltv clone ESP8266 with Touch, LED and Buzzer",
+    "upload": {
+        "maximum_ram_size": 81920,
+        "maximum_size": 4194304,
+        "require_upload_port": true,
+        "resetmethod": "nodemcu",
+        "speed": 921600
+    },
+    "url": "https://www.wemos.cc/en/latest/d1/d1_mini.html",
+    "vendor": "Wemos"
+}
