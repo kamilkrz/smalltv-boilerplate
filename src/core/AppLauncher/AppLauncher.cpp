@@ -54,10 +54,10 @@ void AppLauncher::handleShortClick() {
   int prevIndex = instance.menu->getSelectedItem();
   instance.menu->down();  // Navigate down on Button click
   int newIndex = instance.menu->getSelectedItem();
-  Piezo.beep(500, 50);
-  if (prevIndex > newIndex) {
-    delay(50);
-    Piezo.beep(300, 50);
+  if (prevIndex <= newIndex) {
+    Piezo.norm();
+  } else {
+    Piezo.warn();
   }
 }
 
@@ -123,9 +123,7 @@ void AppLauncher::handleLongClick() {
   AppCollection& appCollection = AppCollection::getInstance();
 
   if (selectedIndex >= 0 && selectedIndex < appCollection.listApps().size()) {
-    Piezo.beep(300, 50);
-    delay(50);
-    Piezo.beep(500, 50);
+    Piezo.ack();
     appCollection.switchToApp(selectedIndex);
   }
 }

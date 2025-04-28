@@ -7,6 +7,7 @@
 // CORE
 #include "core/AppCollection.h"
 #include "core/AppLauncher/AppLauncher.h"
+#include "core/Settings.h"
 #include "core/SettingsApp/SettingsApp.h"
 #include "hardware/Display.h"
 #include "hardware/Piezo.h"
@@ -37,9 +38,10 @@ void setup() {
   delay(2000);  // Display splash screen for 2 seconds
 
   // Prep Piezo
-  Piezo.beep(600, 200);
+  Piezo.alarm();
   delay(200);
-
+  loadSettings();  // Load settings from LittleFS
+  saveSettings();  // Save settings to LittleFS
   // Register apps
   AppCollection& appCollection = AppCollection::getInstance();
   // Main Menu Should be added first!

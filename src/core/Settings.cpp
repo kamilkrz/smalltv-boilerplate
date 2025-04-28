@@ -1,4 +1,4 @@
-#include "settings.h"
+#include "Settings.h"
 
 #include <ArduinoJson.h>
 #include <LittleFS.h>
@@ -24,7 +24,7 @@ void loadSettings() {
     return;
   }
 
-  StaticJsonDocument<512> doc;
+  JsonDocument doc;  // Replaced DynamicJsonDocument with JsonDocument
   DeserializationError error = deserializeJson(doc, file);
   file.close();
 
@@ -36,6 +36,14 @@ void loadSettings() {
   settings.displayBrightness = doc["displayBrightness"] | 255;
   settings.timezoneOffset = doc["timezoneOffset"] | 0;
   settings.use24HourFormat = doc["use24HourFormat"] | true;
+
+  Serial.print("Loaded settings: ");
+  Serial.print("Brightness: ");
+  Serial.println(settings.displayBrightness);
+  Serial.print("Timezone Offset: ");
+  Serial.println(settings.timezoneOffset);
+  Serial.print("24-Hour Format: ");
+  Serial.println(settings.use24HourFormat ? "true" : "false");
 
   Serial.println("Settings loaded successfully.");
 }
@@ -52,7 +60,7 @@ void saveSettings() {
     return;
   }
 
-  StaticJsonDocument<512> doc;
+  JsonDocument doc;  // Replaced DynamicJsonDocument with JsonDocument
   doc["displayBrightness"] = settings.displayBrightness;
   doc["timezoneOffset"] = settings.timezoneOffset;
   doc["use24HourFormat"] = settings.use24HourFormat;

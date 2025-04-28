@@ -204,7 +204,7 @@ void PomodoroApp::initMenuState() {
 
 void PomodoroApp::handleTimerClick() {
   PomodoroApp& instance = getInstance();
-  Piezo.beep(900, 50);
+  Piezo.norm();
 
   if (!instance.timer.isRunning()) {
     instance.timer.start();
@@ -218,7 +218,7 @@ void PomodoroApp::handleTimerClick() {
 
 void PomodoroApp::handleTimerLongClick() {
   PomodoroApp& instance = getInstance();
-  Piezo.beep(900, 300);
+  Piezo.ack();
   instance.currentState = State::Menu;
   instance.init();
 }
@@ -228,19 +228,13 @@ void PomodoroApp::handleMenuShortClick() {
   int prevIndex = instance.menu->getSelectedItem();
   instance.menu->down();
   int newIndex = instance.menu->getSelectedItem();
-  Piezo.beep(500, 50);
-  if (prevIndex > newIndex) {
-    delay(50);
-    Piezo.beep(300, 50);
-  }
+  Piezo.warn();
 }
 
 void PomodoroApp::handleMenuLongClick() {
   PomodoroApp& instance = getInstance();
   Serial.println(instance.menu->getSelectedText());
-  Piezo.beep(300, 50);
-  delay(50);
-  Piezo.beep(500, 50);
+  Piezo.ack();
 
   if (strcmp(instance.menu->getSelectedText(), "Start Timer") == 0) {
     instance.currentState = State::Timer;
