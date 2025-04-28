@@ -1,6 +1,6 @@
 #include "SettingsApp.h"
 
-#include "core/settings.h"
+#include "core/Settings.h"
 #include "hardware/Display.h"
 
 SettingsApp& SettingsApp::getInstance() {
@@ -24,6 +24,15 @@ void SettingsApp::init() {
   wifiManager.addParameter(&timezoneParam);
   wifiManager.addParameter(&formatParam);
 
+  // Set callback to save parameters on change
+  wifiManager.setSaveParamsCallback([&]() {
+    settings.displayBrightness = atoi(brightnessParam.getValue());
+    settings.timezoneOffset = atoi(timezoneParam.getValue());
+    settings.use24HourFormat = atoi(formatParam.getValue());
+    saveSettings();
+    Serial.println("Settings saved from callback.");
+  });
+
   // Start AP
   String apName = "ESP8266_Settings";
   wifiManager.setAPCallback([](WiFiManager* wm) {
@@ -36,16 +45,8 @@ void SettingsApp::init() {
   });
 
   if (!wifiManager.startConfigPortal(apName.c_str())) {
-    Serial.println("Failed to connect or timeout.");
-    exitApp = true;
-    return;
+    Serial.println("Conncection is closed");
   }
-
-  // Save settings
-  settings.displayBrightness = atoi(brightnessParam.getValue());
-  settings.timezoneOffset = atoi(timezoneParam.getValue());
-  settings.use24HourFormat = atoi(formatParam.getValue());
-  saveSettings();
 
   exitApp = true;
 }

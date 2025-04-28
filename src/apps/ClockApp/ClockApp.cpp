@@ -4,9 +4,10 @@
 #include <NTPClient.h>
 #include <WiFiUdp.h>
 
-#include "core/settings.h"
+#include "core/Settings.h"
 #include "hardware/Button.h"
 #include "hardware/Display.h"
+#include "hardware/Piezo.h"
 
 WiFiUDP ntpUDP;
 NTPClient ntpClient(ntpUDP, "pool.ntp.org");
@@ -18,7 +19,7 @@ ClockApp& ClockApp::getInstance() {
 
 void ClockApp::init() {
   shouldExitApp = false;
-
+  ntpClient.setTimeOffset(settings.timezoneOffset * 3600);
   // Retrieve WiFi credentials from SettingsApp
   Display.fillScreen(TFT_BLACK);
   Display.setTextColor(TFT_WHITE);
@@ -50,8 +51,11 @@ void ClockApp::init() {
   ntpClient.begin();
   ntpClient.update();
 
-  Button.attachClick([]() {});
+  Button.attachClick([]() {
+    Piezo.err();
+  });
   Button.attachLongPressStart([]() {
+    Piezo.ack();
     ClockApp::getInstance().shouldExitApp = true;
   });
 }
@@ -74,7 +78,7 @@ ClockApp::ClockApp() : App("Clock"),
                            [](int x0, int x1, int y, int c) { Display.drawFastHLine(x0, y, x1 - x0 + 1, c); },
                            [](int x, int y0, int y1, int c) { Display.drawFastVLine(x, y0, y1 - y0 + 1, c); },
                            [](int x, int y, int w, int h, int c) { Display.fillRect(x, y, w, h, c); }) {
-  ntpClient.setTimeOffset(settings.timezoneOffset * 3600);  // Set time offset to UTC+1
+  // Set time offset to UTC+1
 }
 
 ClockApp::~ClockApp() {
