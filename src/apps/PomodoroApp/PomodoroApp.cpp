@@ -30,14 +30,16 @@ PomodoroApp::~PomodoroApp() {
 
 void PomodoroApp::toggleDuration() {
   static const unsigned long durations[] = {1, 5, 10, 25, 45, 55};
+  timer.stop();
   unsigned long minutes = timer.getRemainingMinutes();
 
   for (size_t i = 0; i < sizeof(durations) / sizeof(durations[0]); ++i) {
     if (minutes < durations[i]) {
       timer.setDuration(durations[i], 0);
+      return;  // Exit after setting the next duration
     }
   }
-  timer.setDuration(durations[0], 0);  // Reset to the first duration
+  timer.setDuration(durations[0], 0);  // Reset to the first duration if no larger value is found
 }
 
 void PomodoroApp::displayDigit(int digit, int x, int y, int fg_col, int bg_col) {
@@ -126,6 +128,11 @@ bool PomodoroApp::shouldExit() {
 void PomodoroApp::initTimerState() {
   timer.reset();
   Display.fillScreen(TFT_BLACK);
+  timer.setFinishCallback([]() {
+    Piezo.alarm();
+    delay(200);
+    Piezo.alarm();
+  });
   if (timer.getRemainingMinutes() == 0) {
     timer.setDuration(25, 0);  // Default to 25 minutes
   }
@@ -228,7 +235,11 @@ void PomodoroApp::handleMenuShortClick() {
   int prevIndex = instance.menu->getSelectedItem();
   instance.menu->down();
   int newIndex = instance.menu->getSelectedItem();
-  Piezo.warn();
+  if (prevIndex <= newIndex) {
+    Piezo.norm();
+  } else {
+    Piezo.warn();
+  }
 }
 
 void PomodoroApp::handleMenuLongClick() {
