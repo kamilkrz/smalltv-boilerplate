@@ -34,7 +34,7 @@ This project is a boilerplate designed for easy development of applications for 
 - [x] Implement Apps
   - [x] Implement app abstraction layer
   - [x] Implement app dynamic collection
-  - [ ] Example app with WiFi capabilities 
+  - [x] Example app with WiFi capabilities 
 - [ ] Hardware:
   - [x] Handle screen
   - [x] Handle touch button
