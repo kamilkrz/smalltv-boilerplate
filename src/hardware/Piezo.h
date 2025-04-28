@@ -1,52 +1,59 @@
-#ifndef PIEZO_H
-#define PIEZO_H
-
+#ifndef BUZZER_H
+#define BUZZER_H
 #include <Arduino.h>
 
+#ifndef PIEZO_PIN
+#define PIEZO_PIN 4
+#endif
+
 /**
- * @brief Class to manage the piezo buzzer.
+ * @class piezo
+ * @brief A class to control a piezo buzzer.
  */
 class piezo {
  public:
   /**
-   * @brief Constructor for the piezo class.
-   * @param pin Pin connected to the piezo buzzer.
+   * @brief Constructor to initialize the piezo buzzer.
+   * @param pin The pin connected to the piezo buzzer. Defaults to PIEZO_PIN.
    */
-  piezo(int pin);
+  piezo(int pin = PIEZO_PIN);
 
   /**
-   * @brief Generate a beep sound.
-   * @param f Frequency of the beep.
-   * @param d Duration of the beep in milliseconds.
+   * @brief Makes the piezo buzzer beep at a specific frequency and duration.
+   * @param f Frequency of the beep in Hz.
+   * @param d Duration of the beep in milliseconds. Defaults to 1000 ms.
    */
-  void beep(int f, unsigned long d);
+  void beep(int f, unsigned long d = 1000);
 
   /**
-   * @brief Generate an acknowledgment sound.
+   * @brief Plays an acknowledgment sound.
    */
   void ack();
 
   /**
-   * @brief Generate a warning sound.
+   * @brief Plays a warning sound.
    */
   void warn();
 
   /**
-   * @brief Generate a normal notification sound.
+   * @brief Plays a normal notification sound.
    */
   void norm();
 
   /**
-   * @brief Generate an error sound.
+   * @brief Plays an error sound.
    */
   void err();
 
   /**
-   * @brief Generate an alarm sound.
+   * @brief Plays an alarm sound.
    */
   void alarm();
 };
 
-extern piezo Piezo;  // Declare Piezo as extern
+/**
+ * @brief Global instance of the piezo class.
+ */
+extern piezo Piezo;
 
-#endif  // PIEZO_H
+#endif  // BUZZER_H
