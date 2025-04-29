@@ -32,4 +32,8 @@ libdeps
 *.test
 *.log
 
+# ignore VSCode settings
 *.code-workspace
+
+#ignore local documentation
+docs/

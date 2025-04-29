@@ -1,3 +1,4 @@
+
 #ifndef CLOCK_APP_H
 #define CLOCK_APP_H
 
@@ -8,6 +9,14 @@
 
 #include "core/App.h"
 
+/**
+ * @class ClockApp
+ * @brief Simple clock application.
+ * @details This class provides functionality for displaying the current time
+ *          using NTP (Network Time Protocol). It initializes the WiFi connection,
+ *          retrieves the time from an NTP server, and displays it on the screen.
+ * @apps_group
+ */
 class ClockApp : public App {
  public:
   static ClockApp& getInstance();

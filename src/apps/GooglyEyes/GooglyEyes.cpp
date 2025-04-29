@@ -3,29 +3,29 @@
 #include "hardware/Button.h"
 #include "hardware/Display.h"
 
-googlyEyes& googlyEyes::getInstance() {
-  static googlyEyes instance;
+GooglyEyesApp& GooglyEyesApp::getInstance() {
+  static GooglyEyesApp instance;
   return instance;
 }
 
-googlyEyes::googlyEyes() : App("Googly Eyes") {}
+GooglyEyesApp::GooglyEyesApp() : App("Googly Eyes") {}
 
-googlyEyes::~googlyEyes() = default;
+GooglyEyesApp::~GooglyEyesApp() = default;
 
-void googlyEyes::init() {
+void GooglyEyesApp::init() {
   shouldExitApp = false;
   Display.fillScreen(RGBto565(0, 60, 60));
   Button.attachClick([]() {});
   Button.attachLongPressStart([]() {
-    googlyEyes::getInstance().shouldExitApp = true;
+    GooglyEyesApp::getInstance().shouldExitApp = true;
   });
 }
 
-void googlyEyes::update() {
+void GooglyEyesApp::update() {
   Button.tick();  // Process button events
 }
 
-void googlyEyes::render() {
+void GooglyEyesApp::render() {
   static unsigned long lastDrawTime = 0;
   unsigned long currentTime = millis();
   if (currentTime - lastDrawTime >= 300) {
@@ -46,6 +46,6 @@ void googlyEyes::render() {
   }
 }
 
-bool googlyEyes::shouldExit() {
+bool GooglyEyesApp::shouldExit() {
   return shouldExitApp;
 }

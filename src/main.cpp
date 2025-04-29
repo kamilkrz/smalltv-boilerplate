@@ -49,7 +49,7 @@ void setup() {
   // Then add other app
   appCollection.addApp(&ClockApp::getInstance());
   appCollection.addApp(&PomodoroApp::getInstance());
-  appCollection.addApp(&googlyEyes::getInstance());
+  appCollection.addApp(&GooglyEyesApp::getInstance());
   // So this should be last app? No need to do  this but looks like a good idea
   appCollection.addApp(&SettingsApp::getInstance());
 

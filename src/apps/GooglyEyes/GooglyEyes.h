@@ -1,3 +1,4 @@
+
 #ifndef GOOGLYEYES_H
 #define GOOGLYEYES_H
 
@@ -5,19 +6,24 @@
 
 #include "core/App.h"
 
-class googlyEyes : public App {
+/**
+ * @class GooglyEyesApp
+ * @brief Basic application to display googly eyes on the screen.
+ * @apps_group
+ */
+class GooglyEyesApp : public App {
  public:
-  static googlyEyes& getInstance();
+  static GooglyEyesApp& getInstance();
   void init() override;
   void update() override;
   void render() override;
   bool shouldExit() override;
 
  private:
-  googlyEyes();
-  ~googlyEyes();
-  googlyEyes(const googlyEyes&) = delete;
-  googlyEyes& operator=(const googlyEyes&) = delete;
+  GooglyEyesApp();
+  ~GooglyEyesApp();
+  GooglyEyesApp(const GooglyEyesApp&) = delete;
+  GooglyEyesApp& operator=(const GooglyEyesApp&) = delete;
   bool shouldExitApp = false;
 };
 

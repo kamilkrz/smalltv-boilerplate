@@ -1,3 +1,4 @@
+
 #ifndef DISPLAY_H
 #define DISPLAY_H
 
@@ -15,14 +16,16 @@
 #define RGBto565(r, g, b) ((((r) & 0xF8) << 8) | (((g) & 0xFC) << 3) | ((b) >> 3))
 
 /**
- * @brief TFT class derived from TFT_eSPI to manage the display.
+ * @class display
+ * @brief Display class derived from TFT_eSPI to manage the display.
+ * @ingroup Hardware
  */
-class TFT : public TFT_eSPI {
+class display : public TFT_eSPI {
  public:
   /**
    * @brief Constructor for the TFT class.
    */
-  TFT();
+  display();
 
   /**
    * @brief Initialize the display and configure the backlight pin.
@@ -36,6 +39,6 @@ class TFT : public TFT_eSPI {
   void setBacklight(uint8_t brightness);
 };
 
-extern TFT Display;  // Declare Display as extern
+extern display Display;  // Declare Display as extern
 
 #endif  // DISPLAY_H

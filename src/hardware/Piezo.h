@@ -9,6 +9,12 @@
 /**
  * @class piezo
  * @brief A class to control a piezo buzzer.
+ * @details This class provides methods to make the piezo buzzer beep at
+ *          different frequencies and durations. It also includes methods
+ *          for playing various sound effects such as acknowledgment,
+ *          warning, normal, error, and alarm sounds.
+ * @note The default pin for the piezo buzzer is defined as PIEZO_PIN (GPIO 4).
+ * @ingroup Hardware
  */
 class piezo {
  public:
@@ -26,6 +32,11 @@ class piezo {
   void beep(int f, unsigned long d = 1000);
 
   /**
+   * @brief Plays a normal notification sound.
+   */
+  void norm();
+
+  /**
    * @brief Plays an acknowledgment sound.
    */
   void ack();
@@ -34,11 +45,6 @@ class piezo {
    * @brief Plays a warning sound.
    */
   void warn();
-
-  /**
-   * @brief Plays a normal notification sound.
-   */
-  void norm();
 
   /**
    * @brief Plays an error sound.

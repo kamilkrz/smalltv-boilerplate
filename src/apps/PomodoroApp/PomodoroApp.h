@@ -11,6 +11,11 @@
 enum class State { Timer,
                    Menu };  // Define states
 
+/**
+ * @class PomodoroApp
+ * @brief Simple pomodoro timer application.
+ * @apps_group
+ */
 class PomodoroApp : public App {
  public:
   static PomodoroApp& getInstance();

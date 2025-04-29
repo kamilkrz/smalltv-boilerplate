@@ -2,6 +2,13 @@
 #define APP_H
 
 /**
+ * @file App.h
+ * @brief Abstract base class for applications.
+ * @defgroup Apps Apps functionality
+ * @{
+ */
+
+/**
  * @class App
  * @brief Abstract base class for applications.
  *
@@ -66,4 +73,5 @@ class App {
   const String appName;
 };
 
-#endif  // APP_H
+#endif     // APP_H
+/** @} */  // End of APP group

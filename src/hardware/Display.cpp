@@ -1,13 +1,13 @@
 #include "Display.h"
 
-TFT::TFT() : TFT_eSPI() {}
+display::display() : TFT_eSPI() {}
 
-void TFT::init() {
+void display::init() {
   TFT_eSPI::init();
   pinMode(TFT_BACKLIGHT, OUTPUT);
 }
 
-void TFT::setBacklight(uint8_t brightness) {
+void display::setBacklight(uint8_t brightness) {
 #if TFT_BACKLIGHT_INVERTED
   analogWrite(TFT_BACKLIGHT, 255 - brightness);
 #else
@@ -15,4 +15,4 @@ void TFT::setBacklight(uint8_t brightness) {
 #endif
 }
 
-TFT Display;  // Define Display
+display Display;  // Define Display
