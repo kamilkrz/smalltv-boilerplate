@@ -126,32 +126,25 @@ File Structure</h1>
 <li><b>boards/</b>: Boards definition</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md4"></a>
+Documentation</h1>
+<p><a href="https://kamilkrz.github.io/smalltv-boilerplate/index.html">https://kamilkrz.github.io/smalltv-boilerplate/index.html</a></p>
+<h1><a class="anchor" id="autotoc_md5"></a>
 Adding New Apps</h1>
 <ol type="1">
 <li>Create a new folder under <code>apps/</code> for your app.</li>
 <li>Implement the app by inheriting from the base <code><a class="el" href="classApp.html" title="Abstract base class for applications.">App</a></code> class.</li>
 <li>Register the app in <code><a class="el" href="main_8cpp.html">src/main.cpp</a></code> using <code><a class="el" href="classAppCollection.html#af98b3c7482784f8ef112571bb46ae8cb">AppCollection::addApp()</a></code>.</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md5"></a>
+<h1><a class="anchor" id="autotoc_md6"></a>
 Usage</h1>
 <ol type="1">
 <li>Power on the ESP8266.</li>
 <li>The splash screen will display for a few seconds.</li>
 <li>Use the main menu to navigate between apps.</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md6"></a>
+<h1><a class="anchor" id="autotoc_md7"></a>
 TODO</h1>
 <ul class="check">
-<li class="checked">Implement Apps<ul class="check">
-<li class="checked">Implement app abstraction layer</li>
-</ul>
-<ul class="check">
-<li class="checked">Implement app dynamic collection</li>
-</ul>
-<ul class="check">
-<li class="checked">Example app with WiFi capabilities</li>
-</ul>
-</li>
 <li class="unchecked">Hardware:<ul class="check">
 <li class="checked">Handle screen</li>
 </ul>
@@ -163,24 +156,61 @@ TODO</h1>
 <li class="unchecked">Handle different variants of smalltv</li>
 </ul>
 <ul class="check">
-<li class="unchecked">Handle LED (Present, hidden in enclosure but hey, still part of hardware specs)</li>
+<li class="unchecked">Handle LED (Present, hidden in enclosure but hey, still part of hardware specs)<ul class="check">
+<li class="unchecked">It's used on versions with translucent case.</li>
+</ul>
+</li>
 </ul>
 <ul class="check">
 <li class="unchecked">Improve documentation for hardware abstraction layers.</li>
 </ul>
 <ul class="check">
-<li class="unchecked">Handle ESP32 version?</li>
+<li class="unchecked">Handle ESP32 version?<ul class="check">
+<li class="unchecked">Confirm that some versions are bare without serial.</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <ul class="check">
-<li class="checked">Move project from Arduino to PlatformIO<ul class="check">
+<li class="checked">Implement Apps<ul class="check">
+<li class="checked">Implement app abstraction layer</li>
+</ul>
+<ul class="check">
+<li class="checked">Implement app dynamic collection</li>
+</ul>
+<ul class="check">
+<li class="checked">Example app with WiFi capabilities</li>
+</ul>
+<ul class="check">
+<li class="checked">"Core" apps for menu / settings funcionalities (almost working)</li>
+</ul>
+</li>
+<li class="unchecked">Easy build process<ul class="check">
+<li class="checked">Move project from Arduino to PlatformIO</li>
+</ul>
+<ul class="check">
+<li class="checked">Build through Github Actions<ul class="check">
+<li class="unchecked">Fix issue with variables in doxygen</li>
+</ul>
+</li>
 <li class="unchecked">Handle Arduino compatibility</li>
 </ul>
 <ul class="check">
-<li class="unchecked">Add documentation about used libraries and explain why those</li>
+<li class="unchecked">Serial Web flasher</li>
+</ul>
+<ul class="check">
+<li class="unchecked">OTA for hardare without serial</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Stop relay on hacked deps<ul class="check">
+<li class="unchecked">Kindly ask about agrrement on eSPI_menu quirks from personal fork</li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+<ul class="check">
 <li class="unchecked">Implement unit tests for core functionality.<ul class="check">
 <li class="unchecked">Learn how to write tests</li>
 </ul>
@@ -190,7 +220,29 @@ TODO</h1>
 </li>
 </ul>
 <ul class="check">
-<li class="checked">Create a detailed guide for adding new apps. </li>
+<li class="unchecked">Documentation<ul class="check">
+<li class="checked">Automatic workflow to build from doxygen</li>
+</ul>
+<ul class="check">
+<li class="checked">Create a (detailed) guide for adding new apps.</li>
+<li class="unchecked">Add documentation about used libraries and explain why those<ul class="check">
+<li class="unchecked">Add URLs to OneButton</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Add URLs to TFT_eSPI.</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Add URLs to eSPI_menu</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Add URLs to digifont</li>
+</ul>
+<ul class="check">
+<li class="unchecked">And many more </li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
