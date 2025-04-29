@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "Smalltv Apps and Hardware boilerplate", "index.html", [
-    [ "SmallTV ESP8266 Boilerplate", "index.html", "index" ],
+    [ "SmallTV Boilerplate", "index.html", "index" ],
     [ "Topics", "topics.html", "topics" ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
