@@ -15,7 +15,7 @@
  * @details This class provides functionality for displaying the current time
  *          using NTP (Network Time Protocol). It initializes the WiFi connection,
  *          retrieves the time from an NTP server, and displays it on the screen.
- * @apps_group
+ * @ingroup Apps
  */
 class ClockApp : public App {
  public:

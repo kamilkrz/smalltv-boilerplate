@@ -9,7 +9,7 @@
 /**
  * @class GooglyEyesApp
  * @brief Basic application to display googly eyes on the screen.
- * @apps_group
+ * @ingroup Apps
  */
 class GooglyEyesApp : public App {
  public:

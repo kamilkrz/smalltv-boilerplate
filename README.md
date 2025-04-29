@@ -1,4 +1,4 @@
-# SmallTV ESP8266 Boilerplate
+# SmallTV Boilerplate
 
 This project is a boilerplate designed for easy development of applications for the SmallTV (most likely clone) product using the ESP8266 microcontroller. It provides a structured framework to manage multiple apps and hardware components, enabling rapid prototyping and development.
 
@@ -11,7 +11,7 @@ This project is a boilerplate designed for easy development of applications for 
 ## Setup
 1. Clone the repository to your local machine.
 2. Install the required libraries for Arduino development.
-3. Upload the code to your ESP8266 using the Arduino IDE or PlatformIO.
+3. Upload the code to your SmallTV using the Arduino IDE or PlatformIO.
 
 ## File Structure
 - **src/**: Contains the main application code.
@@ -19,6 +19,9 @@ This project is a boilerplate designed for easy development of applications for 
 - **hardware/**: Hardware abstraction for display and piezo buzzer.
 - **apps/**: Placeholder for user-defined app implementations.
 - **boards/**: Boards definition
+
+## Documentation
+https://kamilkrz.github.io/smalltv-boilerplate/index.html
 
 ## Adding New Apps
 1. Create a new folder under `apps/` for your app.
@@ -31,22 +34,39 @@ This project is a boilerplate designed for easy development of applications for 
 3. Use the main menu to navigate between apps.
 
 ## TODO
-- [x] Implement Apps
-  - [x] Implement app abstraction layer
-  - [x] Implement app dynamic collection
-  - [x] Example app with WiFi capabilities 
 - [ ] Hardware:
   - [x] Handle screen
   - [x] Handle touch button
   - [x] Handle piezo buzzer
   - [ ] Handle different variants of smalltv
   - [ ] Handle LED (Present, hidden in enclosure but hey, still part of hardware specs)
+    - [ ] It's used on versions with translucent case. 
   - [ ] Improve documentation for hardware abstraction layers.
   - [ ] Handle ESP32 version?
-- [x] Move project from Arduino to PlatformIO
+    - [ ] Confirm that some versions are bare without serial. 
+- [x] Implement Apps
+  - [x] Implement app abstraction layer
+  - [x] Implement app dynamic collection
+  - [x] Example app with WiFi capabilities
+  - [X] "Core" apps for menu / settings funcionalities (almost working) 
+- [ ] Easy build process 
+  - [x] Move project from Arduino to PlatformIO
+  - [x] Build through Github Actions
+    - [ ] Fix issue with variables in doxygen
   - [ ] Handle Arduino compatibility
-  - [ ] Add documentation about used libraries and explain why those
+  - [ ] Serial Web flasher
+  - [ ] OTA for hardare without serial
+  - [ ] Stop relay on hacked deps
+    - [ ] Kindly ask about agrrement on eSPI_menu quirks from personal fork
 - [ ] Implement unit tests for core functionality.
   - [ ] Learn how to write tests
   - [ ] Learn how to implement tests in platformIO
-- [x] Create a detailed guide for adding new apps.
+- [ ] Documentation
+  - [x] Automatic workflow to build from doxygen
+  - [x] Create a (detailed) guide for adding new apps.
+  - [ ] Add documentation about used libraries and explain why those
+    - [ ] Add URLs to OneButton 
+    - [ ] Add URLs to TFT_eSPI.
+    - [ ] Add URLs to eSPI_menu
+    - [ ] Add URLs to digifont
+    - [ ] And many more

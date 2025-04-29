@@ -62,7 +62,7 @@ jobs:
           gh release delete "${GIT_TAG}" \
           --cleanup-tag \
           --yes \
-          --repo "kamilkrz/smalltv-esp8266-boilerplate" || true
+          --repo "kamilkrz/smalltv-boilerplate" || true
       - name: GitHub cli release create
         env:
           GIT_TAG: ${{needs.generate_sem_version.outputs.semVersion}}
@@ -71,7 +71,7 @@ jobs:
           gh release create "${GIT_TAG}" \
             --generate-notes \
             --target "main" \
-            --repo "kamilkrz/smalltv-esp8266-boilerplate"
+            --repo "kamilkrz/smalltv-boilerplate"
             # TODO: add files to release
   docs:
     runs-on: ubuntu-latest

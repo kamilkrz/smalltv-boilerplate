@@ -14,7 +14,7 @@ enum class State { Timer,
 /**
  * @class PomodoroApp
  * @brief Simple pomodoro timer application.
- * @apps_group
+ * @ingroup Apps
  */
 class PomodoroApp : public App {
  public:
