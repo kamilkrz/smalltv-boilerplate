@@ -25,14 +25,7 @@
 var NAVTREE =
 [
   [ "Smalltv Apps and Hardware boilerplate", "index.html", [
-    [ "SmallTV ESP8266 Boilerplate", "md_README.html", [
-      [ "Features", "md_README.html#autotoc_md1", null ],
-      [ "Setup", "md_README.html#autotoc_md2", null ],
-      [ "File Structure", "md_README.html#autotoc_md3", null ],
-      [ "Adding New Apps", "md_README.html#autotoc_md4", null ],
-      [ "Usage", "md_README.html#autotoc_md5", null ],
-      [ "TODO", "md_README.html#autotoc_md6", null ]
-    ] ],
+    [ "SmallTV ESP8266 Boilerplate", "index.html", "index" ],
     [ "Topics", "topics.html", "topics" ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],

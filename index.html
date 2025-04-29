@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Smalltv Apps and Hardware boilerplate: Main Page</title>
+<title>Smalltv Apps and Hardware boilerplate: SmallTV ESP8266 Boilerplate</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -95,10 +95,104 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">Smalltv Apps and Hardware boilerplate Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">SmallTV ESP8266 Boilerplate </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_README"></a></p>
+<p>This project is a boilerplate designed for easy development of applications for the SmallTV (most likely clone) product using the ESP8266 microcontroller. It provides a structured framework to manage multiple apps and hardware components, enabling rapid prototyping and development.</p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Features</h1>
+<ul>
+<li><b><a class="el" href="classApp.html" title="Abstract base class for applications.">App</a> Management</b>: Easily add, switch, and manage multiple apps.</li>
+<li><b>Hardware Abstraction</b>: Simplified interfaces for display, touch button and piezo buzzer.</li>
+<li><b>Splash Screen</b>: Customizable startup screen.</li>
+<li><b>Extensibility</b>: Add new apps with minimal effort.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Setup</h1>
+<ol type="1">
+<li>Clone the repository to your local machine.</li>
+<li>Install the required libraries for Arduino development.</li>
+<li>Upload the code to your ESP8266 using the Arduino IDE or PlatformIO.</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md3"></a>
+File Structure</h1>
+<ul>
+<li><b>src/</b>: Contains the main application code.</li>
+<li><b>core/</b>: Core functionality, including app management and navigation.</li>
+<li><b>hardware/</b>: Hardware abstraction for display and piezo buzzer.</li>
+<li><b>apps/</b>: Placeholder for user-defined app implementations.</li>
+<li><b>boards/</b>: Boards definition</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Adding New Apps</h1>
+<ol type="1">
+<li>Create a new folder under <code>apps/</code> for your app.</li>
+<li>Implement the app by inheriting from the base <code><a class="el" href="classApp.html" title="Abstract base class for applications.">App</a></code> class.</li>
+<li>Register the app in <code><a class="el" href="main_8cpp.html">src/main.cpp</a></code> using <code><a class="el" href="classAppCollection.html#af98b3c7482784f8ef112571bb46ae8cb">AppCollection::addApp()</a></code>.</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md5"></a>
+Usage</h1>
+<ol type="1">
+<li>Power on the ESP8266.</li>
+<li>The splash screen will display for a few seconds.</li>
+<li>Use the main menu to navigate between apps.</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md6"></a>
+TODO</h1>
+<ul class="check">
+<li class="checked">Implement Apps<ul class="check">
+<li class="checked">Implement app abstraction layer</li>
+</ul>
+<ul class="check">
+<li class="checked">Implement app dynamic collection</li>
+</ul>
+<ul class="check">
+<li class="checked">Example app with WiFi capabilities</li>
+</ul>
+</li>
+<li class="unchecked">Hardware:<ul class="check">
+<li class="checked">Handle screen</li>
+</ul>
+<ul class="check">
+<li class="checked">Handle touch button</li>
+</ul>
+<ul class="check">
+<li class="checked">Handle piezo buzzer</li>
+<li class="unchecked">Handle different variants of smalltv</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Handle LED (Present, hidden in enclosure but hey, still part of hardware specs)</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Improve documentation for hardware abstraction layers.</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Handle ESP32 version?</li>
+</ul>
+</li>
+</ul>
+<ul class="check">
+<li class="checked">Move project from Arduino to PlatformIO<ul class="check">
+<li class="unchecked">Handle Arduino compatibility</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Add documentation about used libraries and explain why those</li>
+</ul>
+</li>
+<li class="unchecked">Implement unit tests for core functionality.<ul class="check">
+<li class="unchecked">Learn how to write tests</li>
+</ul>
+<ul class="check">
+<li class="unchecked">Learn how to implement tests in platformIO</li>
+</ul>
+</li>
+</ul>
+<ul class="check">
+<li class="checked">Create a detailed guide for adding new apps. </li>
+</ul>
+</div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->
 </div><!-- doc-content -->
