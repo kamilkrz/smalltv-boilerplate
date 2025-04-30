@@ -1,0 +1,5 @@
+<map id="ClockApp" name="ClockApp">
+<area shape="rect" id="Node000001" title="Simple clock application." alt="" coords="5,78,84,103"/>
+<area shape="rect" id="Node000002" href="$classApp.html" title="Abstract base class for applications." alt="" coords="22,5,67,30"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="47,46,47,78,42,78,42,46"/>
+</map>

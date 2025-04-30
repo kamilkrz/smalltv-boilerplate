@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Smalltv Apps and Hardware boilerplate
+   <div id="projectname">Smalltv Apps and Hardware boilerplate<span id="projectnumber">&#160;v0.0.3</span>
    </div>
   </td>
  </tr>
@@ -113,6 +113,11 @@ $(function(){initNavTree('main_8cpp.html',''); initResizable(true); });
 <code>#include &quot;<a class="el" href="ClockApp_8h_source.html">apps/ClockApp/ClockApp.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="GooglyEyes_8h_source.html">apps/GooglyEyes/GooglyEyes.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="PomodoroApp_8h_source.html">apps/PomodoroApp/PomodoroApp.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for main.cpp:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="main_8cpp__incl.svg" width="1919" height="195"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 </div>
 <p><a href="main_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -139,18 +144,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00060">60</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   60</span>            {</div>
-<div class="line"><span class="lineno">   61</span>  <a class="code hl_class" href="classAppCollection.html">AppCollection</a>&amp; appCollection = <a class="code hl_function" href="classAppCollection.html#aa95017911485112851e286b0a9e90788">AppCollection::getInstance</a>();</div>
-<div class="line"><span class="lineno">   62</span> </div>
-<div class="line"><span class="lineno">   63</span>  appCollection.<a class="code hl_function" href="classAppCollection.html#a94c54a93a1ff3764a64b949a160be709">updateCurrentApp</a>();</div>
-<div class="line"><span class="lineno">   64</span>  appCollection.<a class="code hl_function" href="classAppCollection.html#a10a7aba31096242da63ecb23a43196cb">renderCurrentApp</a>();</div>
-<div class="line"><span class="lineno">   65</span> </div>
-<div class="line"><span class="lineno">   66</span>  <span class="comment">// Check if the current app wants to exit</span></div>
-<div class="line"><span class="lineno">   67</span>  <span class="keywordflow">if</span> (appCollection.<a class="code hl_function" href="classAppCollection.html#a779a07c0f38f692aafb4445273121add">shouldExitCurrentApp</a>()) {</div>
-<div class="line"><span class="lineno">   68</span>    appCollection.<a class="code hl_function" href="classAppCollection.html#a5a6eff1f281dcc4fb9c1321f957542e5">returnToMainMenu</a>();</div>
-<div class="line"><span class="lineno">   69</span>  }</div>
-<div class="line"><span class="lineno">   70</span>}</div>
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00062">62</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   62</span>            {</div>
+<div class="line"><span class="lineno">   63</span>  <a class="code hl_class" href="classAppCollection.html">AppCollection</a>&amp; appCollection = <a class="code hl_function" href="classAppCollection.html#aa95017911485112851e286b0a9e90788">AppCollection::getInstance</a>();</div>
+<div class="line"><span class="lineno">   64</span> </div>
+<div class="line"><span class="lineno">   65</span>  appCollection.<a class="code hl_function" href="classAppCollection.html#a94c54a93a1ff3764a64b949a160be709">updateCurrentApp</a>();</div>
+<div class="line"><span class="lineno">   66</span>  appCollection.<a class="code hl_function" href="classAppCollection.html#a10a7aba31096242da63ecb23a43196cb">renderCurrentApp</a>();</div>
+<div class="line"><span class="lineno">   67</span> </div>
+<div class="line"><span class="lineno">   68</span>  <span class="comment">// Check if the current app wants to exit</span></div>
+<div class="line"><span class="lineno">   69</span>  <span class="keywordflow">if</span> (appCollection.<a class="code hl_function" href="classAppCollection.html#a779a07c0f38f692aafb4445273121add">shouldExitCurrentApp</a>()) {</div>
+<div class="line"><span class="lineno">   70</span>    appCollection.<a class="code hl_function" href="classAppCollection.html#a5a6eff1f281dcc4fb9c1321f957542e5">returnToMainMenu</a>();</div>
+<div class="line"><span class="lineno">   71</span>  }</div>
+<div class="line"><span class="lineno">   72</span>}</div>
 <div class="ttc" id="aclassAppCollection_html"><div class="ttname"><a href="classAppCollection.html">AppCollection</a></div><div class="ttdef"><b>Definition</b> <a href="AppCollection_8h_source.html#l00010">AppCollection.h:10</a></div></div>
 <div class="ttc" id="aclassAppCollection_html_a10a7aba31096242da63ecb23a43196cb"><div class="ttname"><a href="classAppCollection.html#a10a7aba31096242da63ecb23a43196cb">AppCollection::renderCurrentApp</a></div><div class="ttdeci">void renderCurrentApp()</div><div class="ttdef"><b>Definition</b> <a href="AppCollection_8h_source.html#l00034">AppCollection.h:34</a></div></div>
 <div class="ttc" id="aclassAppCollection_html_a5a6eff1f281dcc4fb9c1321f957542e5"><div class="ttname"><a href="classAppCollection.html#a5a6eff1f281dcc4fb9c1321f957542e5">AppCollection::returnToMainMenu</a></div><div class="ttdeci">void returnToMainMenu()</div><div class="ttdef"><b>Definition</b> <a href="AppCollection_8h_source.html#l00047">AppCollection.h:47</a></div></div>
@@ -183,39 +188,41 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   23</span> </div>
 <div class="line"><span class="lineno">   24</span>  <span class="comment">// Initialize the Display display</span></div>
 <div class="line"><span class="lineno">   25</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.<a class="code hl_function" href="classdisplay.html#aa0b94eb3cb43b47dc720542cf7d1da9b">init</a>();</div>
-<div class="line"><span class="lineno">   26</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillScreen(TFT_DARKGREY);</div>
+<div class="line"><span class="lineno">   26</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillScreen(TFT_BLACK);</div>
 <div class="line"><span class="lineno">   27</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.<a class="code hl_function" href="classdisplay.html#aeab7f9bf60d200db6c793c2ef7f28f75">setBacklight</a>(255);</div>
 <div class="line"><span class="lineno">   28</span> </div>
 <div class="line"><span class="lineno">   29</span>  <span class="comment">// Show splash screen</span></div>
 <div class="line"><span class="lineno">   30</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextColor(TFT_WHITE);</div>
 <div class="line"><span class="lineno">   31</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextFont(4);</div>
 <div class="line"><span class="lineno">   32</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextDatum(MC_DATUM);</div>
-<div class="line"><span class="lineno">   33</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.drawString(<span class="stringliteral">&quot;ESP8266 Clock&quot;</span>, <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.width() / 2, <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.height() / 2);</div>
-<div class="line"><span class="lineno">   34</span>  <span class="comment">// back to default</span></div>
-<div class="line"><span class="lineno">   35</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextDatum(TL_DATUM);</div>
-<div class="line"><span class="lineno">   36</span>  ;</div>
-<div class="line"><span class="lineno">   37</span> </div>
-<div class="line"><span class="lineno">   38</span>  delay(2000);  <span class="comment">// Display splash screen for 2 seconds</span></div>
+<div class="line"><span class="lineno">   33</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.drawString(<span class="stringliteral">&quot;SmallTV Boilerplate&quot;</span>, <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.width() / 2, <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.height() / 2);</div>
+<div class="line"><span class="lineno">   34</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextFont(2);</div>
+<div class="line"><span class="lineno">   35</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.drawString(<span class="stringliteral">&quot;by kamilkrz&quot;</span>, <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.width() / 2, <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.height() / 2 + <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fontHeight(4) + 5);</div>
+<div class="line"><span class="lineno">   36</span>  <span class="comment">// back to default</span></div>
+<div class="line"><span class="lineno">   37</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextDatum(TL_DATUM);</div>
+<div class="line"><span class="lineno">   38</span>  ;</div>
 <div class="line"><span class="lineno">   39</span> </div>
-<div class="line"><span class="lineno">   40</span>  <span class="comment">// Prep Piezo</span></div>
-<div class="line"><span class="lineno">   41</span>  <a class="code hl_variable" href="Piezo_8cpp.html#a3ef5b7eb7cffe920e96ef5d7bedf0b5b">Piezo</a>.<a class="code hl_function" href="classpiezo.html#aabf4a429599b80b93c57eef57faf5fbb">alarm</a>();</div>
-<div class="line"><span class="lineno">   42</span>  delay(200);</div>
-<div class="line"><span class="lineno">   43</span>  <a class="code hl_function" href="Settings_8cpp.html#a1165e1d4439a045e94970c9fbc73bb3c">loadSettings</a>();  <span class="comment">// Load settings from LittleFS</span></div>
-<div class="line"><span class="lineno">   44</span>  <a class="code hl_function" href="Settings_8cpp.html#ac7142ee2baa705d2dd402769467d5a4e">saveSettings</a>();  <span class="comment">// Save settings to LittleFS</span></div>
-<div class="line"><span class="lineno">   45</span>  <span class="comment">// Register apps</span></div>
-<div class="line"><span class="lineno">   46</span>  <a class="code hl_class" href="classAppCollection.html">AppCollection</a>&amp; appCollection = <a class="code hl_function" href="classAppCollection.html#aa95017911485112851e286b0a9e90788">AppCollection::getInstance</a>();</div>
-<div class="line"><span class="lineno">   47</span>  <span class="comment">// Main Menu Should be added first!</span></div>
-<div class="line"><span class="lineno">   48</span>  appCollection.<a class="code hl_function" href="classAppCollection.html#af98b3c7482784f8ef112571bb46ae8cb">addApp</a>(&amp;<a class="code hl_function" href="classAppLauncher.html#a0b9f8fcb48ea10ec66b4f09b1a905111">AppLauncher::getInstance</a>());</div>
-<div class="line"><span class="lineno">   49</span>  <span class="comment">// Then add other app</span></div>
-<div class="line"><span class="lineno">   50</span>  appCollection.<a class="code hl_function" href="classAppCollection.html#af98b3c7482784f8ef112571bb46ae8cb">addApp</a>(&amp;<a class="code hl_function" href="classClockApp.html#a73774dfe18b0237cf668bf1dc848cfad">ClockApp::getInstance</a>());</div>
-<div class="line"><span class="lineno">   51</span>  appCollection.<a class="code hl_function" href="classAppCollection.html#af98b3c7482784f8ef112571bb46ae8cb">addApp</a>(&amp;<a class="code hl_function" href="classPomodoroApp.html#a50b98a330b70ac9099031beda301159b">PomodoroApp::getInstance</a>());</div>
-<div class="line"><span class="lineno">   52</span>  appCollection.<a class="code hl_function" href="classAppCollection.html#af98b3c7482784f8ef112571bb46ae8cb">addApp</a>(&amp;<a class="code hl_function" href="classGooglyEyesApp.html#adcc86c10d178934d737c5e20e944cf30">GooglyEyesApp::getInstance</a>());</div>
-<div class="line"><span class="lineno">   53</span>  <span class="comment">// So this should be last app? No need to do  this but looks like a good idea</span></div>
-<div class="line"><span class="lineno">   54</span>  appCollection.<a class="code hl_function" href="classAppCollection.html#af98b3c7482784f8ef112571bb46ae8cb">addApp</a>(&amp;<a class="code hl_function" href="classSettingsApp.html#a9302a881c8b6c8214f9f54fc6505a68d">SettingsApp::getInstance</a>());</div>
-<div class="line"><span class="lineno">   55</span> </div>
-<div class="line"><span class="lineno">   56</span>  <span class="comment">// Start with the first app</span></div>
-<div class="line"><span class="lineno">   57</span>  appCollection.<a class="code hl_function" href="classAppCollection.html#adf5ae5d9e4fa042f5945b7526baaad4e">switchToApp</a>(0);</div>
-<div class="line"><span class="lineno">   58</span>}</div>
+<div class="line"><span class="lineno">   40</span>  delay(2000);  <span class="comment">// Display splash screen for 2 seconds</span></div>
+<div class="line"><span class="lineno">   41</span> </div>
+<div class="line"><span class="lineno">   42</span>  <span class="comment">// Prep Piezo</span></div>
+<div class="line"><span class="lineno">   43</span>  <a class="code hl_variable" href="Piezo_8cpp.html#a3ef5b7eb7cffe920e96ef5d7bedf0b5b">Piezo</a>.<a class="code hl_function" href="classpiezo.html#aabf4a429599b80b93c57eef57faf5fbb">alarm</a>();</div>
+<div class="line"><span class="lineno">   44</span>  delay(200);</div>
+<div class="line"><span class="lineno">   45</span>  <a class="code hl_function" href="Settings_8cpp.html#a1165e1d4439a045e94970c9fbc73bb3c">loadSettings</a>();  <span class="comment">// Load settings from LittleFS</span></div>
+<div class="line"><span class="lineno">   46</span>  <a class="code hl_function" href="Settings_8cpp.html#ac7142ee2baa705d2dd402769467d5a4e">saveSettings</a>();  <span class="comment">// Save settings to LittleFS</span></div>
+<div class="line"><span class="lineno">   47</span>  <span class="comment">// Register apps</span></div>
+<div class="line"><span class="lineno">   48</span>  <a class="code hl_class" href="classAppCollection.html">AppCollection</a>&amp; appCollection = <a class="code hl_function" href="classAppCollection.html#aa95017911485112851e286b0a9e90788">AppCollection::getInstance</a>();</div>
+<div class="line"><span class="lineno">   49</span>  <span class="comment">// Main Menu Should be added first!</span></div>
+<div class="line"><span class="lineno">   50</span>  appCollection.<a class="code hl_function" href="classAppCollection.html#af98b3c7482784f8ef112571bb46ae8cb">addApp</a>(&amp;<a class="code hl_function" href="classAppLauncher.html#a0b9f8fcb48ea10ec66b4f09b1a905111">AppLauncher::getInstance</a>());</div>
+<div class="line"><span class="lineno">   51</span>  <span class="comment">// Then add other app</span></div>
+<div class="line"><span class="lineno">   52</span>  appCollection.<a class="code hl_function" href="classAppCollection.html#af98b3c7482784f8ef112571bb46ae8cb">addApp</a>(&amp;<a class="code hl_function" href="classClockApp.html#a73774dfe18b0237cf668bf1dc848cfad">ClockApp::getInstance</a>());</div>
+<div class="line"><span class="lineno">   53</span>  appCollection.<a class="code hl_function" href="classAppCollection.html#af98b3c7482784f8ef112571bb46ae8cb">addApp</a>(&amp;<a class="code hl_function" href="classPomodoroApp.html#a50b98a330b70ac9099031beda301159b">PomodoroApp::getInstance</a>());</div>
+<div class="line"><span class="lineno">   54</span>  appCollection.<a class="code hl_function" href="classAppCollection.html#af98b3c7482784f8ef112571bb46ae8cb">addApp</a>(&amp;<a class="code hl_function" href="classGooglyEyesApp.html#adcc86c10d178934d737c5e20e944cf30">GooglyEyesApp::getInstance</a>());</div>
+<div class="line"><span class="lineno">   55</span>  <span class="comment">// So this should be last app? No need to do  this but looks like a good idea</span></div>
+<div class="line"><span class="lineno">   56</span>  appCollection.<a class="code hl_function" href="classAppCollection.html#af98b3c7482784f8ef112571bb46ae8cb">addApp</a>(&amp;<a class="code hl_function" href="classSettingsApp.html#a9302a881c8b6c8214f9f54fc6505a68d">SettingsApp::getInstance</a>());</div>
+<div class="line"><span class="lineno">   57</span> </div>
+<div class="line"><span class="lineno">   58</span>  <span class="comment">// Start with the first app</span></div>
+<div class="line"><span class="lineno">   59</span>  appCollection.<a class="code hl_function" href="classAppCollection.html#adf5ae5d9e4fa042f5945b7526baaad4e">switchToApp</a>(0);</div>
+<div class="line"><span class="lineno">   60</span>}</div>
 <div class="ttc" id="aDisplay_8cpp_html_a7c1c3113ffca0cf79e39a492bf0234f8"><div class="ttname"><a href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a></div><div class="ttdeci">display Display</div><div class="ttdef"><b>Definition</b> <a href="Display_8cpp_source.html#l00018">Display.cpp:18</a></div></div>
 <div class="ttc" id="aPiezo_8cpp_html_a3ef5b7eb7cffe920e96ef5d7bedf0b5b"><div class="ttname"><a href="Piezo_8cpp.html#a3ef5b7eb7cffe920e96ef5d7bedf0b5b">Piezo</a></div><div class="ttdeci">piezo Piezo(PIEZO_PIN)</div></div>
 <div class="ttc" id="aSettings_8cpp_html_a1165e1d4439a045e94970c9fbc73bb3c"><div class="ttname"><a href="Settings_8cpp.html#a1165e1d4439a045e94970c9fbc73bb3c">loadSettings</a></div><div class="ttdeci">void loadSettings()</div><div class="ttdef"><b>Definition</b> <a href="Settings_8cpp_source.html#l00008">Settings.cpp:8</a></div></div>

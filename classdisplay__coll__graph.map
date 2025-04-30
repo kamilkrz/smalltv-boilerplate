@@ -1,0 +1,5 @@
+<map id="display" name="display">
+<area shape="rect" id="Node000001" title="Display class derived from TFT_eSPI to manage the display." alt="" coords="14,78,77,103"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,86,30"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="48,46,48,78,43,78,43,46"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="button" name="button">
+<area shape="rect" id="Node000001" title="Button class derived from OneButton to manage touch sensor input." alt="" coords="18,78,76,103"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,89,30"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="50,46,50,78,44,78,44,46"/>
+</map>
