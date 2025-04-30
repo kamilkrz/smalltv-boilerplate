@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['piezo_0',['Piezo',['../Piezo_8cpp.html#a3ef5b7eb7cffe920e96ef5d7bedf0b5b',1,'Piezo:&#160;Piezo.cpp'],['../Piezo_8h.html#a6473797369e95d55d8fe9c29b496d543',1,'Piezo:&#160;Piezo.h']]],
-  ['piezo_1',['piezo',['../classpiezo.html',1,'piezo'],['../classpiezo.html#ae128c58cbbf059e049621b9aa54a1442',1,'piezo::piezo()']]],
-  ['piezo_2ecpp_2',['Piezo.cpp',['../Piezo_8cpp.html',1,'']]],
-  ['piezo_2eh_3',['Piezo.h',['../Piezo_8h.html',1,'']]],
-  ['piezo_5fpin_4',['PIEZO_PIN',['../Piezo_8h.html#a9c5a2d5d726c32c4b09f1d2de0355a7d',1,'Piezo.h']]],
-  ['pomodoroapp_5',['PomodoroApp',['../classPomodoroApp.html',1,'']]],
-  ['pomodoroapp_2ecpp_6',['PomodoroApp.cpp',['../PomodoroApp_8cpp.html',1,'']]],
-  ['pomodoroapp_2eh_7',['PomodoroApp.h',['../PomodoroApp_8h.html',1,'']]]
+  ['readme_2emd_0',['README.md',['../README_8md.html',1,'']]],
+  ['render_1',['render',['../classClockApp.html#acba09475c4c04f401926857ab751308f',1,'ClockApp::render()'],['../classGooglyEyesApp.html#a2b291208aaba258ef1b5faedeb5c5409',1,'GooglyEyesApp::render()'],['../classPomodoroApp.html#a20f3433fa4e9b2fddd6f55ea51322d95',1,'PomodoroApp::render()'],['../classApp.html#ac0f6fdafe283898561781c87a19ba9f9',1,'App::render()'],['../classAppLauncher.html#ad8b5606f80fef6081ed08f78abc3f776',1,'AppLauncher::render()'],['../classSettingsApp.html#ae5f49b2a8fcce549a05a456473304c4d',1,'SettingsApp::render()']]],
+  ['rendercurrentapp_2',['renderCurrentApp',['../classAppCollection.html#a10a7aba31096242da63ecb23a43196cb',1,'AppCollection']]],
+  ['returntomainmenu_3',['returnToMainMenu',['../classAppCollection.html#a5a6eff1f281dcc4fb9c1321f957542e5',1,'AppCollection']]],
+  ['rgbto565_4',['RGBto565',['../Display_8h.html#a4273466b93b33e9d61d4ea0dc1e39fd0',1,'Display.h']]]
 ];

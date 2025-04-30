@@ -1,7 +1,5 @@
 <map id="src/core/SettingsApp/SettingsApp.h" name="src/core/SettingsApp/SettingsApp.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="48,5,192,44"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,92,115,117"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="108,46,80,81,76,78,103,43"/>
-<area shape="rect" id="Node000003" href="$App_8h.html" title="Abstract base class for applications." alt="" coords="139,92,224,117"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="137,43,165,78,161,81,133,46"/>
+<area shape="rect" id="node1" title=" " alt="" coords="47,5,191,45"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,93,113,119"/>
+<area shape="rect" id="node3" href="$App_8h.html" title="Abstract base class for applications." alt="" coords="137,93,221,119"/>
 </map>

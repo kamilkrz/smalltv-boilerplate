@@ -1,18 +1,10 @@
 <map id="src/core/SettingsApp/SettingsApp.cpp" name="src/core/SettingsApp/SettingsApp.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="224,5,368,44"/>
-<area shape="rect" id="Node000002" href="$SettingsApp_8h.html" title=" " alt="" coords="114,92,217,117"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="266,47,199,86,197,81,263,42"/>
-<area shape="rect" id="Node000005" href="$Settings_8h.html" title=" " alt="" coords="241,92,351,117"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="299,45,299,76,293,76,293,45"/>
-<area shape="rect" id="Node000007" href="$Display_8h.html" title=" " alt="" coords="374,92,506,117"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="332,42,407,82,404,87,330,47"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,165,115,189"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="149,119,92,158,89,153,146,115"/>
-<area shape="rect" id="Node000004" href="$App_8h.html" title="Abstract base class for applications." alt="" coords="139,165,224,189"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="171,117,178,149,173,150,165,118"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="278,165,354,189"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="302,116,311,149,306,151,297,118"/>
-<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="421,120,351,159,348,154,418,115"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="394,165,486,189"/>
-<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="443,117,443,149,437,149,437,117"/>
+<area shape="rect" id="node1" title=" " alt="" coords="222,5,366,45"/>
+<area shape="rect" id="node2" href="$SettingsApp_8h.html" title=" " alt="" coords="112,93,215,119"/>
+<area shape="rect" id="node5" href="$Settings_8h.html" title=" " alt="" coords="239,93,349,119"/>
+<area shape="rect" id="node7" href="$Display_8h.html" title=" " alt="" coords="373,93,503,119"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,167,113,192"/>
+<area shape="rect" id="node4" href="$App_8h.html" title="Abstract base class for applications." alt="" coords="137,167,221,192"/>
+<area shape="rect" id="node6" title=" " alt="" coords="276,167,352,192"/>
+<area shape="rect" id="node8" title=" " alt="" coords="392,167,484,192"/>
 </map>

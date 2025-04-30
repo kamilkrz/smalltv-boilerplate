@@ -1,5 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,5,89,30"/>
-<area shape="rect" id="Node000001" href="$classbutton.html" title="Button class derived from OneButton to manage touch sensor input." alt="" coords="137,5,194,30"/>
-<area shape="poly" id="edge6_Node000000_Node000001" title=" " alt="" coords="104,15,136,15,136,20,104,20"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,89,31"/>
+<area shape="rect" id="node2" href="$classbutton.html" title="Button class derived from OneButton to manage touch sensor input." alt="" coords="137,5,196,31"/>
 </map>

@@ -1,5 +1,4 @@
 <map id="PomodoroApp" name="PomodoroApp">
-<area shape="rect" id="Node000001" title="Simple pomodoro timer application." alt="" coords="5,78,109,103"/>
-<area shape="rect" id="Node000002" href="$classApp.html" title="Abstract base class for applications." alt="" coords="35,5,79,30"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,46,60,78,54,78,54,46"/>
+<area shape="rect" id="node1" title="Simple pomodoro timer application." alt="" coords="5,79,109,104"/>
+<area shape="rect" id="node2" href="$classApp.html" title="Abstract base class for applications." alt="" coords="35,5,80,31"/>
 </map>

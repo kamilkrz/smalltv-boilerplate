@@ -1,5 +1,4 @@
 <map id="GooglyEyesApp" name="GooglyEyesApp">
-<area shape="rect" id="Node000001" title="Basic application to display googly eyes on the screen." alt="" coords="5,78,119,103"/>
-<area shape="rect" id="Node000002" href="$classApp.html" title="Abstract base class for applications." alt="" coords="40,5,84,30"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="65,46,65,78,59,78,59,46"/>
+<area shape="rect" id="node1" title="Basic application to display googly eyes on the screen." alt="" coords="5,79,119,104"/>
+<area shape="rect" id="node2" href="$classApp.html" title="Abstract base class for applications." alt="" coords="39,5,85,31"/>
 </map>

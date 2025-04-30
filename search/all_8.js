@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['init_0',['init',['../classClockApp.html#a8fb1111a20556ae821e8081155e43d81',1,'ClockApp::init()'],['../classGooglyEyesApp.html#a40fd1d497068ead7724ffc329ae83434',1,'GooglyEyesApp::init()'],['../classPomodoroApp.html#a721e5b18eb6ed0027f81690ddd063097',1,'PomodoroApp::init()'],['../classApp.html#a68f77f8aa188556ec19441f04cdff346',1,'App::init()'],['../classAppLauncher.html#a882a0d60bd084b5c6ade1961807580b0',1,'AppLauncher::init()'],['../classSettingsApp.html#a8f08106727cc36923c8f3b75ce1ce05b',1,'SettingsApp::init()'],['../classdisplay.html#aa0b94eb3cb43b47dc720542cf7d1da9b',1,'display::init()']]]
+  ['listapps_0',['listApps',['../classAppCollection.html#a6fcaa1fe606c5030b2e88aaca0aeebb9',1,'AppCollection']]],
+  ['loadsettings_1',['loadSettings',['../Settings_8cpp.html#a1165e1d4439a045e94970c9fbc73bb3c',1,'loadSettings():&#160;Settings.cpp'],['../Settings_8h.html#a1165e1d4439a045e94970c9fbc73bb3c',1,'loadSettings():&#160;Settings.cpp']]],
+  ['loop_2',['loop',['../main_8cpp.html#afe461d27b9c48d5921c00d521181f12f',1,'main.cpp']]]
 ];
