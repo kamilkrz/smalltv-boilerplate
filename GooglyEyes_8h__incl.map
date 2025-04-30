@@ -1,5 +1,7 @@
 <map id="src/apps/GooglyEyes/GooglyEyes.h" name="src/apps/GooglyEyes/GooglyEyes.h">
-<area shape="rect" id="node1" title=" " alt="" coords="23,5,167,45"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,93,81,119"/>
-<area shape="rect" id="node3" href="$App_8h.html" title="Abstract base class for applications." alt="" coords="105,93,189,119"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="23,5,167,46"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,94,81,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,48,62,82,57,79,80,45"/>
+<area shape="rect" id="Node000003" href="$App_8h.html" title="Abstract base class for applications." alt="" coords="105,94,189,120"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="110,45,133,79,128,82,106,48"/>
 </map>

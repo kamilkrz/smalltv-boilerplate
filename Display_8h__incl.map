@@ -1,5 +1,7 @@
 <map id="src/hardware/Display.h" name="src/hardware/Display.h">
-<area shape="rect" id="node1" title=" " alt="" coords="20,5,173,31"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,79,81,104"/>
-<area shape="rect" id="node3" title=" " alt="" coords="105,79,197,104"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="20,5,172,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,81,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,33,63,68,59,65,85,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="105,79,197,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="107,30,135,65,131,68,103,33"/>
 </map>

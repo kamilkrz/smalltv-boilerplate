@@ -1,10 +1,18 @@
 <map id="src/core/SettingsApp/SettingsApp.cpp" name="src/core/SettingsApp/SettingsApp.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="222,5,366,45"/>
-<area shape="rect" id="node2" href="$SettingsApp_8h.html" title=" " alt="" coords="112,93,215,119"/>
-<area shape="rect" id="node5" href="$Settings_8h.html" title=" " alt="" coords="239,93,349,119"/>
-<area shape="rect" id="node7" href="$Display_8h.html" title=" " alt="" coords="373,93,503,119"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,167,113,192"/>
-<area shape="rect" id="node4" href="$App_8h.html" title="Abstract base class for applications." alt="" coords="137,167,221,192"/>
-<area shape="rect" id="node6" title=" " alt="" coords="276,167,352,192"/>
-<area shape="rect" id="node8" title=" " alt="" coords="392,167,484,192"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="221,5,364,46"/>
+<area shape="rect" id="Node000002" href="$SettingsApp_8h.html" title=" " alt="" coords="112,94,214,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="262,49,197,88,194,83,259,44"/>
+<area shape="rect" id="Node000005" href="$Settings_8h.html" title=" " alt="" coords="238,94,346,120"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="295,46,295,78,290,78,290,46"/>
+<area shape="rect" id="Node000007" href="$Display_8h.html" title=" " alt="" coords="371,94,502,120"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="330,44,402,84,399,88,327,49"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,168,113,193"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="147,122,91,161,88,156,144,118"/>
+<area shape="rect" id="Node000004" href="$App_8h.html" title="Abstract base class for applications." alt="" coords="137,168,221,193"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="168,119,176,152,170,153,163,120"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="276,168,351,193"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="298,119,308,152,303,153,293,121"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="417,123,349,162,346,157,414,118"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="391,168,482,193"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="439,120,439,152,434,152,434,120"/>
 </map>

@@ -1,16 +1,34 @@
 <map id="src/apps/ClockApp/ClockApp.cpp" name="src/apps/ClockApp/ClockApp.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="416,5,632,31"/>
-<area shape="rect" id="node2" href="$ClockApp_8h.html" title=" " alt="" coords="440,79,528,104"/>
-<area shape="rect" id="node5" title=" " alt="" coords="505,152,597,177"/>
-<area shape="rect" id="node6" title=" " alt="" coords="621,152,704,177"/>
-<area shape="rect" id="node8" title=" " alt="" coords="653,79,765,104"/>
-<area shape="rect" id="node9" href="$Settings_8h.html" title=" " alt="" coords="160,79,269,104"/>
-<area shape="rect" id="node10" href="$Button_8h.html" title=" " alt="" coords="790,79,917,104"/>
-<area shape="rect" id="node12" href="$Display_8h.html" title=" " alt="" coords="5,79,136,104"/>
-<area shape="rect" id="node14" href="$Piezo_8h.html" title=" " alt="" coords="294,79,415,104"/>
-<area shape="rect" id="node3" title=" " alt="" coords="183,152,259,177"/>
-<area shape="rect" id="node4" title=" " alt="" coords="400,152,480,177"/>
-<area shape="rect" id="node7" href="$App_8h.html" title="Abstract base class for applications." alt="" coords="291,152,375,177"/>
-<area shape="rect" id="node11" title=" " alt="" coords="806,152,901,177"/>
-<area shape="rect" id="node13" title=" " alt="" coords="25,152,117,177"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="414,5,629,31"/>
+<area shape="rect" id="Node000002" href="$ClockApp_8h.html" title=" " alt="" coords="438,79,525,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="517,33,498,67,493,64,512,30"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="502,153,594,178"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="527,31,540,78,548,137,543,138,535,80,522,32"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="618,153,699,178"/>
+<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="534,30,639,139,635,143,530,33"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="651,79,762,105"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="554,29,662,71,660,75,552,34"/>
+<area shape="rect" id="Node000009" href="$Settings_8h.html" title=" " alt="" coords="160,79,269,105"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="469,34,282,78,281,72,468,29"/>
+<area shape="rect" id="Node000010" href="$Button_8h.html" title=" " alt="" coords="786,79,912,105"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="578,29,779,73,778,78,577,34"/>
+<area shape="rect" id="Node000012" href="$Display_8h.html" title=" " alt="" coords="5,79,136,105"/>
+<area shape="poly" id="edge14_Node000001_Node000012" title=" " alt="" coords="445,34,152,80,151,75,444,29"/>
+<area shape="rect" id="Node000014" href="$Piezo_8h.html" title=" " alt="" coords="293,79,413,105"/>
+<area shape="poly" id="edge17_Node000001_Node000014" title=" " alt="" coords="494,34,397,75,395,70,492,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="184,153,259,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="438,108,275,152,273,147,436,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="399,153,478,178"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="476,106,456,141,451,138,472,104"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="494,103,528,139,524,143,490,107"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="512,103,615,144,613,149,510,108"/>
+<area shape="rect" id="Node000007" href="$App_8h.html" title="Abstract base class for applications." alt="" coords="292,153,375,178"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="457,108,373,148,371,143,455,103"/>
+<area shape="poly" id="edge11_Node000009_Node000003" title=" " alt="" coords="218,105,221,137,216,137,213,105"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="802,153,896,178"/>
+<area shape="poly" id="edge13_Node000010_Node000011" title=" " alt="" coords="852,105,852,137,846,137,846,105"/>
+<area shape="poly" id="edge15_Node000012_Node000003" title=" " alt="" coords="97,103,183,143,181,148,95,108"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="25,153,116,178"/>
+<area shape="poly" id="edge16_Node000012_Node000013" title=" " alt="" coords="73,105,73,137,68,137,68,105"/>
+<area shape="poly" id="edge18_Node000014_Node000003" title=" " alt="" coords="332,108,258,147,255,143,330,103"/>
 </map>

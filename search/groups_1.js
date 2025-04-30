@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hardware_20functionality_0',['Hardware functionality',['../group__Hardware.html',1,'']]]
+  ['functionality_0',['functionality',['../group__Apps.html',1,'Apps functionality'],['../group__Hardware.html',1,'Hardware functionality']]]
 ];

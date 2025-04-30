@@ -32,7 +32,7 @@ var NAVTREE =
     [ "Adding New Apps", "index.html#autotoc_md5", null ],
     [ "Usage", "index.html#autotoc_md6", null ],
     [ "TODO", "index.html#autotoc_md7", null ],
-    [ "Modules", "modules.html", "modules" ],
+    [ "Topics", "topics.html", "topics" ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],

@@ -1,6 +1,9 @@
 <map id="src/core/AppLauncher/AppLauncher.h" name="src/core/AppLauncher/AppLauncher.h">
-<area shape="rect" id="node1" title=" " alt="" coords="80,5,231,45"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,93,81,119"/>
-<area shape="rect" id="node3" title=" " alt="" coords="105,93,205,119"/>
-<area shape="rect" id="node4" href="$App_8h.html" title="Abstract base class for applications." alt="" coords="229,93,313,119"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="80,5,230,46"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,94,81,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,49,74,87,71,82,126,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="105,94,205,120"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="158,46,158,78,152,78,152,46"/>
+<area shape="rect" id="Node000004" href="$App_8h.html" title="Abstract base class for applications." alt="" coords="229,94,313,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="185,44,242,83,239,87,182,49"/>
 </map>

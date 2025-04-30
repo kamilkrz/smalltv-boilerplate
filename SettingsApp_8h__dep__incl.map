@@ -1,5 +1,7 @@
 <map id="src/core/SettingsApp/SettingsApp.h" name="src/core/SettingsApp/SettingsApp.h">
-<area shape="rect" id="node1" title=" " alt="" coords="77,5,221,45"/>
-<area shape="rect" id="node2" href="$SettingsApp_8cpp.html" title=" " alt="" coords="5,93,149,133"/>
-<area shape="rect" id="node3" href="$main_8cpp.html" title=" " alt="" coords="173,101,269,126"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="77,5,221,46"/>
+<area shape="rect" id="Node000002" href="$SettingsApp_8cpp.html" title=" " alt="" coords="5,94,149,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,60,95,95,91,92,121,56"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html" title=" " alt="" coords="173,102,269,127"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="177,56,213,100,209,103,173,60"/>
 </map>

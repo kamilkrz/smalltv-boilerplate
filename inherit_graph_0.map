@@ -1,8 +1,13 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classApp.html" title="Abstract base class for applications." alt="" coords="5,104,51,129"/>
-<area shape="rect" id="node2" href="$classAppLauncher.html" title=" " alt="" coords="106,5,205,31"/>
-<area shape="rect" id="node3" href="$classClockApp.html" title="Simple clock application." alt="" coords="116,55,195,80"/>
-<area shape="rect" id="node4" href="$classGooglyEyesApp.html" title="Basic application to display googly eyes on the screen." alt="" coords="99,104,212,129"/>
-<area shape="rect" id="node5" href="$classPomodoroApp.html" title="Simple pomodoro timer application." alt="" coords="103,153,207,179"/>
-<area shape="rect" id="node6" href="$classSettingsApp.html" title="Application for managing settings, including WiFi configuration." alt="" coords="109,203,202,228"/>
+<area shape="rect" id="Node000000" href="$classApp.html" title="Abstract base class for applications." alt="" coords="5,104,50,130"/>
+<area shape="rect" id="Node000001" href="$classAppLauncher.html" title=" " alt="" coords="105,5,203,31"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="46,90,68,64,96,40,115,29,117,34,99,44,72,68,50,93"/>
+<area shape="rect" id="Node000002" href="$classClockApp.html" title="Simple clock application." alt="" coords="115,55,192,80"/>
+<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="63,100,118,78,120,83,65,105"/>
+<area shape="rect" id="Node000003" href="$classGooglyEyesApp.html" title="Basic application to display googly eyes on the screen." alt="" coords="98,104,210,130"/>
+<area shape="poly" id="edge3_Node000000_Node000003" title=" " alt="" coords="65,114,97,114,97,120,65,120"/>
+<area shape="rect" id="Node000004" href="$classPomodoroApp.html" title="Simple pomodoro timer application." alt="" coords="102,153,206,179"/>
+<area shape="poly" id="edge4_Node000000_Node000004" title=" " alt="" coords="65,128,120,150,118,155,63,133"/>
+<area shape="rect" id="Node000005" href="$classSettingsApp.html" title="Application for managing settings, including WiFi configuration." alt="" coords="108,203,200,228"/>
+<area shape="poly" id="edge5_Node000000_Node000005" title=" " alt="" coords="50,140,72,166,99,189,117,200,115,204,96,194,68,169,46,144"/>
 </map>

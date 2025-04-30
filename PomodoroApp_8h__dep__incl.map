@@ -1,5 +1,7 @@
 <map id="src/apps/PomodoroApp/PomodoroApp.h" name="src/apps/PomodoroApp/PomodoroApp.h">
-<area shape="rect" id="node1" title=" " alt="" coords="81,5,240,45"/>
-<area shape="rect" id="node2" href="$PomodoroApp_8cpp.html" title=" " alt="" coords="5,93,164,133"/>
-<area shape="rect" id="node3" href="$main_8cpp.html" title=" " alt="" coords="189,101,285,126"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="80,5,237,46"/>
+<area shape="rect" id="Node000002" href="$PomodoroApp_8cpp.html" title=" " alt="" coords="5,94,163,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,60,103,95,99,92,130,56"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html" title=" " alt="" coords="187,102,282,127"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="188,56,226,99,222,103,184,60"/>
 </map>
