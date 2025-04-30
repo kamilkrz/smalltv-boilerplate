@@ -269,6 +269,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Initialize the application. </p>
 <p>This method is called to perform any setup required before the application runs. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo</a></b></dt><dd>refactor this to dynamically use settings from <a class="el" href="Settings_8h.html">Settings.h</a> </dd></dl>
 
 <p>Implements <a class="el" href="classApp.html#a68f77f8aa188556ec19441f04cdff346">App</a>.</p>
 
@@ -280,9 +281,9 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><span class="lineno">   19</span>  WiFiManagerParameter brightnessParam(<span class="stringliteral">&quot;brightness&quot;</span>, <span class="stringliteral">&quot;Display Brightness&quot;</span>, String(<a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#ac69687603ef12a76a55fe103789eca9d">displayBrightness</a>).c_str(), 3);</div>
 <div class="line"><span class="lineno">   20</span>  WiFiManagerParameter timezoneParam(<span class="stringliteral">&quot;timezone&quot;</span>, <span class="stringliteral">&quot;Timezone Offset&quot;</span>, String(<a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#a02dfe5294ac309b4c593a22a5c62d303">timezoneOffset</a>).c_str(), 4);</div>
 <div class="line"><span class="lineno">   21</span>  WiFiManagerParameter formatParam(<span class="stringliteral">&quot;format&quot;</span>, <span class="stringliteral">&quot;24-Hour Format (1/0)&quot;</span>, String(<a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#ab0da5bfd8e7ad7338eb916a2fa50a8d5">use24HourFormat</a>).c_str(), 2);</div>
-<div class="line"><span class="lineno">   22</span> </div>
-<div class="line"><span class="lineno">   23</span>  <span class="comment">// TODO: refactor this to dynamically use settings from Settings.h</span></div>
-<div class="line"><span class="lineno">   24</span>  wifiManager.addParameter(&amp;brightnessParam);</div>
+<div class="line"><span class="lineno">   22</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">   23</span><span class="comment">  /// @todo refactor this to dynamically use settings from Settings.h</span></div>
+<div class="line"><span class="lineno">   24</span><span class="comment"></span>  wifiManager.addParameter(&amp;brightnessParam);</div>
 <div class="line"><span class="lineno">   25</span>  wifiManager.addParameter(&amp;timezoneParam);</div>
 <div class="line"><span class="lineno">   26</span>  wifiManager.addParameter(&amp;formatParam);</div>
 <div class="line"><span class="lineno">   27</span> </div>
