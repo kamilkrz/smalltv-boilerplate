@@ -31,7 +31,7 @@ var NAVTREE =
     [ "Documentation", "index.html#autotoc_md4", null ],
     [ "Adding New Apps", "index.html#autotoc_md5", null ],
     [ "Usage", "index.html#autotoc_md6", null ],
-    [ "TODO", "index.html#autotoc_md7", null ],
+    [ "Roadmap", "index.html#autotoc_md7", null ],
     [ "Todo List", "todo.html", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "Data Structures", "annotated.html", [
