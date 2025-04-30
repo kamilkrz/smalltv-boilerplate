@@ -20,7 +20,7 @@ void SettingsApp::init() {
   WiFiManagerParameter timezoneParam("timezone", "Timezone Offset", String(settings.timezoneOffset).c_str(), 4);
   WiFiManagerParameter formatParam("format", "24-Hour Format (1/0)", String(settings.use24HourFormat).c_str(), 2);
 
-  // TODO: refactor this to dynamically use settings from Settings.h
+  /// @todo refactor this to dynamically use settings from Settings.h
   wifiManager.addParameter(&brightnessParam);
   wifiManager.addParameter(&timezoneParam);
   wifiManager.addParameter(&formatParam);

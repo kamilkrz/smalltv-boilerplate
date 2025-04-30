@@ -1,6 +1,5 @@
 # Project settings
-PROJECT_NAME           = "Smalltv Apps and Hardware boilerplate"
-PROJECT_NUMBER         = $(DOCS_VERSION)
+PROJECT_NAME           = "SmallTV boilerplate"
 OUTPUT_DIRECTORY       = docs
 CREATE_SUBDIRS         = NO
 OPTIMIZE_OUTPUT_FOR_C  = YES
@@ -16,36 +15,49 @@ RECURSIVE              = YES
 EXCLUDE                = 
 EXCLUDE_PATTERNS       = 
 EXCLUDE_SYMLINKS       = NO
+BUILTIN_STL_SUPPORT    = YES
+
 
 # Build settings
 EXTRACT_ALL            = YES
 EXTRACT_PRIVATE        = NO
-EXTRACT_STATIC         = NO
+EXTRACT_STATIC         = YES
 EXTRACT_LOCAL_CLASSES  = YES
 EXTRACT_LOCAL_METHODS  = YES
-EXTRACT_ANON_NSPACES   = NO
+EXTRACT_ANON_NSPACES   = YES
 
 # Drawings and diagrams
 HAVE_DOT = YES
 DOT_IMAGE_FORMAT = svg
-DOT_TRANSPARENT = YES
+# DOT_TRANSPARENT = YES
+INTERACTIVE_SVG = YES
 
 # Documentation settings
 GENERATE_HTML          = YES
 GENERATE_TREEVIEW      = YES
 HTML_OUTPUT            = html
 HTML_COLORSTYLE        = LIGHT
+GENERATE_TODOLIST      = YES
 GENERATE_LATEX         = NO
-FULL_SIDEBAR           = NO
+FULL_SIDEBAR           = YES
 DISABLE_INDEX          = NO
+HTML_HEADER            = documentation/header.html
+HTML_EXTRA_FILES       = documentation/doxygen-awesome-css/doxygen-awesome-paragraph-link.js \
+documentation/doxygen-awesome-css/doxygen-awesome-darkmode-toggle.js
+HTML_EXTRA_STYLESHEET  = documentation/doxygen-awesome-css/doxygen-awesome.css \
+                        documentation/doxygen-awesome-css/doxygen-awesome-sidebar-only.css \
+                        documentation/doxygen-awesome-css/doxygen-awesome-sidebar-only-darkmode-toggle.css
 GENERATE_MAN           = NO
 GENERATE_XML           = NO
 GENERATE_DOCBOOK       = NO
 
 # Source browser settings
 SOURCE_BROWSER         = YES
-INLINE_SOURCES         = YES
+ALPHABETICAL_INDEX     = NO
+INLINE_SOURCES         = NO
 STRIP_CODE_COMMENTS    = NO
+INLINE_SIMPLE_STRUCTS  = YES
+SORT_BY_SCOPE_NAME     = YES
 
 # Warnings and messages
 WARN_IF_UNDOCUMENTED   = YES

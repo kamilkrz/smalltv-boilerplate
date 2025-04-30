@@ -15,7 +15,9 @@ enum class State { Timer,
  * @class PomodoroApp
  * @brief Simple pomodoro timer application.
  * @ingroup Apps
+ *
  */
+/// @todo as this should be pomodoro timer its rather logical to add second timer for break
 class PomodoroApp : public App {
  public:
   static PomodoroApp& getInstance();

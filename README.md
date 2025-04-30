@@ -33,7 +33,7 @@ https://kamilkrz.github.io/smalltv-boilerplate/index.html
 2. The splash screen will display for a few seconds.
 3. Use the main menu to navigate between apps.
 
-## TODO
+## Roadmap
 - [ ] Hardware:
   - [x] Handle screen
   - [x] Handle touch button
