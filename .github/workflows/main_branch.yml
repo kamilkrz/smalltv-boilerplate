@@ -82,11 +82,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: set version
+        run: echo "PROJECT_NUMBER = ${{needs.generate_sem_version.outputs.semVersion}}" >> Doxyfile
       - name: Action Doxygen and GitHub Pages
         id: ghaction
         uses: AgarwalSaurav/ghaction-doxygen-ghpages@v2.1.0
-        env:
-          DOCS_VERSION: ${{needs.generate_sem_version.outputs.semVersion}}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           working-directory: .

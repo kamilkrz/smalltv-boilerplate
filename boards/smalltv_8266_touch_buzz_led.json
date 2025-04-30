@@ -7,7 +7,7 @@
         "flash_mode": "dio",
         "ldscript": "eagle.flash.4m1m.ld",
         "mcu": "esp8266",
-        "variant": "d1_mini"
+        "variant": "generic"
     },
     "connectivity": [
         "wifi"

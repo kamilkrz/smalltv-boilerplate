@@ -23,14 +23,16 @@ void setup() {
 
   // Initialize the Display display
   Display.init();
-  Display.fillScreen(TFT_DARKGREY);
+  Display.fillScreen(TFT_BLACK);
   Display.setBacklight(255);
 
   // Show splash screen
   Display.setTextColor(TFT_WHITE);
   Display.setTextFont(4);
   Display.setTextDatum(MC_DATUM);
-  Display.drawString("ESP8266 Clock", Display.width() / 2, Display.height() / 2);
+  Display.drawString("SmallTV Boilerplate", Display.width() / 2, Display.height() / 2);
+  Display.setTextFont(2);
+  Display.drawString("by kamilkrz", Display.width() / 2, Display.height() / 2 + Display.fontHeight(4) + 5);
   // back to default
   Display.setTextDatum(TL_DATUM);
   ;
