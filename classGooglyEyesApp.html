@@ -27,6 +27,10 @@
   <script type="text/javascript">
     DoxygenAwesomeParagraphLink.init()
   </script>
+  <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
 </head>
 <body>
   <a href="https://github.com/kamilkrz/smalltv-boilerplate" class="github-corner" title="View source on GitHub"
@@ -235,12 +239,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="GooglyEyes_8cpp_source.html#l00006">6</a> of file <a class="el" href="GooglyEyes_8cpp_source.html">GooglyEyes.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    6</span>                                          {</div>
-<div class="line"><span class="lineno">    7</span>  <span class="keyword">static</span> <a class="code hl_class" href="classGooglyEyesApp.html">GooglyEyesApp</a> instance;</div>
-<div class="line"><span class="lineno">    8</span>  <span class="keywordflow">return</span> instance;</div>
-<div class="line"><span class="lineno">    9</span>}</div>
-<div class="ttc" id="aclassGooglyEyesApp_html"><div class="ttname"><a href="classGooglyEyesApp.html">GooglyEyesApp</a></div><div class="ttdoc">Basic application to display googly eyes on the screen.</div><div class="ttdef"><b>Definition</b> <a href="GooglyEyes_8h_source.html#l00014">GooglyEyes.h:14</a></div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a40fd1d497068ead7724ffc329ae83434" name="a40fd1d497068ead7724ffc329ae83434"></a>
@@ -272,19 +271,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="classApp.html#a68f77f8aa188556ec19441f04cdff346">App</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="GooglyEyes_8cpp_source.html#l00015">15</a> of file <a class="el" href="GooglyEyes_8cpp_source.html">GooglyEyes.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   15</span>                         {</div>
-<div class="line"><span class="lineno">   16</span>  shouldExitApp = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   17</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillScreen(<a class="code hl_define" href="Display_8h.html#a4273466b93b33e9d61d4ea0dc1e39fd0">RGBto565</a>(0, 60, 60));</div>
-<div class="line"><span class="lineno">   18</span>  <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.attachClick([]() {});</div>
-<div class="line"><span class="lineno">   19</span>  <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.attachLongPressStart([]() {</div>
-<div class="line"><span class="lineno">   20</span>    <a class="code hl_function" href="#adcc86c10d178934d737c5e20e944cf30">GooglyEyesApp::getInstance</a>().shouldExitApp = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   21</span>  });</div>
-<div class="line"><span class="lineno">   22</span>}</div>
-<div class="ttc" id="aButton_8cpp_html_a89604eb1a3848a6a2b17aa10105bb0e3"><div class="ttname"><a href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a></div><div class="ttdeci">button Button</div><div class="ttdef"><b>Definition</b> <a href="Button_8cpp_source.html#l00003">Button.cpp:3</a></div></div>
-<div class="ttc" id="aDisplay_8cpp_html_a7c1c3113ffca0cf79e39a492bf0234f8"><div class="ttname"><a href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a></div><div class="ttdeci">display Display</div><div class="ttdef"><b>Definition</b> <a href="Display_8cpp_source.html#l00018">Display.cpp:18</a></div></div>
-<div class="ttc" id="aDisplay_8h_html_a4273466b93b33e9d61d4ea0dc1e39fd0"><div class="ttname"><a href="Display_8h.html#a4273466b93b33e9d61d4ea0dc1e39fd0">RGBto565</a></div><div class="ttdeci">#define RGBto565(r, g, b)</div><div class="ttdef"><b>Definition</b> <a href="Display_8h_source.html#l00016">Display.h:16</a></div></div>
-<div class="ttc" id="aclassGooglyEyesApp_html_adcc86c10d178934d737c5e20e944cf30"><div class="ttname"><a href="#adcc86c10d178934d737c5e20e944cf30">GooglyEyesApp::getInstance</a></div><div class="ttdeci">static GooglyEyesApp &amp; getInstance()</div><div class="ttdef"><b>Definition</b> <a href="GooglyEyes_8cpp_source.html#l00006">GooglyEyes.cpp:6</a></div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a2b291208aaba258ef1b5faedeb5c5409" name="a2b291208aaba258ef1b5faedeb5c5409"></a>
@@ -316,27 +303,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="classApp.html#ac0f6fdafe283898561781c87a19ba9f9">App</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="GooglyEyes_8cpp_source.html#l00028">28</a> of file <a class="el" href="GooglyEyes_8cpp_source.html">GooglyEyes.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   28</span>                           {</div>
-<div class="line"><span class="lineno">   29</span>  <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> lastDrawTime = 0;</div>
-<div class="line"><span class="lineno">   30</span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> currentTime = millis();</div>
-<div class="line"><span class="lineno">   31</span>  <span class="keywordflow">if</span> (currentTime - lastDrawTime &gt;= 300) {</div>
-<div class="line"><span class="lineno">   32</span>    lastDrawTime = currentTime;</div>
-<div class="line"><span class="lineno">   33</span> </div>
-<div class="line"><span class="lineno">   34</span>    <span class="keywordtype">int</span> w = <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.width();</div>
-<div class="line"><span class="lineno">   35</span>    <span class="keywordtype">int</span> w4 = w / 4;</div>
-<div class="line"><span class="lineno">   36</span>    <span class="keywordtype">int</span> h = <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.height();</div>
-<div class="line"><span class="lineno">   37</span>    <span class="keywordtype">int</span> h4 = h / 4;</div>
-<div class="line"><span class="lineno">   38</span>    <span class="keywordtype">int</span> xl = random(w4 - 10, w4 + 10);</div>
-<div class="line"><span class="lineno">   39</span>    <span class="keywordtype">int</span> xr = random(w4 * 3 - 10, w4 * 3 + 10);</div>
-<div class="line"><span class="lineno">   40</span>    <span class="keywordtype">int</span> yl = random(h4 * 2 - 10, h4 * 2 + 10);</div>
-<div class="line"><span class="lineno">   41</span>    <span class="keywordtype">int</span> yr = random(h4 * 2 - 10, h4 * 2 + 10);</div>
-<div class="line"><span class="lineno">   42</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillEllipse(w4, h4 * 2, w4 - 10, h4, TFT_WHITE);</div>
-<div class="line"><span class="lineno">   43</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillEllipse(w4 * 3, h4 * 2, w4 - 10, h4, TFT_WHITE);</div>
-<div class="line"><span class="lineno">   44</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillCircle(xl, yl, 15, TFT_BLACK);</div>
-<div class="line"><span class="lineno">   45</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillCircle(xr, yr, 15, TFT_BLACK);</div>
-<div class="line"><span class="lineno">   46</span>  }</div>
-<div class="line"><span class="lineno">   47</span>}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a06ea2ad4d282c535556b0e0758aa787d" name="a06ea2ad4d282c535556b0e0758aa787d"></a>
@@ -368,10 +335,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="classApp.html#a5c925a8412d05ac94626484689776992">App</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="GooglyEyes_8cpp_source.html#l00049">49</a> of file <a class="el" href="GooglyEyes_8cpp_source.html">GooglyEyes.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   49</span>                               {</div>
-<div class="line"><span class="lineno">   50</span>  <span class="keywordflow">return</span> shouldExitApp;</div>
-<div class="line"><span class="lineno">   51</span>}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a76f277b3e917acc156664ecc9f625286" name="a76f277b3e917acc156664ecc9f625286"></a>
@@ -403,10 +367,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="classApp.html#a7f65e16b8cfebe03063380ef2f7f5c24">App</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="GooglyEyes_8cpp_source.html#l00024">24</a> of file <a class="el" href="GooglyEyes_8cpp_source.html">GooglyEyes.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   24</span>                           {</div>
-<div class="line"><span class="lineno">   25</span>  <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.tick();  <span class="comment">// Process button events</span></div>
-<div class="line"><span class="lineno">   26</span>}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

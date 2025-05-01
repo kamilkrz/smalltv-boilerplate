@@ -27,6 +27,10 @@
   <script type="text/javascript">
     DoxygenAwesomeParagraphLink.init()
   </script>
+  <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
 </head>
 <body>
   <a href="https://github.com/kamilkrz/smalltv-boilerplate" class="github-corner" title="View source on GitHub"
@@ -199,8 +203,7 @@ Public Member Functions</h2></td></tr>
 <p>Constructor for the TFT class. </p>
 
 <p class="definition">Definition at line <a class="el" href="Display_8cpp_source.html#l00003">3</a> of file <a class="el" href="Display_8cpp_source.html">Display.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    3</span>: TFT_eSPI() {}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -222,12 +225,7 @@ Public Member Functions</h2></td></tr>
 <p>Initialize the display and configure the backlight pin. </p>
 
 <p class="definition">Definition at line <a class="el" href="Display_8cpp_source.html#l00005">5</a> of file <a class="el" href="Display_8cpp_source.html">Display.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    5</span>                   {</div>
-<div class="line"><span class="lineno">    6</span>  TFT_eSPI::init();</div>
-<div class="line"><span class="lineno">    7</span>  pinMode(<a class="code hl_define" href="Display_8h.html#ae95dc89b130ed647fb98f73bac045f82">TFT_BACKLIGHT</a>, OUTPUT);</div>
-<div class="line"><span class="lineno">    8</span>}</div>
-<div class="ttc" id="aDisplay_8h_html_ae95dc89b130ed647fb98f73bac045f82"><div class="ttname"><a href="Display_8h.html#ae95dc89b130ed647fb98f73bac045f82">TFT_BACKLIGHT</a></div><div class="ttdeci">#define TFT_BACKLIGHT</div><div class="ttdef"><b>Definition</b> <a href="Display_8h_source.html#l00009">Display.h:9</a></div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="aeab7f9bf60d200db6c793c2ef7f28f75" name="aeab7f9bf60d200db6c793c2ef7f28f75"></a>
@@ -254,14 +252,7 @@ Public Member Functions</h2></td></tr>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="Display_8cpp_source.html#l00010">10</a> of file <a class="el" href="Display_8cpp_source.html">Display.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   10</span>                                             {</div>
-<div class="line"><span class="lineno">   11</span><span class="preprocessor">#if TFT_BACKLIGHT_INVERTED</span></div>
-<div class="line"><span class="lineno">   12</span>  analogWrite(<a class="code hl_define" href="Display_8h.html#ae95dc89b130ed647fb98f73bac045f82">TFT_BACKLIGHT</a>, 255 - brightness);</div>
-<div class="line"><span class="lineno">   13</span><span class="preprocessor">#else</span></div>
-<div class="line"><span class="lineno">   14</span>  analogWrite(<a class="code hl_define" href="Display_8h.html#ae95dc89b130ed647fb98f73bac045f82">TFT_BACKLIGHT</a>, brightness);</div>
-<div class="line"><span class="lineno">   15</span><span class="preprocessor">#endif</span></div>
-<div class="line"><span class="lineno">   16</span>}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

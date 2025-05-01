@@ -27,6 +27,10 @@
   <script type="text/javascript">
     DoxygenAwesomeParagraphLink.init()
   </script>
+  <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
 </head>
 <body>
   <a href="https://github.com/kamilkrz/smalltv-boilerplate" class="github-corner" title="View source on GitHub"
@@ -166,8 +170,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSettings.html">Settings</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structSettings" id="r_structSettings"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#structSettings">Settings</a></td></tr>
+<tr class="separator:structSettings"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -178,9 +182,47 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a19276c778f3034b94881cf1f8614dbb2" id="r_a19276c778f3034b94881cf1f8614dbb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSettings.html">Settings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19276c778f3034b94881cf1f8614dbb2">settings</a></td></tr>
+<tr class="memitem:a19276c778f3034b94881cf1f8614dbb2" id="r_a19276c778f3034b94881cf1f8614dbb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#structSettings">Settings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19276c778f3034b94881cf1f8614dbb2">settings</a></td></tr>
 <tr class="separator:a19276c778f3034b94881cf1f8614dbb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<hr/><h2 class="groupheader">Data Structure Documentation</h2>
+<a name="structSettings" id="structSettings"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structSettings">&#9670;&#160;</a></span>Settings</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct Settings</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="Settings_8h_source.html#l00006">6</a> of file <a class="el" href="Settings_8h_source.html">Settings.h</a>.</p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Data Fields</th></tr>
+<tr><td class="fieldtype">
+<a id="ac69687603ef12a76a55fe103789eca9d" name="ac69687603ef12a76a55fe103789eca9d"></a>uint8_t</td>
+<td class="fieldname">
+displayBrightness = 255</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a02dfe5294ac309b4c593a22a5c62d303" name="a02dfe5294ac309b4c593a22a5c62d303"></a>uint8_t</td>
+<td class="fieldname">
+timezoneOffset = 0</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ab0da5bfd8e7ad7338eb916a2fa50a8d5" name="ab0da5bfd8e7ad7338eb916a2fa50a8d5"></a>bool</td>
+<td class="fieldname">
+use24HourFormat = true</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a1165e1d4439a045e94970c9fbc73bb3c" name="a1165e1d4439a045e94970c9fbc73bb3c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1165e1d4439a045e94970c9fbc73bb3c">&#9670;&#160;</a></span>loadSettings()</h2>
@@ -198,53 +240,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="Settings_8cpp_source.html#l00008">8</a> of file <a class="el" href="Settings_8cpp_source.html">Settings.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    8</span>                    {</div>
-<div class="line"><span class="lineno">    9</span>  <span class="keywordflow">if</span> (!LittleFS.begin()) {</div>
-<div class="line"><span class="lineno">   10</span>    Serial.println(<span class="stringliteral">&quot;Failed to mount LittleFS, using default settings.&quot;</span>);</div>
-<div class="line"><span class="lineno">   11</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   12</span>  }</div>
-<div class="line"><span class="lineno">   13</span> </div>
-<div class="line"><span class="lineno">   14</span>  File file = LittleFS.open(<span class="stringliteral">&quot;/settings.json&quot;</span>, <span class="stringliteral">&quot;r&quot;</span>);</div>
-<div class="line"><span class="lineno">   15</span>  <span class="keywordflow">if</span> (!file) {</div>
-<div class="line"><span class="lineno">   16</span>    Serial.println(<span class="stringliteral">&quot;Settings file not found, using default settings.&quot;</span>);</div>
-<div class="line"><span class="lineno">   17</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   18</span>  }</div>
-<div class="line"><span class="lineno">   19</span> </div>
-<div class="line"><span class="lineno">   20</span>  <span class="keywordtype">size_t</span> size = file.size();</div>
-<div class="line"><span class="lineno">   21</span>  <span class="keywordflow">if</span> (size &gt; 1024) {</div>
-<div class="line"><span class="lineno">   22</span>    Serial.println(<span class="stringliteral">&quot;Settings file too large, using default settings.&quot;</span>);</div>
-<div class="line"><span class="lineno">   23</span>    file.close();</div>
-<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   25</span>  }</div>
-<div class="line"><span class="lineno">   26</span> </div>
-<div class="line"><span class="lineno">   27</span>  JsonDocument doc;  <span class="comment">// Replaced DynamicJsonDocument with JsonDocument</span></div>
-<div class="line"><span class="lineno">   28</span>  DeserializationError error = deserializeJson(doc, file);</div>
-<div class="line"><span class="lineno">   29</span>  file.close();</div>
-<div class="line"><span class="lineno">   30</span> </div>
-<div class="line"><span class="lineno">   31</span>  <span class="keywordflow">if</span> (error) {</div>
-<div class="line"><span class="lineno">   32</span>    Serial.println(<span class="stringliteral">&quot;Failed to parse settings file, using default settings.&quot;</span>);</div>
-<div class="line"><span class="lineno">   33</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   34</span>  }</div>
-<div class="line"><span class="lineno">   35</span> </div>
-<div class="line"><span class="lineno">   36</span>  <a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#ac69687603ef12a76a55fe103789eca9d">displayBrightness</a> = doc[<span class="stringliteral">&quot;displayBrightness&quot;</span>] | 255;</div>
-<div class="line"><span class="lineno">   37</span>  <a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#a02dfe5294ac309b4c593a22a5c62d303">timezoneOffset</a> = doc[<span class="stringliteral">&quot;timezoneOffset&quot;</span>] | 0;</div>
-<div class="line"><span class="lineno">   38</span>  <a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#ab0da5bfd8e7ad7338eb916a2fa50a8d5">use24HourFormat</a> = doc[<span class="stringliteral">&quot;use24HourFormat&quot;</span>] | <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   39</span> </div>
-<div class="line"><span class="lineno">   40</span>  Serial.print(<span class="stringliteral">&quot;Loaded settings: &quot;</span>);</div>
-<div class="line"><span class="lineno">   41</span>  Serial.print(<span class="stringliteral">&quot;Brightness: &quot;</span>);</div>
-<div class="line"><span class="lineno">   42</span>  Serial.println(<a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#ac69687603ef12a76a55fe103789eca9d">displayBrightness</a>);</div>
-<div class="line"><span class="lineno">   43</span>  Serial.print(<span class="stringliteral">&quot;Timezone Offset: &quot;</span>);</div>
-<div class="line"><span class="lineno">   44</span>  Serial.println(<a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#a02dfe5294ac309b4c593a22a5c62d303">timezoneOffset</a>);</div>
-<div class="line"><span class="lineno">   45</span>  Serial.print(<span class="stringliteral">&quot;24-Hour Format: &quot;</span>);</div>
-<div class="line"><span class="lineno">   46</span>  Serial.println(<a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#ab0da5bfd8e7ad7338eb916a2fa50a8d5">use24HourFormat</a> ? <span class="stringliteral">&quot;true&quot;</span> : <span class="stringliteral">&quot;false&quot;</span>);</div>
-<div class="line"><span class="lineno">   47</span> </div>
-<div class="line"><span class="lineno">   48</span>  Serial.println(<span class="stringliteral">&quot;Settings loaded successfully.&quot;</span>);</div>
-<div class="line"><span class="lineno">   49</span>}</div>
-<div class="ttc" id="aSettings_8cpp_html_a19276c778f3034b94881cf1f8614dbb2"><div class="ttname"><a href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a></div><div class="ttdeci">Settings settings</div><div class="ttdef"><b>Definition</b> <a href="Settings_8cpp_source.html#l00006">Settings.cpp:6</a></div></div>
-<div class="ttc" id="astructSettings_html_a02dfe5294ac309b4c593a22a5c62d303"><div class="ttname"><a href="structSettings.html#a02dfe5294ac309b4c593a22a5c62d303">Settings::timezoneOffset</a></div><div class="ttdeci">uint8_t timezoneOffset</div><div class="ttdef"><b>Definition</b> <a href="Settings_8h_source.html#l00008">Settings.h:8</a></div></div>
-<div class="ttc" id="astructSettings_html_ab0da5bfd8e7ad7338eb916a2fa50a8d5"><div class="ttname"><a href="structSettings.html#ab0da5bfd8e7ad7338eb916a2fa50a8d5">Settings::use24HourFormat</a></div><div class="ttdeci">bool use24HourFormat</div><div class="ttdef"><b>Definition</b> <a href="Settings_8h_source.html#l00009">Settings.h:9</a></div></div>
-<div class="ttc" id="astructSettings_html_ac69687603ef12a76a55fe103789eca9d"><div class="ttname"><a href="structSettings.html#ac69687603ef12a76a55fe103789eca9d">Settings::displayBrightness</a></div><div class="ttdeci">uint8_t displayBrightness</div><div class="ttdef"><b>Definition</b> <a href="Settings_8h_source.html#l00007">Settings.h:7</a></div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="ac7142ee2baa705d2dd402769467d5a4e" name="ac7142ee2baa705d2dd402769467d5a4e"></a>
@@ -263,32 +259,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="Settings_8cpp_source.html#l00051">51</a> of file <a class="el" href="Settings_8cpp_source.html">Settings.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   51</span>                    {</div>
-<div class="line"><span class="lineno">   52</span>  <span class="keywordflow">if</span> (!LittleFS.begin()) {</div>
-<div class="line"><span class="lineno">   53</span>    Serial.println(<span class="stringliteral">&quot;Failed to mount LittleFS, cannot save settings.&quot;</span>);</div>
-<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   55</span>  }</div>
-<div class="line"><span class="lineno">   56</span> </div>
-<div class="line"><span class="lineno">   57</span>  File file = LittleFS.open(<span class="stringliteral">&quot;/settings.json&quot;</span>, <span class="stringliteral">&quot;w&quot;</span>);</div>
-<div class="line"><span class="lineno">   58</span>  <span class="keywordflow">if</span> (!file) {</div>
-<div class="line"><span class="lineno">   59</span>    Serial.println(<span class="stringliteral">&quot;Failed to open settings file for writing.&quot;</span>);</div>
-<div class="line"><span class="lineno">   60</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   61</span>  }</div>
-<div class="line"><span class="lineno">   62</span> </div>
-<div class="line"><span class="lineno">   63</span>  JsonDocument doc;  <span class="comment">// Replaced DynamicJsonDocument with JsonDocument</span></div>
-<div class="line"><span class="lineno">   64</span>  doc[<span class="stringliteral">&quot;displayBrightness&quot;</span>] = <a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#ac69687603ef12a76a55fe103789eca9d">displayBrightness</a>;</div>
-<div class="line"><span class="lineno">   65</span>  doc[<span class="stringliteral">&quot;timezoneOffset&quot;</span>] = <a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#a02dfe5294ac309b4c593a22a5c62d303">timezoneOffset</a>;</div>
-<div class="line"><span class="lineno">   66</span>  doc[<span class="stringliteral">&quot;use24HourFormat&quot;</span>] = <a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#ab0da5bfd8e7ad7338eb916a2fa50a8d5">use24HourFormat</a>;</div>
-<div class="line"><span class="lineno">   67</span> </div>
-<div class="line"><span class="lineno">   68</span>  <span class="keywordflow">if</span> (serializeJson(doc, file) == 0) {</div>
-<div class="line"><span class="lineno">   69</span>    Serial.println(<span class="stringliteral">&quot;Failed to write settings to file.&quot;</span>);</div>
-<div class="line"><span class="lineno">   70</span>  } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   71</span>    Serial.println(<span class="stringliteral">&quot;Settings saved successfully.&quot;</span>);</div>
-<div class="line"><span class="lineno">   72</span>  }</div>
-<div class="line"><span class="lineno">   73</span> </div>
-<div class="line"><span class="lineno">   74</span>  file.close();</div>
-<div class="line"><span class="lineno">   75</span>}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
@@ -302,7 +273,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structSettings.html">Settings</a> settings</td>
+          <td class="memname"><a class="el" href="#structSettings">Settings</a> settings</td>
         </tr>
       </table>
   </td>

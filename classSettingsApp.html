@@ -27,6 +27,10 @@
   <script type="text/javascript">
     DoxygenAwesomeParagraphLink.init()
   </script>
+  <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
 </head>
 <body>
   <a href="https://github.com/kamilkrz/smalltv-boilerplate" class="github-corner" title="View source on GitHub"
@@ -240,12 +244,7 @@ Additional Inherited Members</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the singleton instance. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="SettingsApp_8cpp_source.html#l00006">6</a> of file <a class="el" href="SettingsApp_8cpp_source.html">SettingsApp.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    6</span>                                      {</div>
-<div class="line"><span class="lineno">    7</span>  <span class="keyword">static</span> <a class="code hl_class" href="classSettingsApp.html">SettingsApp</a> instance;</div>
-<div class="line"><span class="lineno">    8</span>  <span class="keywordflow">return</span> instance;</div>
-<div class="line"><span class="lineno">    9</span>}</div>
-<div class="ttc" id="aclassSettingsApp_html"><div class="ttname"><a href="classSettingsApp.html">SettingsApp</a></div><div class="ttdoc">Application for managing settings, including WiFi configuration.</div><div class="ttdef"><b>Definition</b> <a href="SettingsApp_8h_source.html#l00015">SettingsApp.h:15</a></div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a8f08106727cc36923c8f3b75ce1ce05b" name="a8f08106727cc36923c8f3b75ce1ce05b"></a>
@@ -278,52 +277,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="classApp.html#a68f77f8aa188556ec19441f04cdff346">App</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="SettingsApp_8cpp_source.html#l00015">15</a> of file <a class="el" href="SettingsApp_8cpp_source.html">SettingsApp.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   15</span>                       {</div>
-<div class="line"><span class="lineno">   16</span>  exitApp = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   17</span> </div>
-<div class="line"><span class="lineno">   18</span>  <span class="comment">// Configure WiFiManager</span></div>
-<div class="line"><span class="lineno">   19</span>  WiFiManagerParameter brightnessParam(<span class="stringliteral">&quot;brightness&quot;</span>, <span class="stringliteral">&quot;Display Brightness&quot;</span>, String(<a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#ac69687603ef12a76a55fe103789eca9d">displayBrightness</a>).c_str(), 3);</div>
-<div class="line"><span class="lineno">   20</span>  WiFiManagerParameter timezoneParam(<span class="stringliteral">&quot;timezone&quot;</span>, <span class="stringliteral">&quot;Timezone Offset&quot;</span>, String(<a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#a02dfe5294ac309b4c593a22a5c62d303">timezoneOffset</a>).c_str(), 4);</div>
-<div class="line"><span class="lineno">   21</span>  WiFiManagerParameter formatParam(<span class="stringliteral">&quot;format&quot;</span>, <span class="stringliteral">&quot;24-Hour Format (1/0)&quot;</span>, String(<a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#ab0da5bfd8e7ad7338eb916a2fa50a8d5">use24HourFormat</a>).c_str(), 2);</div>
-<div class="line"><span class="lineno">   22</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   23</span><span class="comment">  /// @todo refactor this to dynamically use settings from Settings.h</span></div>
-<div class="line"><span class="lineno">   24</span><span class="comment"></span>  wifiManager.addParameter(&amp;brightnessParam);</div>
-<div class="line"><span class="lineno">   25</span>  wifiManager.addParameter(&amp;timezoneParam);</div>
-<div class="line"><span class="lineno">   26</span>  wifiManager.addParameter(&amp;formatParam);</div>
-<div class="line"><span class="lineno">   27</span> </div>
-<div class="line"><span class="lineno">   28</span>  <span class="comment">// Set callback to save parameters on change</span></div>
-<div class="line"><span class="lineno">   29</span>  wifiManager.setSaveParamsCallback([&amp;]() {</div>
-<div class="line"><span class="lineno">   30</span>    <a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#ac69687603ef12a76a55fe103789eca9d">displayBrightness</a> = atoi(brightnessParam.getValue());</div>
-<div class="line"><span class="lineno">   31</span>    <a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#a02dfe5294ac309b4c593a22a5c62d303">timezoneOffset</a> = atoi(timezoneParam.getValue());</div>
-<div class="line"><span class="lineno">   32</span>    <a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#ab0da5bfd8e7ad7338eb916a2fa50a8d5">use24HourFormat</a> = atoi(formatParam.getValue());</div>
-<div class="line"><span class="lineno">   33</span>    <a class="code hl_function" href="Settings_8cpp.html#ac7142ee2baa705d2dd402769467d5a4e">saveSettings</a>();</div>
-<div class="line"><span class="lineno">   34</span>    Serial.println(<span class="stringliteral">&quot;Settings saved from callback.&quot;</span>);</div>
-<div class="line"><span class="lineno">   35</span>  });</div>
-<div class="line"><span class="lineno">   36</span> </div>
-<div class="line"><span class="lineno">   37</span>  <span class="comment">// Start AP</span></div>
-<div class="line"><span class="lineno">   38</span>  String apName = <span class="stringliteral">&quot;ESP8266_Settings&quot;</span>;</div>
-<div class="line"><span class="lineno">   39</span>  wifiManager.setAPCallback([](WiFiManager* wm) {</div>
-<div class="line"><span class="lineno">   40</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillScreen(TFT_BLACK);</div>
-<div class="line"><span class="lineno">   41</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextColor(TFT_WHITE);</div>
-<div class="line"><span class="lineno">   42</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextFont(2);</div>
-<div class="line"><span class="lineno">   43</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setCursor(0, 0);</div>
-<div class="line"><span class="lineno">   44</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.println(<span class="stringliteral">&quot;AP Name: &quot;</span> + String(wm-&gt;getConfigPortalSSID()));</div>
-<div class="line"><span class="lineno">   45</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.println(<span class="stringliteral">&quot;IP: &quot;</span> + WiFi.softAPIP().toString());</div>
-<div class="line"><span class="lineno">   46</span>  });</div>
-<div class="line"><span class="lineno">   47</span> </div>
-<div class="line"><span class="lineno">   48</span>  <span class="keywordflow">if</span> (!wifiManager.startConfigPortal(apName.c_str())) {</div>
-<div class="line"><span class="lineno">   49</span>    Serial.println(<span class="stringliteral">&quot;Conncection is closed&quot;</span>);</div>
-<div class="line"><span class="lineno">   50</span>  }</div>
-<div class="line"><span class="lineno">   51</span> </div>
-<div class="line"><span class="lineno">   52</span>  exitApp = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   53</span>}</div>
-<div class="ttc" id="aDisplay_8cpp_html_a7c1c3113ffca0cf79e39a492bf0234f8"><div class="ttname"><a href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a></div><div class="ttdeci">display Display</div><div class="ttdef"><b>Definition</b> <a href="Display_8cpp_source.html#l00018">Display.cpp:18</a></div></div>
-<div class="ttc" id="aSettings_8cpp_html_a19276c778f3034b94881cf1f8614dbb2"><div class="ttname"><a href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a></div><div class="ttdeci">Settings settings</div><div class="ttdef"><b>Definition</b> <a href="Settings_8cpp_source.html#l00006">Settings.cpp:6</a></div></div>
-<div class="ttc" id="aSettings_8cpp_html_ac7142ee2baa705d2dd402769467d5a4e"><div class="ttname"><a href="Settings_8cpp.html#ac7142ee2baa705d2dd402769467d5a4e">saveSettings</a></div><div class="ttdeci">void saveSettings()</div><div class="ttdef"><b>Definition</b> <a href="Settings_8cpp_source.html#l00051">Settings.cpp:51</a></div></div>
-<div class="ttc" id="astructSettings_html_a02dfe5294ac309b4c593a22a5c62d303"><div class="ttname"><a href="structSettings.html#a02dfe5294ac309b4c593a22a5c62d303">Settings::timezoneOffset</a></div><div class="ttdeci">uint8_t timezoneOffset</div><div class="ttdef"><b>Definition</b> <a href="Settings_8h_source.html#l00008">Settings.h:8</a></div></div>
-<div class="ttc" id="astructSettings_html_ab0da5bfd8e7ad7338eb916a2fa50a8d5"><div class="ttname"><a href="structSettings.html#ab0da5bfd8e7ad7338eb916a2fa50a8d5">Settings::use24HourFormat</a></div><div class="ttdeci">bool use24HourFormat</div><div class="ttdef"><b>Definition</b> <a href="Settings_8h_source.html#l00009">Settings.h:9</a></div></div>
-<div class="ttc" id="astructSettings_html_ac69687603ef12a76a55fe103789eca9d"><div class="ttname"><a href="structSettings.html#ac69687603ef12a76a55fe103789eca9d">Settings::displayBrightness</a></div><div class="ttdeci">uint8_t displayBrightness</div><div class="ttdef"><b>Definition</b> <a href="Settings_8h_source.html#l00007">Settings.h:7</a></div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="ae5f49b2a8fcce549a05a456473304c4d" name="ae5f49b2a8fcce549a05a456473304c4d"></a>
@@ -355,10 +309,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="classApp.html#ac0f6fdafe283898561781c87a19ba9f9">App</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="SettingsApp_8cpp_source.html#l00059">59</a> of file <a class="el" href="SettingsApp_8cpp_source.html">SettingsApp.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   59</span>                         {</div>
-<div class="line"><span class="lineno">   60</span>  <span class="comment">// No rendering needed</span></div>
-<div class="line"><span class="lineno">   61</span>}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a56ffb0e1c93243d6612cd584a5d055cc" name="a56ffb0e1c93243d6612cd584a5d055cc"></a>
@@ -390,10 +341,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="classApp.html#a5c925a8412d05ac94626484689776992">App</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="SettingsApp_8cpp_source.html#l00063">63</a> of file <a class="el" href="SettingsApp_8cpp_source.html">SettingsApp.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   63</span>                             {</div>
-<div class="line"><span class="lineno">   64</span>  <span class="keywordflow">return</span> exitApp;</div>
-<div class="line"><span class="lineno">   65</span>}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a00c89d1e40564a7fc97640f49a1067a1" name="a00c89d1e40564a7fc97640f49a1067a1"></a>
@@ -425,10 +373,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="classApp.html#a7f65e16b8cfebe03063380ef2f7f5c24">App</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="SettingsApp_8cpp_source.html#l00055">55</a> of file <a class="el" href="SettingsApp_8cpp_source.html">SettingsApp.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   55</span>                         {</div>
-<div class="line"><span class="lineno">   56</span>  <span class="comment">// No periodic updates needed</span></div>
-<div class="line"><span class="lineno">   57</span>}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

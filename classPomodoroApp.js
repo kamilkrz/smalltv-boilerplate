@@ -1,5 +1,6 @@
 var classPomodoroApp =
 [
+    [ "getInstance", "classPomodoroApp.html#a50b98a330b70ac9099031beda301159b", null ],
     [ "init", "classPomodoroApp.html#a721e5b18eb6ed0027f81690ddd063097", null ],
     [ "render", "classPomodoroApp.html#a20f3433fa4e9b2fddd6f55ea51322d95", null ],
     [ "shouldExit", "classPomodoroApp.html#a7ae67506e0e0e96832f02308cb95ffd4", null ],

@@ -1,5 +1,6 @@
 var classGooglyEyesApp =
 [
+    [ "getInstance", "classGooglyEyesApp.html#adcc86c10d178934d737c5e20e944cf30", null ],
     [ "init", "classGooglyEyesApp.html#a40fd1d497068ead7724ffc329ae83434", null ],
     [ "render", "classGooglyEyesApp.html#a2b291208aaba258ef1b5faedeb5c5409", null ],
     [ "shouldExit", "classGooglyEyesApp.html#a06ea2ad4d282c535556b0e0758aa787d", null ],

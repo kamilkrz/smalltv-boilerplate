@@ -12,18 +12,21 @@ var group__Apps =
       [ "appName", "classApp.html#a4408bed51e6f2b12c16ef2fad92c5f0d", null ]
     ] ],
     [ "ClockApp", "classClockApp.html", [
+      [ "getInstance", "classClockApp.html#a73774dfe18b0237cf668bf1dc848cfad", null ],
       [ "init", "classClockApp.html#a8fb1111a20556ae821e8081155e43d81", null ],
       [ "render", "classClockApp.html#acba09475c4c04f401926857ab751308f", null ],
       [ "shouldExit", "classClockApp.html#aa0065d3b5ca7109f2aefacd84b1d0ee1", null ],
       [ "update", "classClockApp.html#a0d6896a0043c34909f0eb70999d7cc47", null ]
     ] ],
     [ "GooglyEyesApp", "classGooglyEyesApp.html", [
+      [ "getInstance", "classGooglyEyesApp.html#adcc86c10d178934d737c5e20e944cf30", null ],
       [ "init", "classGooglyEyesApp.html#a40fd1d497068ead7724ffc329ae83434", null ],
       [ "render", "classGooglyEyesApp.html#a2b291208aaba258ef1b5faedeb5c5409", null ],
       [ "shouldExit", "classGooglyEyesApp.html#a06ea2ad4d282c535556b0e0758aa787d", null ],
       [ "update", "classGooglyEyesApp.html#a76f277b3e917acc156664ecc9f625286", null ]
     ] ],
     [ "PomodoroApp", "classPomodoroApp.html", [
+      [ "getInstance", "classPomodoroApp.html#a50b98a330b70ac9099031beda301159b", null ],
       [ "init", "classPomodoroApp.html#a721e5b18eb6ed0027f81690ddd063097", null ],
       [ "render", "classPomodoroApp.html#a20f3433fa4e9b2fddd6f55ea51322d95", null ],
       [ "shouldExit", "classPomodoroApp.html#a7ae67506e0e0e96832f02308cb95ffd4", null ],

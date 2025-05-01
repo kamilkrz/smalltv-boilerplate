@@ -12,7 +12,7 @@ var hierarchy =
       [ "button", "classbutton.html", null ]
     ] ],
     [ "piezo", "classpiezo.html", null ],
-    [ "Settings", "structSettings.html", null ],
+    [ "Settings", "Settings_8h.html#structSettings", null ],
     [ "TFT_eSPI", null, [
       [ "display", "classdisplay.html", null ]
     ] ]

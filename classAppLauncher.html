@@ -27,6 +27,10 @@
   <script type="text/javascript">
     DoxygenAwesomeParagraphLink.init()
   </script>
+  <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
 </head>
 <body>
   <a href="https://github.com/kamilkrz/smalltv-boilerplate" class="github-corner" title="View source on GitHub"
@@ -231,12 +235,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="AppLauncher_8cpp_source.html#l00008">8</a> of file <a class="el" href="AppLauncher_8cpp_source.html">AppLauncher.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    8</span>                                      {</div>
-<div class="line"><span class="lineno">    9</span>  <span class="keyword">static</span> <a class="code hl_class" href="classAppLauncher.html">AppLauncher</a> instance;  <span class="comment">// Guaranteed to be destroyed and instantiated on first use</span></div>
-<div class="line"><span class="lineno">   10</span>  <span class="keywordflow">return</span> instance;</div>
-<div class="line"><span class="lineno">   11</span>}</div>
-<div class="ttc" id="aclassAppLauncher_html"><div class="ttname"><a href="classAppLauncher.html">AppLauncher</a></div><div class="ttdef"><b>Definition</b> <a href="AppLauncher_8h_source.html#l00009">AppLauncher.h:9</a></div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a882a0d60bd084b5c6ade1961807580b0" name="a882a0d60bd084b5c6ade1961807580b0"></a>
@@ -268,35 +267,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="classApp.html#a68f77f8aa188556ec19441f04cdff346">App</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="AppLauncher_8cpp_source.html#l00021">21</a> of file <a class="el" href="AppLauncher_8cpp_source.html">AppLauncher.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   21</span>                       {</div>
-<div class="line"><span class="lineno">   22</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillScreen(TFT_DARKGREY);</div>
-<div class="line"><span class="lineno">   23</span>  menu-&gt;reset();</div>
-<div class="line"><span class="lineno">   24</span>  prepMenuSpecs();</div>
-<div class="line"><span class="lineno">   25</span>  menu-&gt;setTitle(<span class="stringliteral">&quot;Main Menu&quot;</span>);</div>
-<div class="line"><span class="lineno">   26</span> </div>
-<div class="line"><span class="lineno">   27</span>  <span class="comment">// Dynamically add apps from AppCollection to the menu</span></div>
-<div class="line"><span class="lineno">   28</span>  <a class="code hl_class" href="classAppCollection.html">AppCollection</a>&amp; appCollection = <a class="code hl_function" href="classAppCollection.html#aa95017911485112851e286b0a9e90788">AppCollection::getInstance</a>();</div>
-<div class="line"><span class="lineno">   29</span>  std::vector&lt;String&gt; apps = appCollection.<a class="code hl_function" href="classAppCollection.html#a6fcaa1fe606c5030b2e88aaca0aeebb9">listApps</a>();</div>
-<div class="line"><span class="lineno">   30</span>  <span class="keywordflow">if</span> (apps.empty()) {</div>
-<div class="line"><span class="lineno">   31</span>    menu-&gt;addItem(<span class="stringliteral">&quot;No Apps Available&quot;</span>, eSPIMenu::State::disabled);</div>
-<div class="line"><span class="lineno">   32</span>    menu-&gt;setStatus(<span class="stringliteral">&quot;No apps found&quot;</span>);</div>
-<div class="line"><span class="lineno">   33</span>  }</div>
-<div class="line"><span class="lineno">   34</span>  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 1; i &lt; apps.size(); ++i) {</div>
-<div class="line"><span class="lineno">   35</span>    menu-&gt;addItem(apps[i].c_str(), i == 1 ? eSPIMenu::State::selected : eSPIMenu::State::none);</div>
-<div class="line"><span class="lineno">   36</span>  }</div>
-<div class="line"><span class="lineno">   37</span> </div>
-<div class="line"><span class="lineno">   38</span>  menu-&gt;setStatus(<span class="stringliteral">&quot;Press: cycle, Hold: select&quot;</span>);</div>
-<div class="line"><span class="lineno">   39</span> </div>
-<div class="line"><span class="lineno">   40</span>  <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.attachClick(handleShortClick);          <span class="comment">// Attach static function</span></div>
-<div class="line"><span class="lineno">   41</span>  <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.attachLongPressStart(handleLongClick);  <span class="comment">// Attach static function</span></div>
-<div class="line"><span class="lineno">   42</span>  menu-&gt;show();</div>
-<div class="line"><span class="lineno">   43</span>}</div>
-<div class="ttc" id="aButton_8cpp_html_a89604eb1a3848a6a2b17aa10105bb0e3"><div class="ttname"><a href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a></div><div class="ttdeci">button Button</div><div class="ttdef"><b>Definition</b> <a href="Button_8cpp_source.html#l00003">Button.cpp:3</a></div></div>
-<div class="ttc" id="aDisplay_8cpp_html_a7c1c3113ffca0cf79e39a492bf0234f8"><div class="ttname"><a href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a></div><div class="ttdeci">display Display</div><div class="ttdef"><b>Definition</b> <a href="Display_8cpp_source.html#l00018">Display.cpp:18</a></div></div>
-<div class="ttc" id="aclassAppCollection_html"><div class="ttname"><a href="classAppCollection.html">AppCollection</a></div><div class="ttdef"><b>Definition</b> <a href="AppCollection_8h_source.html#l00010">AppCollection.h:10</a></div></div>
-<div class="ttc" id="aclassAppCollection_html_a6fcaa1fe606c5030b2e88aaca0aeebb9"><div class="ttname"><a href="classAppCollection.html#a6fcaa1fe606c5030b2e88aaca0aeebb9">AppCollection::listApps</a></div><div class="ttdeci">std::vector&lt; String &gt; listApps() const</div><div class="ttdef"><b>Definition</b> <a href="AppCollection_8h_source.html#l00051">AppCollection.h:51</a></div></div>
-<div class="ttc" id="aclassAppCollection_html_aa95017911485112851e286b0a9e90788"><div class="ttname"><a href="classAppCollection.html#aa95017911485112851e286b0a9e90788">AppCollection::getInstance</a></div><div class="ttdeci">static AppCollection &amp; getInstance()</div><div class="ttdef"><b>Definition</b> <a href="AppCollection_8h_source.html#l00012">AppCollection.h:12</a></div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="ad8b5606f80fef6081ed08f78abc3f776" name="ad8b5606f80fef6081ed08f78abc3f776"></a>
@@ -328,9 +299,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="classApp.html#ac0f6fdafe283898561781c87a19ba9f9">App</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="AppLauncher_8cpp_source.html#l00049">49</a> of file <a class="el" href="AppLauncher_8cpp_source.html">AppLauncher.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   49</span>                         {</div>
-<div class="line"><span class="lineno">   50</span>}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="ab3237d8e90c2a060e133ecae850b9636" name="ab3237d8e90c2a060e133ecae850b9636"></a>
@@ -362,10 +331,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="classApp.html#a5c925a8412d05ac94626484689776992">App</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="AppLauncher_8h_source.html#l00016">16</a> of file <a class="el" href="AppLauncher_8h_source.html">AppLauncher.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   16</span>                             {</div>
-<div class="line"><span class="lineno">   17</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;  <span class="comment">// No exit condition for this app</span></div>
-<div class="line"><span class="lineno">   18</span>  }</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a143275b88ddaab4d490ad4c13122618e" name="a143275b88ddaab4d490ad4c13122618e"></a>
@@ -397,10 +363,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="classApp.html#a7f65e16b8cfebe03063380ef2f7f5c24">App</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="AppLauncher_8cpp_source.html#l00045">45</a> of file <a class="el" href="AppLauncher_8cpp_source.html">AppLauncher.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   45</span>                         {</div>
-<div class="line"><span class="lineno">   46</span>  <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.tick();  <span class="comment">// Process button events</span></div>
-<div class="line"><span class="lineno">   47</span>}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

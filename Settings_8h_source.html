@@ -27,6 +27,10 @@
   <script type="text/javascript">
     DoxygenAwesomeParagraphLink.init()
   </script>
+  <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
 </head>
 <body>
   <a href="https://github.com/kamilkrz/smalltv-boilerplate" class="github-corner" title="View source on GitHub"
@@ -152,28 +156,28 @@ $(function(){initNavTree('Settings_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="foldopen" id="foldopen00006" data-start="{" data-end="};">
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="structSettings.html">    6</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structSettings.html">Settings</a> {</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="structSettings.html#ac69687603ef12a76a55fe103789eca9d">    7</a></span>  uint8_t <a class="code hl_variable" href="structSettings.html#ac69687603ef12a76a55fe103789eca9d">displayBrightness</a> = 255;        <span class="comment">// Default brightness (0-255)</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="structSettings.html#a02dfe5294ac309b4c593a22a5c62d303">    8</a></span>  uint8_t <a class="code hl_variable" href="structSettings.html#a02dfe5294ac309b4c593a22a5c62d303">timezoneOffset</a> = 0;             <span class="comment">// Default timezone offset in hours</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="structSettings.html#ab0da5bfd8e7ad7338eb916a2fa50a8d5">    9</a></span>  <span class="keywordtype">bool</span> <a class="code hl_variable" href="structSettings.html#ab0da5bfd8e7ad7338eb916a2fa50a8d5">use24HourFormat</a> = <span class="keyword">true</span>;            <span class="comment">// Default time format (24-hour)</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="Settings_8h.html">    6</a></span><span class="keyword">struct </span><a class="code hl_struct" href="Settings_8h.html#structSettings">Settings</a> {</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="Settings_8h.html#ac69687603ef12a76a55fe103789eca9d">    7</a></span>  uint8_t <a class="code hl_variable" href="Settings_8h.html#ac69687603ef12a76a55fe103789eca9d">displayBrightness</a> = 255;        <span class="comment">// Default brightness (0-255)</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="Settings_8h.html#a02dfe5294ac309b4c593a22a5c62d303">    8</a></span>  uint8_t <a class="code hl_variable" href="Settings_8h.html#a02dfe5294ac309b4c593a22a5c62d303">timezoneOffset</a> = 0;             <span class="comment">// Default timezone offset in hours</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="Settings_8h.html#ab0da5bfd8e7ad7338eb916a2fa50a8d5">    9</a></span>  <span class="keywordtype">bool</span> <a class="code hl_variable" href="Settings_8h.html#ab0da5bfd8e7ad7338eb916a2fa50a8d5">use24HourFormat</a> = <span class="keyword">true</span>;            <span class="comment">// Default time format (24-hour)</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>  <span class="comment">// Add more settings as needed</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>};</div>
 </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">extern</span> <a class="code hl_struct" href="structSettings.html">Settings</a> <a class="code hl_variable" href="Settings_8h.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">extern</span> <a class="code hl_struct" href="Settings_8h.html#structSettings">Settings</a> <a class="code hl_variable" href="Settings_8h.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>;</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keywordtype">void</span> <a class="code hl_function" href="Settings_8h.html#a1165e1d4439a045e94970c9fbc73bb3c">loadSettings</a>();  <span class="comment">// Load settings from LittleFS</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keywordtype">void</span> <a class="code hl_function" href="Settings_8h.html#ac7142ee2baa705d2dd402769467d5a4e">saveSettings</a>();  <span class="comment">// Save settings to LittleFS</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#endif  </span><span class="comment">// SETTINGS_H</span></div>
+<div class="ttc" id="aSettings_8h_html_a02dfe5294ac309b4c593a22a5c62d303"><div class="ttname"><a href="Settings_8h.html#a02dfe5294ac309b4c593a22a5c62d303">Settings::timezoneOffset</a></div><div class="ttdeci">uint8_t timezoneOffset</div><div class="ttdef"><b>Definition</b> <a href="#l00008">Settings.h:8</a></div></div>
 <div class="ttc" id="aSettings_8h_html_a1165e1d4439a045e94970c9fbc73bb3c"><div class="ttname"><a href="Settings_8h.html#a1165e1d4439a045e94970c9fbc73bb3c">loadSettings</a></div><div class="ttdeci">void loadSettings()</div><div class="ttdef"><b>Definition</b> <a href="Settings_8cpp_source.html#l00008">Settings.cpp:8</a></div></div>
 <div class="ttc" id="aSettings_8h_html_a19276c778f3034b94881cf1f8614dbb2"><div class="ttname"><a href="Settings_8h.html#a19276c778f3034b94881cf1f8614dbb2">settings</a></div><div class="ttdeci">Settings settings</div><div class="ttdef"><b>Definition</b> <a href="Settings_8cpp_source.html#l00006">Settings.cpp:6</a></div></div>
+<div class="ttc" id="aSettings_8h_html_ab0da5bfd8e7ad7338eb916a2fa50a8d5"><div class="ttname"><a href="Settings_8h.html#ab0da5bfd8e7ad7338eb916a2fa50a8d5">Settings::use24HourFormat</a></div><div class="ttdeci">bool use24HourFormat</div><div class="ttdef"><b>Definition</b> <a href="#l00009">Settings.h:9</a></div></div>
+<div class="ttc" id="aSettings_8h_html_ac69687603ef12a76a55fe103789eca9d"><div class="ttname"><a href="Settings_8h.html#ac69687603ef12a76a55fe103789eca9d">Settings::displayBrightness</a></div><div class="ttdeci">uint8_t displayBrightness</div><div class="ttdef"><b>Definition</b> <a href="#l00007">Settings.h:7</a></div></div>
 <div class="ttc" id="aSettings_8h_html_ac7142ee2baa705d2dd402769467d5a4e"><div class="ttname"><a href="Settings_8h.html#ac7142ee2baa705d2dd402769467d5a4e">saveSettings</a></div><div class="ttdeci">void saveSettings()</div><div class="ttdef"><b>Definition</b> <a href="Settings_8cpp_source.html#l00051">Settings.cpp:51</a></div></div>
-<div class="ttc" id="astructSettings_html"><div class="ttname"><a href="structSettings.html">Settings</a></div><div class="ttdef"><b>Definition</b> <a href="#l00006">Settings.h:6</a></div></div>
-<div class="ttc" id="astructSettings_html_a02dfe5294ac309b4c593a22a5c62d303"><div class="ttname"><a href="structSettings.html#a02dfe5294ac309b4c593a22a5c62d303">Settings::timezoneOffset</a></div><div class="ttdeci">uint8_t timezoneOffset</div><div class="ttdef"><b>Definition</b> <a href="#l00008">Settings.h:8</a></div></div>
-<div class="ttc" id="astructSettings_html_ab0da5bfd8e7ad7338eb916a2fa50a8d5"><div class="ttname"><a href="structSettings.html#ab0da5bfd8e7ad7338eb916a2fa50a8d5">Settings::use24HourFormat</a></div><div class="ttdeci">bool use24HourFormat</div><div class="ttdef"><b>Definition</b> <a href="#l00009">Settings.h:9</a></div></div>
-<div class="ttc" id="astructSettings_html_ac69687603ef12a76a55fe103789eca9d"><div class="ttname"><a href="structSettings.html#ac69687603ef12a76a55fe103789eca9d">Settings::displayBrightness</a></div><div class="ttdeci">uint8_t displayBrightness</div><div class="ttdef"><b>Definition</b> <a href="#l00007">Settings.h:7</a></div></div>
+<div class="ttc" id="aSettings_8h_html_structSettings"><div class="ttname"><a href="Settings_8h.html#structSettings">Settings</a></div><div class="ttdef"><b>Definition</b> <a href="#l00006">Settings.h:6</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

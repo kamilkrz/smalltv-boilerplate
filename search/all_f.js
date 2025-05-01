@@ -2,7 +2,7 @@ var searchData=
 [
   ['savesettings_0',['saveSettings',['../Settings_8cpp.html#ac7142ee2baa705d2dd402769467d5a4e',1,'saveSettings():&#160;Settings.cpp'],['../Settings_8h.html#ac7142ee2baa705d2dd402769467d5a4e',1,'saveSettings():&#160;Settings.cpp']]],
   ['setbacklight_1',['setBacklight',['../classdisplay.html#aeab7f9bf60d200db6c793c2ef7f28f75',1,'display']]],
-  ['settings_2',['Settings',['../structSettings.html',1,'']]],
+  ['settings_2',['Settings',['../Settings_8h.html#structSettings',1,'']]],
   ['settings_3',['settings',['../Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2',1,'settings:&#160;Settings.cpp'],['../Settings_8h.html#a19276c778f3034b94881cf1f8614dbb2',1,'settings:&#160;Settings.cpp']]],
   ['settings_2ecpp_4',['Settings.cpp',['../Settings_8cpp.html',1,'']]],
   ['settings_2eh_5',['Settings.h',['../Settings_8h.html',1,'']]],

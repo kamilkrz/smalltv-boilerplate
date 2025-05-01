@@ -9,6 +9,6 @@ var annotated_dup =
     [ "GooglyEyesApp", "classGooglyEyesApp.html", "classGooglyEyesApp" ],
     [ "piezo", "classpiezo.html", "classpiezo" ],
     [ "PomodoroApp", "classPomodoroApp.html", "classPomodoroApp" ],
-    [ "Settings", "structSettings.html", "structSettings" ],
+    [ "Settings", "Settings_8h.html#structSettings", "Settings_8h_structSettings" ],
     [ "SettingsApp", "classSettingsApp.html", "classSettingsApp" ]
 ];

@@ -27,6 +27,10 @@
   <script type="text/javascript">
     DoxygenAwesomeParagraphLink.init()
   </script>
+  <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
 </head>
 <body>
   <a href="https://github.com/kamilkrz/smalltv-boilerplate" class="github-corner" title="View source on GitHub"
@@ -236,12 +240,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="PomodoroApp_8cpp_source.html#l00013">13</a> of file <a class="el" href="PomodoroApp_8cpp_source.html">PomodoroApp.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   13</span>                                      {</div>
-<div class="line"><span class="lineno">   14</span>  <span class="keyword">static</span> <a class="code hl_class" href="classPomodoroApp.html">PomodoroApp</a> instance;</div>
-<div class="line"><span class="lineno">   15</span>  <span class="keywordflow">return</span> instance;</div>
-<div class="line"><span class="lineno">   16</span>}</div>
-<div class="ttc" id="aclassPomodoroApp_html"><div class="ttname"><a href="classPomodoroApp.html">PomodoroApp</a></div><div class="ttdoc">Simple pomodoro timer application.</div><div class="ttdef"><b>Definition</b> <a href="PomodoroApp_8h_source.html#l00021">PomodoroApp.h:21</a></div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a721e5b18eb6ed0027f81690ddd063097" name="a721e5b18eb6ed0027f81690ddd063097"></a>
@@ -273,20 +272,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="classApp.html#a68f77f8aa188556ec19441f04cdff346">App</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="PomodoroApp_8cpp_source.html#l00090">90</a> of file <a class="el" href="PomodoroApp_8cpp_source.html">PomodoroApp.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   90</span>                       {</div>
-<div class="line"><span class="lineno">   91</span>  shouldExitApp = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   92</span>  <span class="keywordflow">switch</span> (currentState) {</div>
-<div class="line"><span class="lineno">   93</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="PomodoroApp_8h.html#a5d74787dedbc4e11c1ab15bf487e61f8aefb4777327e6f704fb1519c1882f93ec">State::Timer</a>:</div>
-<div class="line"><span class="lineno">   94</span>      initTimerState();</div>
-<div class="line"><span class="lineno">   95</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   96</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="PomodoroApp_8h.html#a5d74787dedbc4e11c1ab15bf487e61f8ab61541208db7fa7dba42c85224405911">State::Menu</a>:</div>
-<div class="line"><span class="lineno">   97</span>      initMenuState();</div>
-<div class="line"><span class="lineno">   98</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   99</span>  }</div>
-<div class="line"><span class="lineno">  100</span>}</div>
-<div class="ttc" id="aPomodoroApp_8h_html_a5d74787dedbc4e11c1ab15bf487e61f8ab61541208db7fa7dba42c85224405911"><div class="ttname"><a href="PomodoroApp_8h.html#a5d74787dedbc4e11c1ab15bf487e61f8ab61541208db7fa7dba42c85224405911">State::Menu</a></div><div class="ttdeci">@ Menu</div></div>
-<div class="ttc" id="aPomodoroApp_8h_html_a5d74787dedbc4e11c1ab15bf487e61f8aefb4777327e6f704fb1519c1882f93ec"><div class="ttname"><a href="PomodoroApp_8h.html#a5d74787dedbc4e11c1ab15bf487e61f8aefb4777327e6f704fb1519c1882f93ec">State::Timer</a></div><div class="ttdeci">@ Timer</div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a20f3433fa4e9b2fddd6f55ea51322d95" name="a20f3433fa4e9b2fddd6f55ea51322d95"></a>
@@ -318,16 +304,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="classApp.html#ac0f6fdafe283898561781c87a19ba9f9">App</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="PomodoroApp_8cpp_source.html#l00114">114</a> of file <a class="el" href="PomodoroApp_8cpp_source.html">PomodoroApp.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  114</span>                         {</div>
-<div class="line"><span class="lineno">  115</span>  <span class="keywordflow">switch</span> (currentState) {</div>
-<div class="line"><span class="lineno">  116</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="PomodoroApp_8h.html#a5d74787dedbc4e11c1ab15bf487e61f8aefb4777327e6f704fb1519c1882f93ec">State::Timer</a>:</div>
-<div class="line"><span class="lineno">  117</span>      displayTime();</div>
-<div class="line"><span class="lineno">  118</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  119</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="PomodoroApp_8h.html#a5d74787dedbc4e11c1ab15bf487e61f8ab61541208db7fa7dba42c85224405911">State::Menu</a>:</div>
-<div class="line"><span class="lineno">  120</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  121</span>  }</div>
-<div class="line"><span class="lineno">  122</span>}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a7ae67506e0e0e96832f02308cb95ffd4" name="a7ae67506e0e0e96832f02308cb95ffd4"></a>
@@ -359,10 +336,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="classApp.html#a5c925a8412d05ac94626484689776992">App</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="PomodoroApp_8cpp_source.html#l00124">124</a> of file <a class="el" href="PomodoroApp_8cpp_source.html">PomodoroApp.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  124</span>                             {</div>
-<div class="line"><span class="lineno">  125</span>  <span class="keywordflow">return</span> shouldExitApp;</div>
-<div class="line"><span class="lineno">  126</span>}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="ac8b1e463d8e7b890ebe58bea573a821c" name="ac8b1e463d8e7b890ebe58bea573a821c"></a>
@@ -394,19 +368,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="classApp.html#a7f65e16b8cfebe03063380ef2f7f5c24">App</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="PomodoroApp_8cpp_source.html#l00102">102</a> of file <a class="el" href="PomodoroApp_8cpp_source.html">PomodoroApp.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  102</span>                         {</div>
-<div class="line"><span class="lineno">  103</span>  <span class="keywordflow">switch</span> (currentState) {</div>
-<div class="line"><span class="lineno">  104</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="PomodoroApp_8h.html#a5d74787dedbc4e11c1ab15bf487e61f8aefb4777327e6f704fb1519c1882f93ec">State::Timer</a>:</div>
-<div class="line"><span class="lineno">  105</span>      timer.tick();</div>
-<div class="line"><span class="lineno">  106</span>      <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.tick();</div>
-<div class="line"><span class="lineno">  107</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  108</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="PomodoroApp_8h.html#a5d74787dedbc4e11c1ab15bf487e61f8ab61541208db7fa7dba42c85224405911">State::Menu</a>:</div>
-<div class="line"><span class="lineno">  109</span>      <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.tick();</div>
-<div class="line"><span class="lineno">  110</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  111</span>  }</div>
-<div class="line"><span class="lineno">  112</span>}</div>
-<div class="ttc" id="aButton_8cpp_html_a89604eb1a3848a6a2b17aa10105bb0e3"><div class="ttname"><a href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a></div><div class="ttdeci">button Button</div><div class="ttdef"><b>Definition</b> <a href="Button_8cpp_source.html#l00003">Button.cpp:3</a></div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>

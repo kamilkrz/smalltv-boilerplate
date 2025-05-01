@@ -27,6 +27,10 @@
   <script type="text/javascript">
     DoxygenAwesomeParagraphLink.init()
   </script>
+  <script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeDarkModeToggle.init()
+  </script>
 </head>
 <body>
   <a href="https://github.com/kamilkrz/smalltv-boilerplate" class="github-corner" title="View source on GitHub"
@@ -236,12 +240,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="ClockApp_8cpp_source.html#l00015">15</a> of file <a class="el" href="ClockApp_8cpp_source.html">ClockApp.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   15</span>                                {</div>
-<div class="line"><span class="lineno">   16</span>  <span class="keyword">static</span> <a class="code hl_class" href="classClockApp.html">ClockApp</a> instance;</div>
-<div class="line"><span class="lineno">   17</span>  <span class="keywordflow">return</span> instance;</div>
-<div class="line"><span class="lineno">   18</span>}</div>
-<div class="ttc" id="aclassClockApp_html"><div class="ttname"><a href="classClockApp.html">ClockApp</a></div><div class="ttdoc">Simple clock application.</div><div class="ttdef"><b>Definition</b> <a href="ClockApp_8h_source.html#l00020">ClockApp.h:20</a></div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a8fb1111a20556ae821e8081155e43d81" name="a8fb1111a20556ae821e8081155e43d81"></a>
@@ -273,57 +272,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="classApp.html#a68f77f8aa188556ec19441f04cdff346">App</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="ClockApp_8cpp_source.html#l00020">20</a> of file <a class="el" href="ClockApp_8cpp_source.html">ClockApp.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   20</span>                    {</div>
-<div class="line"><span class="lineno">   21</span>  shouldExitApp = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   22</span>  ntpClient.setTimeOffset(<a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#a02dfe5294ac309b4c593a22a5c62d303">timezoneOffset</a> * 3600);</div>
-<div class="line"><span class="lineno">   23</span>  <span class="comment">// Retrieve WiFi credentials from SettingsApp</span></div>
-<div class="line"><span class="lineno">   24</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillScreen(TFT_BLACK);</div>
-<div class="line"><span class="lineno">   25</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextColor(TFT_WHITE);</div>
-<div class="line"><span class="lineno">   26</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextFont(4);</div>
-<div class="line"><span class="lineno">   27</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextDatum(MC_DATUM);</div>
-<div class="line"><span class="lineno">   28</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.drawString(<span class="stringliteral">&quot;Connecting to WiFi...&quot;</span>, <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.width() / 2, <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.height() / 2);</div>
-<div class="line"><span class="lineno">   29</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextDatum(TL_DATUM);</div>
-<div class="line"><span class="lineno">   30</span> </div>
-<div class="line"><span class="lineno">   31</span>  <span class="comment">// Attempt to connect using saved credentials</span></div>
-<div class="line"><span class="lineno">   32</span>  WiFi.begin();</div>
-<div class="line"><span class="lineno">   33</span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> startAttemptTime = millis();</div>
-<div class="line"><span class="lineno">   34</span>  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> timeout = 30000;  <span class="comment">// 30 seconds timeout</span></div>
-<div class="line"><span class="lineno">   35</span> </div>
-<div class="line"><span class="lineno">   36</span>  <span class="keywordflow">while</span> (WiFi.status() != WL_CONNECTED &amp;&amp; millis() - startAttemptTime &lt; timeout) {</div>
-<div class="line"><span class="lineno">   37</span>    delay(500);</div>
-<div class="line"><span class="lineno">   38</span>  }</div>
-<div class="line"><span class="lineno">   39</span> </div>
-<div class="line"><span class="lineno">   40</span>  <span class="keywordflow">if</span> (WiFi.status() != WL_CONNECTED) {</div>
-<div class="line"><span class="lineno">   41</span>    <span class="comment">// Connection failed, display timeout message and exit app</span></div>
-<div class="line"><span class="lineno">   42</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillScreen(TFT_BLACK);</div>
-<div class="line"><span class="lineno">   43</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.drawString(<span class="stringliteral">&quot;WiFi Timeout!&quot;</span>, <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.width() / 2, <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.height() / 2);</div>
-<div class="line"><span class="lineno">   44</span>    delay(3000);  <span class="comment">// Show timeout message for 3 seconds</span></div>
-<div class="line"><span class="lineno">   45</span>    shouldExitApp = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   46</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   47</span>  }</div>
-<div class="line"><span class="lineno">   48</span> </div>
-<div class="line"><span class="lineno">   49</span>  <span class="comment">// Connection successful</span></div>
-<div class="line"><span class="lineno">   50</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillScreen(TFT_BLACK);</div>
-<div class="line"><span class="lineno">   51</span>  ntpClient.begin();</div>
-<div class="line"><span class="lineno">   52</span>  ntpClient.update();</div>
-<div class="line"><span class="lineno">   53</span> </div>
-<div class="line"><span class="lineno">   54</span>  <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.attachClick([]() {</div>
-<div class="line"><span class="lineno">   55</span>    <a class="code hl_variable" href="Piezo_8cpp.html#a3ef5b7eb7cffe920e96ef5d7bedf0b5b">Piezo</a>.<a class="code hl_function" href="classpiezo.html#abc0f293053b436f6d2fbd2478284987a">err</a>();</div>
-<div class="line"><span class="lineno">   56</span>  });</div>
-<div class="line"><span class="lineno">   57</span>  <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.attachLongPressStart([]() {</div>
-<div class="line"><span class="lineno">   58</span>    <a class="code hl_variable" href="Piezo_8cpp.html#a3ef5b7eb7cffe920e96ef5d7bedf0b5b">Piezo</a>.<a class="code hl_function" href="classpiezo.html#a484306078dc70dacfa171ba4cfe1c356">ack</a>();</div>
-<div class="line"><span class="lineno">   59</span>    <a class="code hl_function" href="#a73774dfe18b0237cf668bf1dc848cfad">ClockApp::getInstance</a>().shouldExitApp = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   60</span>  });</div>
-<div class="line"><span class="lineno">   61</span>}</div>
-<div class="ttc" id="aButton_8cpp_html_a89604eb1a3848a6a2b17aa10105bb0e3"><div class="ttname"><a href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a></div><div class="ttdeci">button Button</div><div class="ttdef"><b>Definition</b> <a href="Button_8cpp_source.html#l00003">Button.cpp:3</a></div></div>
-<div class="ttc" id="aDisplay_8cpp_html_a7c1c3113ffca0cf79e39a492bf0234f8"><div class="ttname"><a href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a></div><div class="ttdeci">display Display</div><div class="ttdef"><b>Definition</b> <a href="Display_8cpp_source.html#l00018">Display.cpp:18</a></div></div>
-<div class="ttc" id="aPiezo_8cpp_html_a3ef5b7eb7cffe920e96ef5d7bedf0b5b"><div class="ttname"><a href="Piezo_8cpp.html#a3ef5b7eb7cffe920e96ef5d7bedf0b5b">Piezo</a></div><div class="ttdeci">piezo Piezo(PIEZO_PIN)</div></div>
-<div class="ttc" id="aSettings_8cpp_html_a19276c778f3034b94881cf1f8614dbb2"><div class="ttname"><a href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a></div><div class="ttdeci">Settings settings</div><div class="ttdef"><b>Definition</b> <a href="Settings_8cpp_source.html#l00006">Settings.cpp:6</a></div></div>
-<div class="ttc" id="aclassClockApp_html_a73774dfe18b0237cf668bf1dc848cfad"><div class="ttname"><a href="#a73774dfe18b0237cf668bf1dc848cfad">ClockApp::getInstance</a></div><div class="ttdeci">static ClockApp &amp; getInstance()</div><div class="ttdef"><b>Definition</b> <a href="ClockApp_8cpp_source.html#l00015">ClockApp.cpp:15</a></div></div>
-<div class="ttc" id="aclasspiezo_html_a484306078dc70dacfa171ba4cfe1c356"><div class="ttname"><a href="classpiezo.html#a484306078dc70dacfa171ba4cfe1c356">piezo::ack</a></div><div class="ttdeci">void ack()</div><div class="ttdoc">Plays an acknowledgment sound.</div><div class="ttdef"><b>Definition</b> <a href="Piezo_8cpp_source.html#l00011">Piezo.cpp:11</a></div></div>
-<div class="ttc" id="aclasspiezo_html_abc0f293053b436f6d2fbd2478284987a"><div class="ttname"><a href="classpiezo.html#abc0f293053b436f6d2fbd2478284987a">piezo::err</a></div><div class="ttdeci">void err()</div><div class="ttdoc">Plays an error sound.</div><div class="ttdef"><b>Definition</b> <a href="Piezo_8cpp_source.html#l00027">Piezo.cpp:27</a></div></div>
-<div class="ttc" id="astructSettings_html_a02dfe5294ac309b4c593a22a5c62d303"><div class="ttname"><a href="structSettings.html#a02dfe5294ac309b4c593a22a5c62d303">Settings::timezoneOffset</a></div><div class="ttdeci">uint8_t timezoneOffset</div><div class="ttdef"><b>Definition</b> <a href="Settings_8h_source.html#l00008">Settings.h:8</a></div></div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="acba09475c4c04f401926857ab751308f" name="acba09475c4c04f401926857ab751308f"></a>
@@ -355,10 +304,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="classApp.html#ac0f6fdafe283898561781c87a19ba9f9">App</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="ClockApp_8cpp_source.html#l00068">68</a> of file <a class="el" href="ClockApp_8cpp_source.html">ClockApp.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   68</span>                      {</div>
-<div class="line"><span class="lineno">   69</span>  displayTime(ntpClient.getFormattedTime());</div>
-<div class="line"><span class="lineno">   70</span>}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="aa0065d3b5ca7109f2aefacd84b1d0ee1" name="aa0065d3b5ca7109f2aefacd84b1d0ee1"></a>
@@ -390,10 +336,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="classApp.html#a5c925a8412d05ac94626484689776992">App</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="ClockApp_8cpp_source.html#l00072">72</a> of file <a class="el" href="ClockApp_8cpp_source.html">ClockApp.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   72</span>                          {</div>
-<div class="line"><span class="lineno">   73</span>  <span class="keywordflow">return</span> shouldExitApp;</div>
-<div class="line"><span class="lineno">   74</span>}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <a id="a0d6896a0043c34909f0eb70999d7cc47" name="a0d6896a0043c34909f0eb70999d7cc47"></a>
@@ -425,11 +368,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Implements <a class="el" href="classApp.html#a7f65e16b8cfebe03063380ef2f7f5c24">App</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="ClockApp_8cpp_source.html#l00063">63</a> of file <a class="el" href="ClockApp_8cpp_source.html">ClockApp.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   63</span>                      {</div>
-<div class="line"><span class="lineno">   64</span>  ntpClient.update();</div>
-<div class="line"><span class="lineno">   65</span>  <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.tick();</div>
-<div class="line"><span class="lineno">   66</span>}</div>
-</div><!-- fragment -->
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
