@@ -2,12 +2,15 @@ name: Pull Request CI
 permissions:
   contents: read
   pull-requests: write
+  id-token: write
 on:
   pull_request:
     branches: [main]
 env:
   PLATFORMIO_BUILD_FILE: platformio-build.output
   PLATFORMIO_BUILD_STDOUTERR_FILE: platformio-build.stdouterr
+  GITHUB_WORKFLOW_RUN_URL: >-
+    ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/attempts/${{ github.run_attempt }}
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,6 +21,12 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+            ~/.platformio/.cache
+          key: ${{ runner.os }}-pio
       - name: Install PlatformIO Core
         run: pip install --upgrade platformio
       - name: Build PlatformIO Project
@@ -25,4 +34,149 @@ jobs:
       - name: Post build output as PR comment
         uses: actions/github-script@v7
         with:
-          script: "const fs = require('fs');\nconst buildOutput = fs.readFileSync(process.env.PLATFORMIO_BUILD_FILE, 'utf8');\nconst ramIndex = buildOutput.lastIndexOf('\\nRAM:');\nconst filteredOutput = ramIndex !== -1 ? buildOutput.slice(ramIndex + 1) : buildOutput;\nconst commentBody = `### Build Output\\n\\`\\`\\`\\n${filteredOutput}\\n\\`\\`\\``;\n\nconst { data: comments } = await github.rest.issues.listComments({\n  ...context.repo,\n  issue_number: context.issue.number\n});\n\nconst existingComment = comments.find(comment => \n  comment.user.login === 'github-actions[bot]' && \n  comment.body.startsWith('### Build Output')\n);\n\nif (existingComment) {\n  await github.rest.issues.updateComment({\n    ...context.repo,\n    comment_id: existingComment.id,\n    body: commentBody\n  });\n} else {\n  await github.rest.issues.createComment({\n    ...context.repo,\n    issue_number: context.issue.number,\n    body: commentBody\n  });\n}\n"
+          script: |
+            const fs = require('fs');
+            const buildOutput = fs.readFileSync(process.env.PLATFORMIO_BUILD_FILE, 'utf8');
+            const githubWorkflowRunUrl = process.env.GITHUB_WORKFLOW_RUN_URL;
+            const githubRunNumber = process.env.GITHUB_RUN_NUMBER;
+            const githubRunAttempt = process.env.GITHUB_RUN_ATTEMPT;
+            const outcomeEmoji = (outcome) => {
+              switch (outcome) {
+                case 'SUCCESS': return ':white_check_mark:';
+                case 'FAILED': return ':x:';
+                default: return outcome;
+              }
+            };
+            const cutIndex = buildOutput.lastIndexOf('\nEnvironment');
+            const filteredOutput = cutIndex !== -1 ? buildOutput.slice(cutIndex + 1) : buildOutput;
+            const lines = filteredOutput.split('\n').filter(line => line.trim() !== '');
+            const tableHeader = '| Environment | Status | Duration |';
+            const tableRows = lines.slice(1, -1).map(line => {
+              const columns = line.split(/\s{2,}/).map(col => col.trim());
+              columns[1] = outcomeEmoji(columns[1]);
+              return `| ${columns.join(' | ')} |`;
+            });
+            const markdownTable = [tableHeader, ...tableRows].join('\n');
+            const summaryLine = buildOutput.split('\n')
+              .find(line => line.startsWith('=') && line.includes(' in '))
+              ?.replace(/=/g, '').trim();
+            const buildLink = `[View Workflow Run #${githubRunNumber} (Attempt ${githubRunAttempt})](${githubWorkflowRunUrl})`;
+            const commentBody = `### Build Output\n\n**Summary:**\n${summaryLine}\n\n${markdownTable}\n\n${buildLink}\n`;
+            const { data: comments } = await github.rest.issues.listComments({
+              ...context.repo,
+              issue_number: context.issue.number
+            });
+            const existingComment = comments.find(comment => 
+              comment.user.login === 'github-actions[bot]' && 
+              comment.body.startsWith('### Build Output')
+            );
+            if (existingComment) {
+              await github.rest.issues.updateComment({
+                  ...context.repo,
+                  comment_id: existingComment.id,
+                  body: commentBody
+              });
+            } else {
+              await github.rest.issues.createComment({
+                  ...context.repo,
+                  issue_number: context.issue.number,
+                  body: commentBody
+              });
+            }
+      - name: Post warnings/errors as PR comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const buildOutput = fs.readFileSync(process.env.PLATFORMIO_BUILD_STDOUTERR_FILE, 'utf8');
+            const warningErrorLines = buildOutput.split('\n').filter(line =>  
+              (
+                !line.match(/Cloning into/) // Exclude GHA output
+              ) 
+            );
+
+            let commentBody = '### Warnings/Errors\n\n';
+            let currentDevice = null;
+
+            warningErrorLines.forEach(line => {
+              const match = line.match(/\.pio\/libdeps\/([^\/]+)\//); // Extract device name
+              const device = match ? match[1] : null;
+
+              if (device && device !== currentDevice) {
+                if (currentDevice !== null) {
+                  commentBody += '```\n\n'; // Close the previous code block
+                }
+                commentBody += `#### Environment: ${device}\n\n\`\`\`\n`;
+                currentDevice = device;
+              }
+
+              commentBody += `${line}\n`; // Add the line to the current block
+            });
+
+            if (currentDevice !== null) {
+              commentBody += '```\n\n'; // Close the last code block
+            }
+
+            if (warningErrorLines.length === 0) {
+              commentBody += ':white_check_mark: No warnings or errors found. Everything is good to go! :tada:\n';
+            }
+
+            const { data: comments } = await github.rest.issues.listComments({
+              ...context.repo,
+              issue_number: context.issue.number
+            });
+            const existingComment = comments.find(comment => 
+              comment.user.login === 'github-actions[bot]' && 
+              comment.body.startsWith('### Warnings/Errors')
+            );
+            if (existingComment) {
+              await github.rest.issues.updateComment({
+                  ...context.repo,
+                  comment_id: existingComment.id,
+                  body: commentBody
+              });
+            } else {
+              await github.rest.issues.createComment({
+                  ...context.repo,
+                  issue_number: context.issue.number,
+                  body: commentBody
+              });
+            }
+      - name: Publish GitHub Actions Job Summary
+        uses: actions/github-script@v7
+        if: always()
+        continue-on-error: true
+        with:
+          script: |
+            const fs = require('fs');
+            const buildOutput = fs.readFileSync(process.env.PLATFORMIO_BUILD_FILE, 'utf8');
+            const githubWorkflowRunUrl = process.env.GITHUB_WORKFLOW_RUN_URL;
+            const githubRunNumber = process.env.GITHUB_RUN_NUMBER;
+            const githubRunAttempt = process.env.GITHUB_RUN_ATTEMPT;
+            const outcomeEmoji = (outcome) => {
+              switch (outcome) {
+                case 'SUCCESS': return ':white_check_mark:';
+                case 'FAILED': return ':x:';
+                default: return outcome;
+              }
+            };
+            const cutIndex = buildOutput.lastIndexOf('\nEnvironment');
+            const filteredOutput = cutIndex !== -1 ? buildOutput.slice(cutIndex + 1) : buildOutput;
+            const lines = filteredOutput.split('\n').filter(line => line.trim() !== '');
+            const tableHeader = '| Environment | Status | Duration |';
+            const tableRows = lines.slice(1, -1).map(line => {
+              const columns = line.split(/\s{2,}/).map(col => col.trim());
+              columns[1] = outcomeEmoji(columns[1]);
+              return `| ${columns.join(' | ')} |`;
+            });
+            const markdownTable = [tableHeader, ...tableRows].join('\n');
+            const summaryLine = buildOutput.split('\n')
+              .find(line => line.startsWith('=') && line.includes(' in '))
+              ?.replace(/=/g, '').trim();
+            const buildLink = `[View Workflow Run #${githubRunNumber} (Attempt ${githubRunAttempt})](${githubWorkflowRunUrl})`;
+            const commentBody = `### Build Output\n\n**Summary:**\n${summaryLine}\n\n${markdownTable}\n\n${buildLink}\n`;
+            const { data: comments } = await github.rest.issues.listComments({
+              ...context.repo,
+              issue_number: context.issue.number
+            });
+            await core.summary.addRaw(commentBody, true).write();
