@@ -1,0 +1,28 @@
+name: Pull Request CI
+permissions:
+  contents: read
+  pull-requests: write
+on:
+  pull_request:
+    branches: [main]
+env:
+  PLATFORMIO_BUILD_FILE: platformio-build.output
+  PLATFORMIO_BUILD_STDOUTERR_FILE: platformio-build.stdouterr
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install PlatformIO Core
+        run: pip install --upgrade platformio
+      - name: Build PlatformIO Project
+        run: pio run 2> >(tee "${PLATFORMIO_BUILD_STDOUTERR_FILE}" >&2) | tee "${PLATFORMIO_BUILD_FILE}"
+      - name: Post build output as PR comment
+        uses: actions/github-script@v7
+        with:
+          script: "const fs = require('fs');\nconst buildOutput = fs.readFileSync(process.env.PLATFORMIO_BUILD_FILE, 'utf8');\nconst ramIndex = buildOutput.lastIndexOf('\\nRAM:');\nconst filteredOutput = ramIndex !== -1 ? buildOutput.slice(ramIndex + 1) : buildOutput;\nconst commentBody = `### Build Output\\n\\`\\`\\`\\n${filteredOutput}\\n\\`\\`\\``;\n\nconst { data: comments } = await github.rest.issues.listComments({\n  ...context.repo,\n  issue_number: context.issue.number\n});\n\nconst existingComment = comments.find(comment => \n  comment.user.login === 'github-actions[bot]' && \n  comment.body.startsWith('### Build Output')\n);\n\nif (existingComment) {\n  await github.rest.issues.updateComment({\n    ...context.repo,\n    comment_id: existingComment.id,\n    body: commentBody\n  });\n} else {\n  await github.rest.issues.createComment({\n    ...context.repo,\n    issue_number: context.issue.number,\n    body: commentBody\n  });\n}\n"
