@@ -4,11 +4,7 @@
 #include <DigiFont.h>
 
 #include "ctTimer.h"
-#include "hardware/Button.h"
-#include "hardware/Display.h"
-#include "hardware/Piezo.h"
-
-// TODO: as this should be pomodoro timer its rather logical to add second timer for break
+#include "hardware/Hardware.h"
 
 PomodoroApp& PomodoroApp::getInstance() {
   static PomodoroApp instance;

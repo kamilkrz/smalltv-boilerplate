@@ -11,6 +11,7 @@
  *
  * This class is a singleton that provides functionality for initializing,
  * updating, rendering, and exiting the settings application.
+ * @ingroup Apps
  */
 class SettingsApp : public App {
  public:

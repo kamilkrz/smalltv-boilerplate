@@ -9,8 +9,7 @@
 #include "core/AppLauncher/AppLauncher.h"
 #include "core/Settings.h"
 #include "core/SettingsApp/SettingsApp.h"
-#include "hardware/Display.h"
-#include "hardware/Piezo.h"
+#include "hardware/Hardware.h"
 // APPS
 #include "apps/ClockApp/ClockApp.h"
 #include "apps/GooglyEyes/GooglyEyes.h"
