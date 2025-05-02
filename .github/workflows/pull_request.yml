@@ -33,6 +33,8 @@ jobs:
         run: pio run 2> >(tee "${PLATFORMIO_BUILD_STDOUTERR_FILE}" >&2) | tee "${PLATFORMIO_BUILD_FILE}"
       - name: Post build output as PR comment
         uses: actions/github-script@v7
+        if: always()
+        continue-on-error: true
         with:
           script: |
             const fs = require('fs');
@@ -60,15 +62,23 @@ jobs:
             const summaryLine = buildOutput.split('\n')
               .find(line => line.startsWith('=') && line.includes(' in '))
               ?.replace(/=/g, '').trim();
+
+            const decoratedSummaryLine = summaryLine?.includes('succeeded')
+              ? `:sparkles: ${summaryLine} :sparkles:`
+              : summaryLine?.includes('failed')
+              ? `:rotating_light: ${summaryLine} :rotating_light:`
+              : summaryLine;
+
             const buildLink = `[View Workflow Run #${githubRunNumber} (Attempt ${githubRunAttempt})](${githubWorkflowRunUrl})`;
-            const commentBody = `### Build Output\n\n**Summary:**\n${summaryLine}\n\n${markdownTable}\n\n${buildLink}\n`;
+            const commentHeader = '### :rocket: Build Output :rocket:\n\n**Summary:**\n';
+            const commentBody = `${commentHeader}${decoratedSummaryLine}\n\n${markdownTable}\n\n${buildLink}\n`;
             const { data: comments } = await github.rest.issues.listComments({
               ...context.repo,
               issue_number: context.issue.number
             });
             const existingComment = comments.find(comment => 
               comment.user.login === 'github-actions[bot]' && 
-              comment.body.startsWith('### Build Output')
+              comment.body.startsWith(commentHeader)
             );
             if (existingComment) {
               await github.rest.issues.updateComment({
@@ -85,6 +95,8 @@ jobs:
             }
       - name: Post warnings/errors as PR comment
         uses: actions/github-script@v7
+        if: always()
+        continue-on-error: true
         with:
           script: |
             const fs = require('fs');
@@ -94,8 +106,8 @@ jobs:
                 !line.match(/Cloning into/) // Exclude GHA output
               ) 
             );
-
-            let commentBody = '### Warnings/Errors\n\n';
+            let header = '### :boom: Warnings/Errors :boom: \n\n';
+            let commentBody = header;
             let currentDevice = null;
 
             warningErrorLines.forEach(line => {
@@ -118,7 +130,7 @@ jobs:
             }
 
             if (warningErrorLines.length === 0) {
-              commentBody += ':white_check_mark: No warnings or errors found. Everything is good to go! :tada:\n';
+              commentBody += ':tada: No warnings or errors found. Everything is good to go! :tada:\n';
             }
 
             const { data: comments } = await github.rest.issues.listComments({
@@ -127,7 +139,7 @@ jobs:
             });
             const existingComment = comments.find(comment => 
               comment.user.login === 'github-actions[bot]' && 
-              comment.body.startsWith('### Warnings/Errors')
+              comment.body.startsWith(header)
             );
             if (existingComment) {
               await github.rest.issues.updateComment({
@@ -173,8 +185,15 @@ jobs:
             const summaryLine = buildOutput.split('\n')
               .find(line => line.startsWith('=') && line.includes(' in '))
               ?.replace(/=/g, '').trim();
+
+            const decoratedSummaryLine = summaryLine?.includes('succeeded')
+              ? `:sparkles: ${summaryLine} :sparkles:`
+              : summaryLine?.includes('failed')
+              ? `:rotating_light: ${summaryLine} :rotating_light:`
+              : summaryLine;
+
             const buildLink = `[View Workflow Run #${githubRunNumber} (Attempt ${githubRunAttempt})](${githubWorkflowRunUrl})`;
-            const commentBody = `### Build Output\n\n**Summary:**\n${summaryLine}\n\n${markdownTable}\n\n${buildLink}\n`;
+            const commentBody = `### Build Output\n\n**Summary:**\n${decoratedSummaryLine}\n\n${markdownTable}\n\n${buildLink}\n`;
             const { data: comments } = await github.rest.issues.listComments({
               ...context.repo,
               issue_number: context.issue.number
