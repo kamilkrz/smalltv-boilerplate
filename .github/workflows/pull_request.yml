@@ -38,7 +38,17 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const buildOutput = fs.readFileSync(process.env.PLATFORMIO_BUILD_FILE, 'utf8');
+            const readBuildOutput = (filePath) => fs.readFileSync(filePath, 'utf8');
+            const buildOutputFile = process.env.PLATFORMIO_BUILD_FILE;
+            const buildStdOutErrFile = process.env.PLATFORMIO_BUILD_STDOUTERR_FILE;
+
+            let buildOutput = readBuildOutput(buildOutputFile);
+            let cutIndex = buildOutput.lastIndexOf('\nEnvironment');
+
+            if (cutIndex === -1) {
+              buildOutput = readBuildOutput(buildStdOutErrFile);
+              cutIndex = buildOutput.lastIndexOf('\nEnvironment');
+            }
             const githubWorkflowRunUrl = process.env.GITHUB_WORKFLOW_RUN_URL;
             const githubRunNumber = process.env.GITHUB_RUN_NUMBER;
             const githubRunAttempt = process.env.GITHUB_RUN_ATTEMPT;
@@ -49,7 +59,7 @@ jobs:
                 default: return outcome;
               }
             };
-            const cutIndex = buildOutput.lastIndexOf('\nEnvironment');
+
             const filteredOutput = cutIndex !== -1 ? buildOutput.slice(cutIndex + 1) : buildOutput;
             const lines = filteredOutput.split('\n').filter(line => line.trim() !== '');
             const tableHeader = '| Environment | Status | Duration |';
@@ -63,10 +73,10 @@ jobs:
               .find(line => line.startsWith('=') && line.includes(' in '))
               ?.replace(/=/g, '').trim();
 
-            const decoratedSummaryLine = summaryLine?.includes('succeeded')
-              ? `:sparkles: ${summaryLine} :sparkles:`
-              : summaryLine?.includes('failed')
+            const decoratedSummaryLine = summaryLine?.includes('failed')
               ? `:rotating_light: ${summaryLine} :rotating_light:`
+              : summaryLine?.includes('succeeded')
+              ? `:sparkles: ${summaryLine} :sparkles:`
               : summaryLine;
 
             const buildLink = `[View Workflow Run #${githubRunNumber} (Attempt ${githubRunAttempt})](${githubWorkflowRunUrl})`;
@@ -101,7 +111,10 @@ jobs:
           script: |
             const fs = require('fs');
             const buildOutput = fs.readFileSync(process.env.PLATFORMIO_BUILD_STDOUTERR_FILE, 'utf8');
-            const warningErrorLines = buildOutput.split('\n').filter(line =>  
+            const cutIndex = buildOutput.lastIndexOf('\nEnvironment');
+            const filteredOutput = cutIndex !== -1 ? buildOutput.slice(0, cutIndex) : buildOutput;
+
+            const warningErrorLines = filteredOutput.split('\n').filter(line =>  
               (
                 !line.match(/Cloning into/) // Exclude GHA output
               ) 
@@ -109,10 +122,22 @@ jobs:
             let header = '### :boom: Warnings/Errors :boom: \n\n';
             let commentBody = header;
             let currentDevice = null;
+            let pendingEnvironment = null;
 
-            warningErrorLines.forEach(line => {
-              const match = line.match(/\.pio\/libdeps\/([^\/]+)\//); // Extract device name
-              const device = match ? match[1] : null;
+            warningErrorLines.forEach((line, index) => {
+              if (line.startsWith('In file included')) {
+                // Look ahead to find the environment
+                for (let i = index + 1; i < warningErrorLines.length; i++) {
+                  const match = warningErrorLines[i].match(/\.pio\/libdeps\/([^\/]+)\//); // Extract environment name
+                  if (match) {
+                    pendingEnvironment = match[1];
+                    break;
+                  }
+                }
+              }
+
+              const match = line.match(/\.pio\/libdeps\/([^\/]+)\//); // Extract environment name
+              const device = match ? match[1] : pendingEnvironment;
 
               if (device && device !== currentDevice) {
                 if (currentDevice !== null) {
@@ -120,6 +145,7 @@ jobs:
                 }
                 commentBody += `#### Environment: ${device}\n\n\`\`\`\n`;
                 currentDevice = device;
+                pendingEnvironment = null; // Reset pending environment
               }
 
               commentBody += `${line}\n`; // Add the line to the current block
@@ -129,7 +155,7 @@ jobs:
               commentBody += '```\n\n'; // Close the last code block
             }
 
-            if (warningErrorLines.length === 0) {
+            if (commentBody === header) {
               commentBody += ':tada: No warnings or errors found. Everything is good to go! :tada:\n';
             }
 
@@ -161,10 +187,9 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const buildOutput = fs.readFileSync(process.env.PLATFORMIO_BUILD_FILE, 'utf8');
-            const githubWorkflowRunUrl = process.env.GITHUB_WORKFLOW_RUN_URL;
-            const githubRunNumber = process.env.GITHUB_RUN_NUMBER;
-            const githubRunAttempt = process.env.GITHUB_RUN_ATTEMPT;
+            const readBuildOutput = (filePath) => fs.readFileSync(filePath, 'utf8');
+            const buildOutputFile = process.env.PLATFORMIO_BUILD_FILE;
+            const buildStdOutErrFile = process.env.PLATFORMIO_BUILD_STDOUTERR_FILE;
             const outcomeEmoji = (outcome) => {
               switch (outcome) {
                 case 'SUCCESS': return ':white_check_mark:';
@@ -172,7 +197,14 @@ jobs:
                 default: return outcome;
               }
             };
-            const cutIndex = buildOutput.lastIndexOf('\nEnvironment');
+            let buildOutput = readBuildOutput(buildOutputFile);
+            let cutIndex = buildOutput.lastIndexOf('\nEnvironment');
+
+            if (cutIndex === -1) {
+              buildOutput = readBuildOutput(buildStdOutErrFile);
+              cutIndex = buildOutput.lastIndexOf('\nEnvironment');
+            }
+
             const filteredOutput = cutIndex !== -1 ? buildOutput.slice(cutIndex + 1) : buildOutput;
             const lines = filteredOutput.split('\n').filter(line => line.trim() !== '');
             const tableHeader = '| Environment | Status | Duration |';
@@ -186,10 +218,10 @@ jobs:
               .find(line => line.startsWith('=') && line.includes(' in '))
               ?.replace(/=/g, '').trim();
 
-            const decoratedSummaryLine = summaryLine?.includes('succeeded')
-              ? `:sparkles: ${summaryLine} :sparkles:`
-              : summaryLine?.includes('failed')
+            const decoratedSummaryLine = summaryLine?.includes('failed')
               ? `:rotating_light: ${summaryLine} :rotating_light:`
+              : summaryLine?.includes('succeeded')
+              ? `:sparkles: ${summaryLine} :sparkles:`
               : summaryLine;
 
             const buildLink = `[View Workflow Run #${githubRunNumber} (Attempt ${githubRunAttempt})](${githubWorkflowRunUrl})`;
