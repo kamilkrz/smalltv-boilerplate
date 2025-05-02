@@ -12,7 +12,7 @@ env:
   GITHUB_WORKFLOW_RUN_URL: >-
     ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/attempts/${{ github.run_attempt }}
 jobs:
-  build:
+  Build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -225,7 +225,7 @@ jobs:
               ? `:sparkles: ${summaryLine} :sparkles:`
               : summaryLine;
 
-            const buildInfo = `(Attempt ${githubRunAttempt})`;
+            const buildInfo = `(Attempt: ${githubRunAttempt})`;
             const commentBody = `### Build Output\n\n**Summary:**\n${decoratedSummaryLine}\n\n${markdownTable}\n\n${buildInfo}\n`;
             const { data: comments } = await github.rest.issues.listComments({
               ...context.repo,
