@@ -190,6 +190,7 @@ jobs:
             const readBuildOutput = (filePath) => fs.readFileSync(filePath, 'utf8');
             const buildOutputFile = process.env.PLATFORMIO_BUILD_FILE;
             const buildStdOutErrFile = process.env.PLATFORMIO_BUILD_STDOUTERR_FILE;
+            const githubRunAttempt = process.env.GITHUB_RUN_ATTEMPT;
             const outcomeEmoji = (outcome) => {
               switch (outcome) {
                 case 'SUCCESS': return ':white_check_mark:';
@@ -224,8 +225,8 @@ jobs:
               ? `:sparkles: ${summaryLine} :sparkles:`
               : summaryLine;
 
-            const buildLink = `[View Workflow Run #${githubRunNumber} (Attempt ${githubRunAttempt})](${githubWorkflowRunUrl})`;
-            const commentBody = `### Build Output\n\n**Summary:**\n${decoratedSummaryLine}\n\n${markdownTable}\n\n${buildLink}\n`;
+            const buildInfo = `(Attempt ${githubRunAttempt})`;
+            const commentBody = `### Build Output\n\n**Summary:**\n${decoratedSummaryLine}\n\n${markdownTable}\n\n${buildInfo}\n`;
             const { data: comments } = await github.rest.issues.listComments({
               ...context.repo,
               issue_number: context.issue.number
