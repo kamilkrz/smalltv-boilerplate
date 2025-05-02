@@ -155,7 +155,7 @@ jobs:
               commentBody += '```\n\n'; // Close the last code block
             }
 
-            if (commentBody === header) {
+            if (commentBody.trim() === header.trim()) {
               commentBody += ':tada: No warnings or errors found. Everything is good to go! :tada:\n';
             }
 
