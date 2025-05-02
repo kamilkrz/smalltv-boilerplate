@@ -1,7 +1,6 @@
 #include "GooglyEyes.h"
 
-#include "hardware/Button.h"
-#include "hardware/Display.h"
+#include "hardware/Hardware.h"
 
 GooglyEyesApp& GooglyEyesApp::getInstance() {
   static GooglyEyesApp instance;

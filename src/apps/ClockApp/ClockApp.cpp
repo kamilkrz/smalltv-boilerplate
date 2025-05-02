@@ -5,9 +5,7 @@
 #include <WiFiUdp.h>
 
 #include "core/Settings.h"
-#include "hardware/Button.h"
-#include "hardware/Display.h"
-#include "hardware/Piezo.h"
+#include "hardware/Hardware.h"
 
 WiFiUDP ntpUDP;
 NTPClient ntpClient(ntpUDP, "pool.ntp.org");

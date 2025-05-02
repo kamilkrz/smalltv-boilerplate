@@ -52,12 +52,15 @@ https://kamilkrz.github.io/smalltv-boilerplate/index.html
 - [ ] Easy build process 
   - [x] Move project from Arduino to PlatformIO
   - [x] Build through Github Actions
-    - [ ] Fix issue with variables in doxygen
+    - [x] Fix issue with variables in doxygen
+    - [x] Pull request workflow - and its awesome
   - [ ] Handle Arduino compatibility
   - [ ] Serial Web flasher
   - [ ] OTA for hardare without serial
+    - [ ] Investigate SmallTV OTA to be albe to painlessly put it on top of their firmware
   - [ ] Stop relay on hacked deps
     - [ ] Kindly ask about agrrement on eSPI_menu quirks from personal fork
+    - [ ] Same for DigiFont
 - [ ] Implement unit tests for core functionality.
   - [ ] Learn how to write tests
   - [ ] Learn how to implement tests in platformIO

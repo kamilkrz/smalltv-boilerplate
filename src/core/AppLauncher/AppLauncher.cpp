@@ -1,9 +1,7 @@
 #include "AppLauncher.h"
 
 #include "core/AppCollection.h"
-#include "hardware/Button.h"
-#include "hardware/Display.h"
-#include "hardware/Piezo.h"
+#include "hardware/Hardware.h"
 
 AppLauncher& AppLauncher::getInstance() {
   static AppLauncher instance;  // Guaranteed to be destroyed and instantiated on first use

@@ -1,7 +1,7 @@
 #include "SettingsApp.h"
 
 #include "core/Settings.h"
-#include "hardware/Display.h"
+#include "hardware/Hardware.h"
 
 SettingsApp& SettingsApp::getInstance() {
   static SettingsApp instance;
