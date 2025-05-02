@@ -1,7 +1,7 @@
-<map id="src/hardware/Button.cpp" name="src/hardware/Button.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,168,31"/>
-<area shape="rect" id="Node000002" href="$Button_8h.html" title=" " alt="" coords="52,79,121,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,31,89,63,84,63,84,31"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="40,153,133,178"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="89,105,89,137,84,137,84,105"/>
+<map id="src/hardware/Button/Button.cpp" name="src/hardware/Button/Button.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,144,46"/>
+<area shape="rect" id="Node000002" href="$Button_2Button_8h.html" title=" " alt="" coords="40,94,109,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,46,77,78,72,78,72,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="28,168,121,193"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="77,120,77,152,72,152,72,120"/>
 </map>

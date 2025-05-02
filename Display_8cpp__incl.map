@@ -1,9 +1,9 @@
-<map id="src/hardware/Display.cpp" name="src/hardware/Display.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="13,5,180,31"/>
-<area shape="rect" id="Node000002" href="$Display_8h.html" title=" " alt="" coords="60,79,133,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,31,99,63,94,63,94,31"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,153,81,178"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="90,106,63,142,59,138,85,103"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="105,153,197,178"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="107,103,135,139,131,142,103,107"/>
+<map id="src/hardware/Display/Display.cpp" name="src/hardware/Display/Display.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="25,5,168,46"/>
+<area shape="rect" id="Node000002" href="$Display_8h.html" title=" " alt="" coords="60,94,133,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,46,99,78,94,78,94,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,168,81,193"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="90,121,63,157,59,153,85,118"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="105,168,197,193"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="107,118,135,154,131,157,103,122"/>
 </map>

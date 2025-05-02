@@ -1,0 +1,17 @@
+<map id="src/hardware/Hardware.h" name="src/hardware/Hardware.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="114,5,280,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="203,153,279,178"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,32,180,66,178,85,182,104,195,124,212,141,208,145,191,127,177,106,173,85,175,65,188,31"/>
+<area shape="rect" id="Node000003" href="$Button_2Button_8h.html" title=" " alt="" coords="5,79,117,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="175,34,99,74,96,69,173,29"/>
+<area shape="rect" id="Node000005" href="$Display_8h.html" title=" " alt="" coords="315,79,434,105"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="228,29,331,70,329,75,226,34"/>
+<area shape="rect" id="Node000007" href="$Piezo_8h.html" title=" " alt="" coords="191,79,291,105"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="207,30,228,64,223,67,202,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="14,153,108,178"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="64,105,64,137,58,137,58,105"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="353,108,278,147,276,143,350,103"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="329,153,420,178"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="377,105,377,137,372,137,372,105"/>
+<area shape="poly" id="edge8_Node000007_Node000002" title=" " alt="" coords="244,105,244,137,238,137,238,105"/>
+</map>

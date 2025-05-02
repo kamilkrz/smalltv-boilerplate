@@ -20,7 +20,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:href="classAppLauncher.html" target="_top" xlink:title=" ">
+<g id="a_Node000001"><a xlink:href="classAppLauncher.html" target="_top" xlink:title="Application for launching and managing other applications.">
 <polygon fill="white" stroke="#666666" points="148.25,-167.25 74.5,-167.25 74.5,-148 148.25,-148 148.25,-167.25"/>
 <text text-anchor="middle" x="111.38" y="-153.75" font-family="Helvetica,sans-Serif" font-size="10.00">AppLauncher</text>
 </a>

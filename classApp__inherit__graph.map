@@ -1,6 +1,6 @@
 <map id="App" name="App">
 <area shape="rect" id="Node000001" title="Abstract base class for applications." alt="" coords="263,5,307,31"/>
-<area shape="rect" id="Node000002" href="$classAppLauncher.html" title=" " alt="" coords="5,79,104,105"/>
+<area shape="rect" id="Node000002" href="$classAppLauncher.html" title="Application for launching and managing other applications." alt="" coords="5,79,104,105"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="249,33,95,81,93,76,248,28"/>
 <area shape="rect" id="Node000003" href="$classClockApp.html" title="Simple clock application." alt="" coords="128,79,205,105"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="254,42,188,81,185,76,251,37"/>

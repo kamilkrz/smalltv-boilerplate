@@ -153,78 +153,76 @@ $(function(){initNavTree('GooglyEyes_8cpp_source.html',''); initResizable(true);
 <div class="contents">
 <a href="GooglyEyes_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="GooglyEyes_8h.html">GooglyEyes.h</a>&quot;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="Button_8h.html">hardware/Button.h</a>&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="Display_8h.html">hardware/Display.h</a>&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="foldopen" id="foldopen00006" data-start="{" data-end="}">
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="classGooglyEyesApp.html#adcc86c10d178934d737c5e20e944cf30">    6</a></span><a class="code hl_class" href="classGooglyEyesApp.html">GooglyEyesApp</a>&amp; <a class="code hl_function" href="classGooglyEyesApp.html#adcc86c10d178934d737c5e20e944cf30">GooglyEyesApp::getInstance</a>() {</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>  <span class="keyword">static</span> <a class="code hl_class" href="classGooglyEyesApp.html">GooglyEyesApp</a> instance;</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>  <span class="keywordflow">return</span> instance;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>}</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="Hardware_8h.html">hardware/Hardware.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="foldopen" id="foldopen00005" data-start="{" data-end="}">
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="classGooglyEyesApp.html#adcc86c10d178934d737c5e20e944cf30">    5</a></span><a class="code hl_class" href="classGooglyEyesApp.html">GooglyEyesApp</a>&amp; <a class="code hl_function" href="classGooglyEyesApp.html#adcc86c10d178934d737c5e20e944cf30">GooglyEyesApp::getInstance</a>() {</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>  <span class="keyword">static</span> <a class="code hl_class" href="classGooglyEyesApp.html">GooglyEyesApp</a> instance;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>  <span class="keywordflow">return</span> instance;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>}</div>
 </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>GooglyEyesApp::GooglyEyesApp() : <a class="code hl_class" href="classApp.html">App</a>(<span class="stringliteral">&quot;Googly Eyes&quot;</span>) {}</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>GooglyEyesApp::~GooglyEyesApp() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="foldopen" id="foldopen00015" data-start="{" data-end="}">
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classGooglyEyesApp.html#a40fd1d497068ead7724ffc329ae83434">   15</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classGooglyEyesApp.html#a40fd1d497068ead7724ffc329ae83434">GooglyEyesApp::init</a>() {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  shouldExitApp = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillScreen(<a class="code hl_define" href="Display_8h.html#a4273466b93b33e9d61d4ea0dc1e39fd0">RGBto565</a>(0, 60, 60));</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.attachClick([]() {});</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.attachLongPressStart([]() {</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_function" href="classGooglyEyesApp.html#adcc86c10d178934d737c5e20e944cf30">GooglyEyesApp::getInstance</a>().shouldExitApp = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  });</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>}</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>GooglyEyesApp::GooglyEyesApp() : <a class="code hl_class" href="classApp.html">App</a>(<span class="stringliteral">&quot;Googly Eyes&quot;</span>) {}</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>GooglyEyesApp::~GooglyEyesApp() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classGooglyEyesApp.html#a40fd1d497068ead7724ffc329ae83434">   14</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classGooglyEyesApp.html#a40fd1d497068ead7724ffc329ae83434">GooglyEyesApp::init</a>() {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  shouldExitApp = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillScreen(<a class="code hl_define" href="Display_8h.html#a4273466b93b33e9d61d4ea0dc1e39fd0">RGBto565</a>(0, 60, 60));</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.attachClick([]() {});</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.attachLongPressStart([]() {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_function" href="classGooglyEyesApp.html#adcc86c10d178934d737c5e20e944cf30">GooglyEyesApp::getInstance</a>().shouldExitApp = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  });</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
 </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classGooglyEyesApp.html#a76f277b3e917acc156664ecc9f625286">   24</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classGooglyEyesApp.html#a76f277b3e917acc156664ecc9f625286">GooglyEyesApp::update</a>() {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.tick();  <span class="comment">// Process button events</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>}</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="}">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classGooglyEyesApp.html#a76f277b3e917acc156664ecc9f625286">   23</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classGooglyEyesApp.html#a76f277b3e917acc156664ecc9f625286">GooglyEyesApp::update</a>() {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.tick();  <span class="comment">// Process button events</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>}</div>
 </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="foldopen" id="foldopen00028" data-start="{" data-end="}">
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classGooglyEyesApp.html#a2b291208aaba258ef1b5faedeb5c5409">   28</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classGooglyEyesApp.html#a2b291208aaba258ef1b5faedeb5c5409">GooglyEyesApp::render</a>() {</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> lastDrawTime = 0;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> currentTime = millis();</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  <span class="keywordflow">if</span> (currentTime - lastDrawTime &gt;= 300) {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    lastDrawTime = currentTime;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">int</span> w = <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.width();</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">int</span> w4 = w / 4;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">int</span> h = <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.height();</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">int</span> h4 = h / 4;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">int</span> xl = random(w4 - 10, w4 + 10);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">int</span> xr = random(w4 * 3 - 10, w4 * 3 + 10);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">int</span> yl = random(h4 * 2 - 10, h4 * 2 + 10);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">int</span> yr = random(h4 * 2 - 10, h4 * 2 + 10);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillEllipse(w4, h4 * 2, w4 - 10, h4, TFT_WHITE);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillEllipse(w4 * 3, h4 * 2, w4 - 10, h4, TFT_WHITE);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillCircle(xl, yl, 15, TFT_BLACK);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillCircle(xr, yr, 15, TFT_BLACK);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  }</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classGooglyEyesApp.html#a2b291208aaba258ef1b5faedeb5c5409">   27</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classGooglyEyesApp.html#a2b291208aaba258ef1b5faedeb5c5409">GooglyEyesApp::render</a>() {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> lastDrawTime = 0;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> currentTime = millis();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  <span class="keywordflow">if</span> (currentTime - lastDrawTime &gt;= 300) {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    lastDrawTime = currentTime;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">int</span> w = <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.width();</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">int</span> w4 = w / 4;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">int</span> h = <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.height();</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">int</span> h4 = h / 4;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">int</span> xl = random(w4 - 10, w4 + 10);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">int</span> xr = random(w4 * 3 - 10, w4 * 3 + 10);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">int</span> yl = random(h4 * 2 - 10, h4 * 2 + 10);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">int</span> yr = random(h4 * 2 - 10, h4 * 2 + 10);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillEllipse(w4, h4 * 2, w4 - 10, h4, TFT_WHITE);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillEllipse(w4 * 3, h4 * 2, w4 - 10, h4, TFT_WHITE);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillCircle(xl, yl, 15, TFT_BLACK);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillCircle(xr, yr, 15, TFT_BLACK);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  }</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>}</div>
 </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classGooglyEyesApp.html#a06ea2ad4d282c535556b0e0758aa787d">   49</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classGooglyEyesApp.html#a06ea2ad4d282c535556b0e0758aa787d">GooglyEyesApp::shouldExit</a>() {</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <span class="keywordflow">return</span> shouldExitApp;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>}</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classGooglyEyesApp.html#a06ea2ad4d282c535556b0e0758aa787d">   48</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classGooglyEyesApp.html#a06ea2ad4d282c535556b0e0758aa787d">GooglyEyesApp::shouldExit</a>() {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  <span class="keywordflow">return</span> shouldExitApp;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>}</div>
 </div>
 <div class="ttc" id="aButton_8cpp_html_a89604eb1a3848a6a2b17aa10105bb0e3"><div class="ttname"><a href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a></div><div class="ttdeci">button Button</div><div class="ttdef"><b>Definition</b> <a href="Button_8cpp_source.html#l00003">Button.cpp:3</a></div></div>
-<div class="ttc" id="aButton_8h_html"><div class="ttname"><a href="Button_8h.html">Button.h</a></div></div>
 <div class="ttc" id="aDisplay_8cpp_html_a7c1c3113ffca0cf79e39a492bf0234f8"><div class="ttname"><a href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a></div><div class="ttdeci">display Display</div><div class="ttdef"><b>Definition</b> <a href="Display_8cpp_source.html#l00018">Display.cpp:18</a></div></div>
-<div class="ttc" id="aDisplay_8h_html"><div class="ttname"><a href="Display_8h.html">Display.h</a></div></div>
 <div class="ttc" id="aDisplay_8h_html_a4273466b93b33e9d61d4ea0dc1e39fd0"><div class="ttname"><a href="Display_8h.html#a4273466b93b33e9d61d4ea0dc1e39fd0">RGBto565</a></div><div class="ttdeci">#define RGBto565(r, g, b)</div><div class="ttdef"><b>Definition</b> <a href="Display_8h_source.html#l00016">Display.h:16</a></div></div>
 <div class="ttc" id="aGooglyEyes_8h_html"><div class="ttname"><a href="GooglyEyes_8h.html">GooglyEyes.h</a></div></div>
+<div class="ttc" id="aHardware_8h_html"><div class="ttname"><a href="Hardware_8h.html">Hardware.h</a></div></div>
 <div class="ttc" id="aclassApp_html"><div class="ttname"><a href="classApp.html">App</a></div><div class="ttdoc">Abstract base class for applications.</div><div class="ttdef"><b>Definition</b> <a href="App_8h_source.html#l00019">App.h:19</a></div></div>
 <div class="ttc" id="aclassGooglyEyesApp_html"><div class="ttname"><a href="classGooglyEyesApp.html">GooglyEyesApp</a></div><div class="ttdoc">Basic application to display googly eyes on the screen.</div><div class="ttdef"><b>Definition</b> <a href="GooglyEyes_8h_source.html#l00014">GooglyEyes.h:14</a></div></div>
-<div class="ttc" id="aclassGooglyEyesApp_html_a06ea2ad4d282c535556b0e0758aa787d"><div class="ttname"><a href="classGooglyEyesApp.html#a06ea2ad4d282c535556b0e0758aa787d">GooglyEyesApp::shouldExit</a></div><div class="ttdeci">bool shouldExit() override</div><div class="ttdoc">Check if the application should exit.</div><div class="ttdef"><b>Definition</b> <a href="#l00049">GooglyEyes.cpp:49</a></div></div>
-<div class="ttc" id="aclassGooglyEyesApp_html_a2b291208aaba258ef1b5faedeb5c5409"><div class="ttname"><a href="classGooglyEyesApp.html#a2b291208aaba258ef1b5faedeb5c5409">GooglyEyesApp::render</a></div><div class="ttdeci">void render() override</div><div class="ttdoc">Render the application's output.</div><div class="ttdef"><b>Definition</b> <a href="#l00028">GooglyEyes.cpp:28</a></div></div>
-<div class="ttc" id="aclassGooglyEyesApp_html_a40fd1d497068ead7724ffc329ae83434"><div class="ttname"><a href="classGooglyEyesApp.html#a40fd1d497068ead7724ffc329ae83434">GooglyEyesApp::init</a></div><div class="ttdeci">void init() override</div><div class="ttdoc">Initialize the application.</div><div class="ttdef"><b>Definition</b> <a href="#l00015">GooglyEyes.cpp:15</a></div></div>
-<div class="ttc" id="aclassGooglyEyesApp_html_a76f277b3e917acc156664ecc9f625286"><div class="ttname"><a href="classGooglyEyesApp.html#a76f277b3e917acc156664ecc9f625286">GooglyEyesApp::update</a></div><div class="ttdeci">void update() override</div><div class="ttdoc">Update the application logic.</div><div class="ttdef"><b>Definition</b> <a href="#l00024">GooglyEyes.cpp:24</a></div></div>
-<div class="ttc" id="aclassGooglyEyesApp_html_adcc86c10d178934d737c5e20e944cf30"><div class="ttname"><a href="classGooglyEyesApp.html#adcc86c10d178934d737c5e20e944cf30">GooglyEyesApp::getInstance</a></div><div class="ttdeci">static GooglyEyesApp &amp; getInstance()</div><div class="ttdef"><b>Definition</b> <a href="#l00006">GooglyEyes.cpp:6</a></div></div>
+<div class="ttc" id="aclassGooglyEyesApp_html_a06ea2ad4d282c535556b0e0758aa787d"><div class="ttname"><a href="classGooglyEyesApp.html#a06ea2ad4d282c535556b0e0758aa787d">GooglyEyesApp::shouldExit</a></div><div class="ttdeci">bool shouldExit() override</div><div class="ttdoc">Check if the application should exit.</div><div class="ttdef"><b>Definition</b> <a href="#l00048">GooglyEyes.cpp:48</a></div></div>
+<div class="ttc" id="aclassGooglyEyesApp_html_a2b291208aaba258ef1b5faedeb5c5409"><div class="ttname"><a href="classGooglyEyesApp.html#a2b291208aaba258ef1b5faedeb5c5409">GooglyEyesApp::render</a></div><div class="ttdeci">void render() override</div><div class="ttdoc">Render the application's output.</div><div class="ttdef"><b>Definition</b> <a href="#l00027">GooglyEyes.cpp:27</a></div></div>
+<div class="ttc" id="aclassGooglyEyesApp_html_a40fd1d497068ead7724ffc329ae83434"><div class="ttname"><a href="classGooglyEyesApp.html#a40fd1d497068ead7724ffc329ae83434">GooglyEyesApp::init</a></div><div class="ttdeci">void init() override</div><div class="ttdoc">Initialize the application.</div><div class="ttdef"><b>Definition</b> <a href="#l00014">GooglyEyes.cpp:14</a></div></div>
+<div class="ttc" id="aclassGooglyEyesApp_html_a76f277b3e917acc156664ecc9f625286"><div class="ttname"><a href="classGooglyEyesApp.html#a76f277b3e917acc156664ecc9f625286">GooglyEyesApp::update</a></div><div class="ttdeci">void update() override</div><div class="ttdoc">Update the application logic.</div><div class="ttdef"><b>Definition</b> <a href="#l00023">GooglyEyes.cpp:23</a></div></div>
+<div class="ttc" id="aclassGooglyEyesApp_html_adcc86c10d178934d737c5e20e944cf30"><div class="ttname"><a href="classGooglyEyesApp.html#adcc86c10d178934d737c5e20e944cf30">GooglyEyesApp::getInstance</a></div><div class="ttdeci">static GooglyEyesApp &amp; getInstance()</div><div class="ttdef"><b>Definition</b> <a href="#l00005">GooglyEyes.cpp:5</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

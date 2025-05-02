@@ -31,5 +31,19 @@ var group__Apps =
       [ "render", "classPomodoroApp.html#a20f3433fa4e9b2fddd6f55ea51322d95", null ],
       [ "shouldExit", "classPomodoroApp.html#a7ae67506e0e0e96832f02308cb95ffd4", null ],
       [ "update", "classPomodoroApp.html#ac8b1e463d8e7b890ebe58bea573a821c", null ]
+    ] ],
+    [ "AppLauncher", "classAppLauncher.html", [
+      [ "getInstance", "classAppLauncher.html#a0b9f8fcb48ea10ec66b4f09b1a905111", null ],
+      [ "init", "classAppLauncher.html#a882a0d60bd084b5c6ade1961807580b0", null ],
+      [ "render", "classAppLauncher.html#ad8b5606f80fef6081ed08f78abc3f776", null ],
+      [ "shouldExit", "classAppLauncher.html#ab3237d8e90c2a060e133ecae850b9636", null ],
+      [ "update", "classAppLauncher.html#a143275b88ddaab4d490ad4c13122618e", null ]
+    ] ],
+    [ "SettingsApp", "classSettingsApp.html", [
+      [ "getInstance", "classSettingsApp.html#a9302a881c8b6c8214f9f54fc6505a68d", null ],
+      [ "init", "classSettingsApp.html#a8f08106727cc36923c8f3b75ce1ce05b", null ],
+      [ "render", "classSettingsApp.html#ae5f49b2a8fcce549a05a456473304c4d", null ],
+      [ "shouldExit", "classSettingsApp.html#a56ffb0e1c93243d6612cd584a5d055cc", null ],
+      [ "update", "classSettingsApp.html#a00c89d1e40564a7fc97640f49a1067a1", null ]
     ] ]
 ];
