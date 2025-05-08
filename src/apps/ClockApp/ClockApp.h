@@ -1,4 +1,3 @@
-
 #ifndef CLOCK_APP_H
 #define CLOCK_APP_H
 
@@ -36,6 +35,7 @@ class ClockApp : public App {
   NTPClient ntpClient{ntpUDP, "pool.ntp.org", 0, 60000};
   void displayTime(const String& time);
   bool shouldExitApp = false;
+  int8_t timezoneOffset = 0;  // Default timezone offset in hours
 };
 
 #endif

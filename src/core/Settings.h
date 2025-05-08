@@ -2,18 +2,23 @@
 #define SETTINGS_H
 
 #include <Arduino.h>
+#include <map>
+#include <string>
 
 struct Settings {
-  uint8_t displayBrightness = 255;        // Default brightness (0-255)
-  uint8_t timezoneOffset = 0;             // Default timezone offset in hours
-  bool use24HourFormat = true;            // Default time format (24-hour)
+  // Register a setting with a default value
+  void registerSetting(const String& key, const String& defaultValue);
 
-  // Add more settings as needed
+  // Retrieve a setting value, or return a fallback if not found
+  String getSetting(const String& key, const String& fallback = "") const;
+
+  // Dynamic settings storage
+  std::map<String, String> dynamicSettings;
+
+  void saveSettings();  // Save settings to LittleFS
+  void loadSettings();  // Load settings from LittleFS
 };
 
 extern Settings settings;
-
-void loadSettings();  // Load settings from LittleFS
-void saveSettings();  // Save settings to LittleFS
 
 #endif  // SETTINGS_H
