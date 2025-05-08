@@ -48,7 +48,9 @@ https://kamilkrz.github.io/smalltv-boilerplate/index.html
   - [x] Implement app abstraction layer
   - [x] Implement app dynamic collection
   - [x] Example app with WiFi capabilities
-  - [X] "Core" apps for menu / settings funcionalities (almost working) 
+  - [X] "Core" apps for menu / settings funcionalities
+    - [x] Implement menu app
+    - [x] Implement settings app with dynamic settings setup from apps
 - [ ] Easy build process 
   - [x] Move project from Arduino to PlatformIO
   - [x] Build through Github Actions
