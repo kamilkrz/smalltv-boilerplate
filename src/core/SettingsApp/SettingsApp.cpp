@@ -40,8 +40,10 @@ void SettingsApp::init() {
     // Display WiFi and settings information
     Display.fillScreen(TFT_BLACK);
     Display.setTextColor(TFT_WHITE);
-    Display.setTextFont(2);
+    Display.setTextFont(4);
     Display.setCursor(0, 0);
+    Display.println("Settings");
+    Display.setTextFont(2);
     Display.println("WiFi Name: " + WiFi.SSID());
     Display.println("IP Address: " + WiFi.localIP().toString());
     Display.println("Settings:");
@@ -69,8 +71,10 @@ void SettingsApp::init() {
     wifiManager.setAPCallback([](WiFiManager* wm) {
       Display.fillScreen(TFT_BLACK);
       Display.setTextColor(TFT_WHITE);
-      Display.setTextFont(2);
+      Display.setTextFont(4);
       Display.setCursor(0, 0);
+      Display.println("Settings");
+      Display.setTextFont(2);
       Display.println("AP Name: " + String(wm->getConfigPortalSSID()));
       Display.println("IP: " + WiFi.softAPIP().toString());
       Display.println("Settings:");
