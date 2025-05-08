@@ -37,6 +37,17 @@ class display : public TFT_eSPI {
    * @param brightness Brightness level (0-255).
    */
   void setBacklight(uint8_t brightness);
+
+  void drawSplashScreen(const String& text, const String& secondLine) {
+    fillScreen(TFT_BLACK);
+    setTextColor(TFT_WHITE);
+    setTextFont(4);
+    setTextDatum(MC_DATUM);
+    drawString(text, width() / 2, height() / 2);
+    setTextFont(2);
+    drawString(secondLine, width() / 2, height() / 2 + fontHeight(4) + 5);
+    setTextDatum(TL_DATUM);
+  }
 };
 
 extern display Display;  // Declare Display as extern
