@@ -14,6 +14,7 @@
 #include "apps/ClockApp/ClockApp.h"
 #include "apps/GooglyEyes/GooglyEyes.h"
 #include "apps/PomodoroApp/PomodoroApp.h"
+#include "apps/MatrixApp/MatrixApp.h"
 
 void setup() {
   // SERIAL
@@ -26,24 +27,14 @@ void setup() {
   Display.setBacklight(255);
 
   // Show splash screen
-  Display.setTextColor(TFT_WHITE);
-  Display.setTextFont(4);
-  Display.setTextDatum(MC_DATUM);
-  Display.drawString("SmallTV Boilerplate", Display.width() / 2, Display.height() / 2);
-  Display.setTextFont(2);
-  Display.drawString("by kamilkrz", Display.width() / 2, Display.height() / 2 + Display.fontHeight(4) + 5);
-  // back to default
-  Display.setTextDatum(TL_DATUM);
-  ;
-
+  Display.drawSplashScreen("SmallTV Boilerplate", "by kamilkrz");
   delay(2000);  // Display splash screen for 2 seconds
 
   // Prep Piezo
   Piezo.alarm();
   delay(200);
-  loadSettings();  // Load settings from LittleFS
-  saveSettings();  // Save settings to LittleFS
   // Register apps
+  settings.loadSettings();  // Load settings from LittleFS
   AppCollection& appCollection = AppCollection::getInstance();
   // Main Menu Should be added first!
   appCollection.addApp(&AppLauncher::getInstance());
@@ -51,8 +42,11 @@ void setup() {
   appCollection.addApp(&ClockApp::getInstance());
   appCollection.addApp(&PomodoroApp::getInstance());
   appCollection.addApp(&GooglyEyesApp::getInstance());
-  // So this should be last app? No need to do  this but looks like a good idea
+  appCollection.addApp(&MatrixApp::getInstance());
+
+  // Add settings app at the end
   appCollection.addApp(&SettingsApp::getInstance());
+  settings.saveSettings();  // Save settings to LittleFS
 
   // Start with the first app
   appCollection.switchToApp(0);

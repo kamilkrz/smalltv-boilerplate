@@ -2,6 +2,8 @@
 #define SETTINGS_APP_H
 
 #include <WiFiManager.h>
+#include <vector>
+#include <memory>
 
 #include "core/App.h"
 
@@ -22,6 +24,8 @@ class SettingsApp : public App {
   static SettingsApp& getInstance();
 
   void init() override;        // Inherited from App
+  bool connectToWiFi();
+  void startAPMode();
   void update() override;      // Inherited from App
   void render() override;      // Inherited from App
   bool shouldExit() override;  // Inherited from App
@@ -42,6 +46,7 @@ class SettingsApp : public App {
 
   bool exitApp = false;     // Flag indicating whether the application should exit
   WiFiManager wifiManager;  // WiFiManager instance for managing WiFi settings
+  std::vector<std::unique_ptr<WiFiManagerParameter>> parameters; // Store parameters persistently
 };
 
 #endif  // SETTINGS_APP_H

@@ -5,7 +5,18 @@
 
 Settings settings;
 
-void loadSettings() {
+void Settings::registerSetting(const String& key, const String& defaultValue) {
+  if (dynamicSettings.find(key) == dynamicSettings.end()) {
+    dynamicSettings[key] = defaultValue;  // Add default if not present
+  }
+}
+
+String Settings::getSetting(const String& key, const String& fallback) const {
+  auto it = dynamicSettings.find(key);
+  return it != dynamicSettings.end() ? it->second : fallback;
+}
+
+void Settings::loadSettings() {
   if (!LittleFS.begin()) {
     Serial.println("Failed to mount LittleFS, using default settings.");
     return;
@@ -33,22 +44,18 @@ void loadSettings() {
     return;
   }
 
-  settings.displayBrightness = doc["displayBrightness"] | 255;
-  settings.timezoneOffset = doc["timezoneOffset"] | 0;
-  settings.use24HourFormat = doc["use24HourFormat"] | true;
 
-  Serial.print("Loaded settings: ");
-  Serial.print("Brightness: ");
-  Serial.println(settings.displayBrightness);
-  Serial.print("Timezone Offset: ");
-  Serial.println(settings.timezoneOffset);
-  Serial.print("24-Hour Format: ");
-  Serial.println(settings.use24HourFormat ? "true" : "false");
+  // Load dynamic settings
+  JsonObject dynamicSettingsObj = doc["dynamicSettings"].as<JsonObject>();
+  for (JsonObject::iterator it = dynamicSettingsObj.begin(); it != dynamicSettingsObj.end(); ++it) {
+    settings.dynamicSettings[it->key().c_str()] = it->value().as<String>();
+  }
+
 
   Serial.println("Settings loaded successfully.");
 }
 
-void saveSettings() {
+void Settings::saveSettings() {
   if (!LittleFS.begin()) {
     Serial.println("Failed to mount LittleFS, cannot save settings.");
     return;
@@ -61,9 +68,11 @@ void saveSettings() {
   }
 
   JsonDocument doc;  // Replaced DynamicJsonDocument with JsonDocument
-  doc["displayBrightness"] = settings.displayBrightness;
-  doc["timezoneOffset"] = settings.timezoneOffset;
-  doc["use24HourFormat"] = settings.use24HourFormat;
+
+  JsonObject dynamicSettingsObj = doc["dynamicSettings"].to<JsonObject>();
+  for (const auto& pair : settings.dynamicSettings) {
+    dynamicSettingsObj[pair.first] = pair.second;
+  }
 
   if (serializeJson(doc, file) == 0) {
     Serial.println("Failed to write settings to file.");
