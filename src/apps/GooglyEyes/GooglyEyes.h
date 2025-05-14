@@ -1,4 +1,3 @@
-
 #ifndef GOOGLYEYES_H
 #define GOOGLYEYES_H
 
@@ -25,6 +24,8 @@ class GooglyEyesApp : public App {
   GooglyEyesApp(const GooglyEyesApp&) = delete;
   GooglyEyesApp& operator=(const GooglyEyesApp&) = delete;
   bool shouldExitApp = false;
+  int w4, h4, rx, ry, pupilRadius, rx_safe, ry_safe;
+  int prev_xl, prev_yl, prev_xr, prev_yr;
 };
 
 #endif  // GOOGLYEYES_H
