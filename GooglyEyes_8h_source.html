@@ -151,45 +151,46 @@ $(function(){initNavTree('GooglyEyes_8h_source.html',''); initResizable(true); }
   <div class="headertitle"><div class="title">GooglyEyes.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="GooglyEyes_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#ifndef GOOGLYEYES_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#define GOOGLYEYES_H</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="App_8h.html">core/App.h</a>&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"></span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * @class GooglyEyesApp</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * @brief Basic application to display googly eyes on the screen.</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * @ingroup Apps</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> */</span></div>
-<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classGooglyEyesApp.html">   14</a></span><span class="keyword">class </span><a class="code hl_class" href="classGooglyEyesApp.html">GooglyEyesApp</a> : <span class="keyword">public</span> <a class="code hl_class" href="classApp.html">App</a> {</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  <span class="keyword">static</span> <a class="code hl_class" href="classGooglyEyesApp.html">GooglyEyesApp</a>&amp; <a class="code hl_function" href="classGooglyEyesApp.html#adcc86c10d178934d737c5e20e944cf30">getInstance</a>();</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classGooglyEyesApp.html#a40fd1d497068ead7724ffc329ae83434">init</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classGooglyEyesApp.html#a76f277b3e917acc156664ecc9f625286">update</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classGooglyEyesApp.html#a2b291208aaba258ef1b5faedeb5c5409">render</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="classGooglyEyesApp.html#a06ea2ad4d282c535556b0e0758aa787d">shouldExit</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <a class="code hl_class" href="classGooglyEyesApp.html">GooglyEyesApp</a>();</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  <a class="code hl_class" href="classGooglyEyesApp.html">~GooglyEyesApp</a>();</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <a class="code hl_class" href="classGooglyEyesApp.html">GooglyEyesApp</a>(<span class="keyword">const</span> <a class="code hl_class" href="classGooglyEyesApp.html">GooglyEyesApp</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <a class="code hl_class" href="classGooglyEyesApp.html">GooglyEyesApp</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="classGooglyEyesApp.html">GooglyEyesApp</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keywordtype">bool</span> shouldExitApp = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>};</div>
+<a href="GooglyEyes_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef GOOGLYEYES_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define GOOGLYEYES_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="App_8h.html">core/App.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"></span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * @class GooglyEyesApp</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * @brief Basic application to display googly eyes on the screen.</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * @ingroup Apps</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classGooglyEyesApp.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="classGooglyEyesApp.html">GooglyEyesApp</a> : <span class="keyword">public</span> <a class="code hl_class" href="classApp.html">App</a> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  <span class="keyword">static</span> <a class="code hl_class" href="classGooglyEyesApp.html">GooglyEyesApp</a>&amp; <a class="code hl_function" href="classGooglyEyesApp.html#adcc86c10d178934d737c5e20e944cf30">getInstance</a>();</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classGooglyEyesApp.html#a40fd1d497068ead7724ffc329ae83434">init</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classGooglyEyesApp.html#a76f277b3e917acc156664ecc9f625286">update</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classGooglyEyesApp.html#a2b291208aaba258ef1b5faedeb5c5409">render</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="classGooglyEyesApp.html#a06ea2ad4d282c535556b0e0758aa787d">shouldExit</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <a class="code hl_class" href="classGooglyEyesApp.html">GooglyEyesApp</a>();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <a class="code hl_class" href="classGooglyEyesApp.html">~GooglyEyesApp</a>();</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  <a class="code hl_class" href="classGooglyEyesApp.html">GooglyEyesApp</a>(<span class="keyword">const</span> <a class="code hl_class" href="classGooglyEyesApp.html">GooglyEyesApp</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <a class="code hl_class" href="classGooglyEyesApp.html">GooglyEyesApp</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="classGooglyEyesApp.html">GooglyEyesApp</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <span class="keywordtype">bool</span> shouldExitApp = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keywordtype">int</span> w4, h4, rx, ry, pupilRadius, rx_safe, ry_safe;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  <span class="keywordtype">int</span> prev_xl, prev_yl, prev_xr, prev_yr;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};</div>
 </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#endif  </span><span class="comment">// GOOGLYEYES_H</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#endif  </span><span class="comment">// GOOGLYEYES_H</span></div>
 <div class="ttc" id="aApp_8h_html"><div class="ttname"><a href="App_8h.html">App.h</a></div><div class="ttdoc">Abstract base class for applications.</div></div>
 <div class="ttc" id="aclassApp_html"><div class="ttname"><a href="classApp.html">App</a></div><div class="ttdoc">Abstract base class for applications.</div><div class="ttdef"><b>Definition</b> <a href="App_8h_source.html#l00019">App.h:19</a></div></div>
-<div class="ttc" id="aclassGooglyEyesApp_html"><div class="ttname"><a href="classGooglyEyesApp.html">GooglyEyesApp</a></div><div class="ttdoc">Basic application to display googly eyes on the screen.</div><div class="ttdef"><b>Definition</b> <a href="#l00014">GooglyEyes.h:14</a></div></div>
-<div class="ttc" id="aclassGooglyEyesApp_html_a06ea2ad4d282c535556b0e0758aa787d"><div class="ttname"><a href="classGooglyEyesApp.html#a06ea2ad4d282c535556b0e0758aa787d">GooglyEyesApp::shouldExit</a></div><div class="ttdeci">bool shouldExit() override</div><div class="ttdoc">Check if the application should exit.</div><div class="ttdef"><b>Definition</b> <a href="GooglyEyes_8cpp_source.html#l00048">GooglyEyes.cpp:48</a></div></div>
-<div class="ttc" id="aclassGooglyEyesApp_html_a2b291208aaba258ef1b5faedeb5c5409"><div class="ttname"><a href="classGooglyEyesApp.html#a2b291208aaba258ef1b5faedeb5c5409">GooglyEyesApp::render</a></div><div class="ttdeci">void render() override</div><div class="ttdoc">Render the application's output.</div><div class="ttdef"><b>Definition</b> <a href="GooglyEyes_8cpp_source.html#l00027">GooglyEyes.cpp:27</a></div></div>
+<div class="ttc" id="aclassGooglyEyesApp_html"><div class="ttname"><a href="classGooglyEyesApp.html">GooglyEyesApp</a></div><div class="ttdoc">Basic application to display googly eyes on the screen.</div><div class="ttdef"><b>Definition</b> <a href="#l00013">GooglyEyes.h:13</a></div></div>
+<div class="ttc" id="aclassGooglyEyesApp_html_a06ea2ad4d282c535556b0e0758aa787d"><div class="ttname"><a href="classGooglyEyesApp.html#a06ea2ad4d282c535556b0e0758aa787d">GooglyEyesApp::shouldExit</a></div><div class="ttdeci">bool shouldExit() override</div><div class="ttdoc">Check if the application should exit.</div><div class="ttdef"><b>Definition</b> <a href="GooglyEyes_8cpp_source.html#l00090">GooglyEyes.cpp:90</a></div></div>
+<div class="ttc" id="aclassGooglyEyesApp_html_a2b291208aaba258ef1b5faedeb5c5409"><div class="ttname"><a href="classGooglyEyesApp.html#a2b291208aaba258ef1b5faedeb5c5409">GooglyEyesApp::render</a></div><div class="ttdeci">void render() override</div><div class="ttdoc">Render the application's output.</div><div class="ttdef"><b>Definition</b> <a href="GooglyEyes_8cpp_source.html#l00053">GooglyEyes.cpp:53</a></div></div>
 <div class="ttc" id="aclassGooglyEyesApp_html_a40fd1d497068ead7724ffc329ae83434"><div class="ttname"><a href="classGooglyEyesApp.html#a40fd1d497068ead7724ffc329ae83434">GooglyEyesApp::init</a></div><div class="ttdeci">void init() override</div><div class="ttdoc">Initialize the application.</div><div class="ttdef"><b>Definition</b> <a href="GooglyEyes_8cpp_source.html#l00014">GooglyEyes.cpp:14</a></div></div>
-<div class="ttc" id="aclassGooglyEyesApp_html_a76f277b3e917acc156664ecc9f625286"><div class="ttname"><a href="classGooglyEyesApp.html#a76f277b3e917acc156664ecc9f625286">GooglyEyesApp::update</a></div><div class="ttdeci">void update() override</div><div class="ttdoc">Update the application logic.</div><div class="ttdef"><b>Definition</b> <a href="GooglyEyes_8cpp_source.html#l00023">GooglyEyes.cpp:23</a></div></div>
+<div class="ttc" id="aclassGooglyEyesApp_html_a76f277b3e917acc156664ecc9f625286"><div class="ttname"><a href="classGooglyEyesApp.html#a76f277b3e917acc156664ecc9f625286">GooglyEyesApp::update</a></div><div class="ttdeci">void update() override</div><div class="ttdoc">Update the application logic.</div><div class="ttdef"><b>Definition</b> <a href="GooglyEyes_8cpp_source.html#l00049">GooglyEyes.cpp:49</a></div></div>
 <div class="ttc" id="aclassGooglyEyesApp_html_adcc86c10d178934d737c5e20e944cf30"><div class="ttname"><a href="classGooglyEyesApp.html#adcc86c10d178934d737c5e20e944cf30">GooglyEyesApp::getInstance</a></div><div class="ttdeci">static GooglyEyesApp &amp; getInstance()</div><div class="ttdef"><b>Definition</b> <a href="GooglyEyes_8cpp_source.html#l00005">GooglyEyes.cpp:5</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
