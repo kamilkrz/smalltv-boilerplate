@@ -1,8 +1,9 @@
 #include <Arduino.h>
 // #include <DigiFont.h>
 
-#include <memory>
-#include <vector>
+#include <LittleFS.h>
+
+
 
 // CORE
 #include "core/AppCollection.h"
@@ -21,6 +22,10 @@ void setup() {
   Serial.begin(115200);
   delay(1000);
 
+  // Quick option to nuke seetings.json
+  // LittleFS.begin();
+  // LittleFS.remove("/settings.json");
+  
   // Initialize the Display display
   Display.init();
   Display.fillScreen(TFT_BLACK);

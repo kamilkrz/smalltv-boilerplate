@@ -14,12 +14,13 @@
  */
 struct Settings {
   /**
-   * @brief Register a setting with a default value.
+   * @brief Register a setting with a default value and description.
    * 
    * @param key The key identifying the setting.
    * @param defaultValue The default value for the setting.
+   * @param description The description for the setting (used as field label).
    */
-  void registerSetting(const String& key, const String& defaultValue);
+  void registerSetting(const String& key, const String& defaultValue, const String& description);
 
   /**
    * @brief Retrieve a setting value, or return a fallback if not found.
@@ -36,6 +37,11 @@ struct Settings {
    * A map that holds all registered settings and their values.
    */
   std::map<String, String> dynamicSettings;
+
+  /**
+   * @brief Descriptions for settings (key -> description).
+   */
+  std::map<String, String> settingDescriptions;
 
   /**
    * @brief Save settings to LittleFS.
