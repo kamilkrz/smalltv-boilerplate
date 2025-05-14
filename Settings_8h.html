@@ -150,16 +150,17 @@ $(function(){initNavTree('Settings_8h.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">Settings.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Settings.h:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="Settings_8h__incl.svg" width="142" height="111"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="Settings_8h__incl.svg" width="234" height="111"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -171,98 +172,16 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:structSettings" id="r_structSettings"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#structSettings">Settings</a></td></tr>
-<tr class="separator:structSettings"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a1165e1d4439a045e94970c9fbc73bb3c" id="r_a1165e1d4439a045e94970c9fbc73bb3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1165e1d4439a045e94970c9fbc73bb3c">loadSettings</a> ()</td></tr>
-<tr class="separator:a1165e1d4439a045e94970c9fbc73bb3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7142ee2baa705d2dd402769467d5a4e" id="r_ac7142ee2baa705d2dd402769467d5a4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7142ee2baa705d2dd402769467d5a4e">saveSettings</a> ()</td></tr>
-<tr class="separator:ac7142ee2baa705d2dd402769467d5a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSettings.html">Settings</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A structure to manage application settings.  <a href="structSettings.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a19276c778f3034b94881cf1f8614dbb2" id="r_a19276c778f3034b94881cf1f8614dbb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#structSettings">Settings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19276c778f3034b94881cf1f8614dbb2">settings</a></td></tr>
+<tr class="memitem:a19276c778f3034b94881cf1f8614dbb2" id="r_a19276c778f3034b94881cf1f8614dbb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSettings.html">Settings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19276c778f3034b94881cf1f8614dbb2">settings</a></td></tr>
+<tr class="memdesc:a19276c778f3034b94881cf1f8614dbb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global instance of the <a class="el" href="structSettings.html" title="A structure to manage application settings.">Settings</a> structure.  <br /></td></tr>
 <tr class="separator:a19276c778f3034b94881cf1f8614dbb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/><h2 class="groupheader">Data Structure Documentation</h2>
-<a name="structSettings" id="structSettings"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#structSettings">&#9670;&#160;</a></span>Settings</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct Settings</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="Settings_8h_source.html#l00006">6</a> of file <a class="el" href="Settings_8h_source.html">Settings.h</a>.</p>
-</div><table class="fieldtable">
-<tr><th colspan="3">Data Fields</th></tr>
-<tr><td class="fieldtype">
-<a id="ac69687603ef12a76a55fe103789eca9d" name="ac69687603ef12a76a55fe103789eca9d"></a>uint8_t</td>
-<td class="fieldname">
-displayBrightness = 255</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="a02dfe5294ac309b4c593a22a5c62d303" name="a02dfe5294ac309b4c593a22a5c62d303"></a>uint8_t</td>
-<td class="fieldname">
-timezoneOffset = 0</td>
-<td class="fielddoc">
-</td></tr>
-<tr><td class="fieldtype">
-<a id="ab0da5bfd8e7ad7338eb916a2fa50a8d5" name="ab0da5bfd8e7ad7338eb916a2fa50a8d5"></a>bool</td>
-<td class="fieldname">
-use24HourFormat = true</td>
-<td class="fielddoc">
-</td></tr>
-</table>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a1165e1d4439a045e94970c9fbc73bb3c" name="a1165e1d4439a045e94970c9fbc73bb3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1165e1d4439a045e94970c9fbc73bb3c">&#9670;&#160;</a></span>loadSettings()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void loadSettings </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Settings_8cpp_source.html#l00008">8</a> of file <a class="el" href="Settings_8cpp_source.html">Settings.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ac7142ee2baa705d2dd402769467d5a4e" name="ac7142ee2baa705d2dd402769467d5a4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7142ee2baa705d2dd402769467d5a4e">&#9670;&#160;</a></span>saveSettings()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void saveSettings </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Settings_8cpp_source.html#l00051">51</a> of file <a class="el" href="Settings_8cpp_source.html">Settings.cpp</a>.</p>
-
-</div>
-</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="a19276c778f3034b94881cf1f8614dbb2" name="a19276c778f3034b94881cf1f8614dbb2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a19276c778f3034b94881cf1f8614dbb2">&#9670;&#160;</a></span>settings</h2>
@@ -274,7 +193,7 @@ use24HourFormat = true</td>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#structSettings">Settings</a> settings</td>
+          <td class="memname"><a class="el" href="structSettings.html">Settings</a> settings</td>
         </tr>
       </table>
   </td>
@@ -283,6 +202,8 @@ use24HourFormat = true</td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Global instance of the <a class="el" href="structSettings.html" title="A structure to manage application settings.">Settings</a> structure. </p>
 
 <p class="definition">Definition at line <a class="el" href="Settings_8cpp_source.html#l00006">6</a> of file <a class="el" href="Settings_8cpp_source.html">Settings.cpp</a>.</p>
 

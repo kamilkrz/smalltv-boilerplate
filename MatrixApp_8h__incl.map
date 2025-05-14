@@ -1,0 +1,21 @@
+<map id="src/apps/MatrixApp/MatrixApp.h" name="src/apps/MatrixApp/MatrixApp.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="62,5,196,46"/>
+<area shape="rect" id="Node000002" href="$App_8h.html" title="Abstract base class for applications." alt="" coords="19,94,103,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,48,83,84,79,80,110,45"/>
+<area shape="rect" id="Node000003" href="$Hardware_8h.html" title=" " alt="" coords="126,94,270,120"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="148,45,180,80,176,84,144,48"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="203,241,279,267"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="194,121,181,154,178,174,182,192,195,213,212,230,208,233,191,216,177,194,173,174,176,153,189,119"/>
+<area shape="rect" id="Node000005" href="$Button_2Button_8h.html" title=" " alt="" coords="5,168,117,193"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="176,123,99,162,97,158,174,118"/>
+<area shape="rect" id="Node000007" href="$Display_8h.html" title=" " alt="" coords="315,168,434,193"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="229,118,331,159,330,164,227,123"/>
+<area shape="rect" id="Node000009" href="$Piezo_8h.html" title=" " alt="" coords="191,168,291,193"/>
+<area shape="poly" id="edge9_Node000003_Node000009" title=" " alt="" coords="208,119,228,153,224,156,203,121"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="14,241,108,267"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="64,194,64,226,58,226,58,194"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="353,196,278,236,276,231,350,192"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="329,241,420,267"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="377,194,377,226,372,226,372,194"/>
+<area shape="poly" id="edge10_Node000009_Node000004" title=" " alt="" coords="244,194,244,226,238,226,238,194"/>
+</map>

@@ -11,6 +11,14 @@ var group__Apps =
       [ "update", "classApp.html#a7f65e16b8cfebe03063380ef2f7f5c24", null ],
       [ "appName", "classApp.html#a4408bed51e6f2b12c16ef2fad92c5f0d", null ]
     ] ],
+    [ "Settings", "structSettings.html", [
+      [ "getSetting", "structSettings.html#aa846f5ae4aa6b14ef699f82935c77852", null ],
+      [ "loadSettings", "structSettings.html#aeedbd7f125f99ea2ecfe52c024c5e645", null ],
+      [ "registerSetting", "structSettings.html#af054cc1cdb51e9ac99f47c073876e8e0", null ],
+      [ "saveSettings", "structSettings.html#a4c5d90390125e939d5e6299340e586a1", null ],
+      [ "dynamicSettings", "structSettings.html#ac921099613c8511ee1f73eba6851af91", null ],
+      [ "settingDescriptions", "structSettings.html#aea3ab6a8c3c55e1e134f504eb251f8db", null ]
+    ] ],
     [ "ClockApp", "classClockApp.html", [
       [ "getInstance", "classClockApp.html#a73774dfe18b0237cf668bf1dc848cfad", null ],
       [ "init", "classClockApp.html#a8fb1111a20556ae821e8081155e43d81", null ],
@@ -40,10 +48,12 @@ var group__Apps =
       [ "update", "classAppLauncher.html#a143275b88ddaab4d490ad4c13122618e", null ]
     ] ],
     [ "SettingsApp", "classSettingsApp.html", [
+      [ "connectToWiFi", "classSettingsApp.html#a2a134e577db45a9676ae5c62a6d3c065", null ],
       [ "getInstance", "classSettingsApp.html#a9302a881c8b6c8214f9f54fc6505a68d", null ],
       [ "init", "classSettingsApp.html#a8f08106727cc36923c8f3b75ce1ce05b", null ],
       [ "render", "classSettingsApp.html#ae5f49b2a8fcce549a05a456473304c4d", null ],
       [ "shouldExit", "classSettingsApp.html#a56ffb0e1c93243d6612cd584a5d055cc", null ],
+      [ "startAPMode", "classSettingsApp.html#aaec272ff1f8a84fd8a386d28d3bc3dac", null ],
       [ "update", "classSettingsApp.html#a00c89d1e40564a7fc97640f49a1067a1", null ]
     ] ]
 ];

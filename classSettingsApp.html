@@ -175,6 +175,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8f08106727cc36923c8f3b75ce1ce05b" id="r_a8f08106727cc36923c8f3b75ce1ce05b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f08106727cc36923c8f3b75ce1ce05b">init</a> () override</td></tr>
 <tr class="memdesc:a8f08106727cc36923c8f3b75ce1ce05b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the application.  <br /></td></tr>
 <tr class="separator:a8f08106727cc36923c8f3b75ce1ce05b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a134e577db45a9676ae5c62a6d3c065" id="r_a2a134e577db45a9676ae5c62a6d3c065"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a134e577db45a9676ae5c62a6d3c065">connectToWiFi</a> ()</td></tr>
+<tr class="separator:a2a134e577db45a9676ae5c62a6d3c065"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaec272ff1f8a84fd8a386d28d3bc3dac" id="r_aaec272ff1f8a84fd8a386d28d3bc3dac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaec272ff1f8a84fd8a386d28d3bc3dac">startAPMode</a> ()</td></tr>
+<tr class="separator:aaec272ff1f8a84fd8a386d28d3bc3dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00c89d1e40564a7fc97640f49a1067a1" id="r_a00c89d1e40564a7fc97640f49a1067a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00c89d1e40564a7fc97640f49a1067a1">update</a> () override</td></tr>
 <tr class="memdesc:a00c89d1e40564a7fc97640f49a1067a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the application logic.  <br /></td></tr>
 <tr class="separator:a00c89d1e40564a7fc97640f49a1067a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -216,8 +220,25 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p>Application for managing settings, including WiFi configuration. </p>
 <p>This class is a singleton that provides functionality for initializing, updating, rendering, and exiting the settings application. </p>
 
-<p class="definition">Definition at line <a class="el" href="SettingsApp_8h_source.html#l00016">16</a> of file <a class="el" href="SettingsApp_8h_source.html">SettingsApp.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SettingsApp_8h_source.html#l00018">18</a> of file <a class="el" href="SettingsApp_8h_source.html">SettingsApp.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2a134e577db45a9676ae5c62a6d3c065" name="a2a134e577db45a9676ae5c62a6d3c065"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a134e577db45a9676ae5c62a6d3c065">&#9670;&#160;</a></span>connectToWiFi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SettingsApp::connectToWiFi </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a9302a881c8b6c8214f9f54fc6505a68d" name="a9302a881c8b6c8214f9f54fc6505a68d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9302a881c8b6c8214f9f54fc6505a68d">&#9670;&#160;</a></span>getInstance()</h2>
 
@@ -244,7 +265,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Get the singleton instance of the <a class="el" href="classSettingsApp.html" title="Application for managing settings, including WiFi configuration.">SettingsApp</a>. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the singleton instance. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="SettingsApp_8cpp_source.html#l00006">6</a> of file <a class="el" href="SettingsApp_8cpp_source.html">SettingsApp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SettingsApp_8cpp_source.html#l00009">9</a> of file <a class="el" href="SettingsApp_8cpp_source.html">SettingsApp.cpp</a>.</p>
 
 </div>
 </div>
@@ -273,11 +294,10 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Initialize the application. </p>
 <p>This method is called to perform any setup required before the application runs. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo</a></b></dt><dd>refactor this to dynamically use settings from <a class="el" href="Settings_8h.html">Settings.h</a> </dd></dl>
 
 <p>Implements <a class="el" href="classApp.html#a68f77f8aa188556ec19441f04cdff346">App</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="SettingsApp_8cpp_source.html#l00015">15</a> of file <a class="el" href="SettingsApp_8cpp_source.html">SettingsApp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SettingsApp_8cpp_source.html#l00020">20</a> of file <a class="el" href="SettingsApp_8cpp_source.html">SettingsApp.cpp</a>.</p>
 
 </div>
 </div>
@@ -309,7 +329,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classApp.html#ac0f6fdafe283898561781c87a19ba9f9">App</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="SettingsApp_8cpp_source.html#l00059">59</a> of file <a class="el" href="SettingsApp_8cpp_source.html">SettingsApp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SettingsApp_8cpp_source.html#l00104">104</a> of file <a class="el" href="SettingsApp_8cpp_source.html">SettingsApp.cpp</a>.</p>
 
 </div>
 </div>
@@ -341,7 +361,24 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classApp.html#a5c925a8412d05ac94626484689776992">App</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="SettingsApp_8cpp_source.html#l00063">63</a> of file <a class="el" href="SettingsApp_8cpp_source.html">SettingsApp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SettingsApp_8cpp_source.html#l00107">107</a> of file <a class="el" href="SettingsApp_8cpp_source.html">SettingsApp.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aaec272ff1f8a84fd8a386d28d3bc3dac" name="aaec272ff1f8a84fd8a386d28d3bc3dac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaec272ff1f8a84fd8a386d28d3bc3dac">&#9670;&#160;</a></span>startAPMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SettingsApp::startAPMode </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -373,7 +410,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="classApp.html#a7f65e16b8cfebe03063380ef2f7f5c24">App</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="SettingsApp_8cpp_source.html#l00055">55</a> of file <a class="el" href="SettingsApp_8cpp_source.html">SettingsApp.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="SettingsApp_8cpp_source.html#l00101">101</a> of file <a class="el" href="SettingsApp_8cpp_source.html">SettingsApp.cpp</a>.</p>
 
 </div>
 </div>

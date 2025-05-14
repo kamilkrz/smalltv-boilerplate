@@ -7,8 +7,9 @@ var annotated_dup =
     [ "ClockApp", "classClockApp.html", "classClockApp" ],
     [ "display", "classdisplay.html", "classdisplay" ],
     [ "GooglyEyesApp", "classGooglyEyesApp.html", "classGooglyEyesApp" ],
+    [ "MatrixApp", "classMatrixApp.html", "classMatrixApp" ],
     [ "piezo", "classpiezo.html", "classpiezo" ],
     [ "PomodoroApp", "classPomodoroApp.html", "classPomodoroApp" ],
-    [ "Settings", "Settings_8h.html#structSettings", "Settings_8h_structSettings" ],
+    [ "Settings", "structSettings.html", "structSettings" ],
     [ "SettingsApp", "classSettingsApp.html", "classSettingsApp" ]
 ];

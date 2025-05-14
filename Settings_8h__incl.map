@@ -1,5 +1,9 @@
 <map id="src/core/Settings.h" name="src/core/Settings.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,136,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="33,79,108,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,31,73,63,68,63,68,31"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="63,5,194,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,81,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,34,70,71,67,67,112,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="105,79,152,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="131,31,131,63,126,63,126,31"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="175,79,228,105"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="142,29,180,66,177,70,139,33"/>
 </map>

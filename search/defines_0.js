@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['piezo_5fpin_0',['PIEZO_PIN',['../Piezo_8h.html#a9c5a2d5d726c32c4b09f1d2de0355a7d',1,'Piezo.h']]]
+  ['font_5fheight_0',['FONT_HEIGHT',['../MatrixApp_8h.html#a33f4fac49f2a5e27e2857eb27f054510',1,'MatrixApp.h']]],
+  ['font_5fwidth_1',['FONT_WIDTH',['../MatrixApp_8h.html#a7b2e9cc063e140c50b67a4f224988a45',1,'MatrixApp.h']]]
 ];

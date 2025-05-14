@@ -1,13 +1,15 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$classApp.html" title="Abstract base class for applications." alt="" coords="5,104,50,130"/>
+<area shape="rect" id="Node000000" href="$classApp.html" title="Abstract base class for applications." alt="" coords="5,129,50,155"/>
 <area shape="rect" id="Node000001" href="$classAppLauncher.html" title="Application for launching and managing other applications." alt="" coords="105,5,203,31"/>
-<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="46,90,68,64,96,40,115,29,117,34,99,44,72,68,50,93"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="39,114,63,77,96,40,113,29,116,34,99,44,67,80,44,117"/>
 <area shape="rect" id="Node000002" href="$classClockApp.html" title="Simple clock application." alt="" coords="115,55,192,80"/>
-<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="63,100,118,78,120,83,65,105"/>
+<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="55,118,96,89,118,78,120,83,99,94,58,122"/>
 <area shape="rect" id="Node000003" href="$classGooglyEyesApp.html" title="Basic application to display googly eyes on the screen." alt="" coords="98,104,210,130"/>
-<area shape="poly" id="edge3_Node000000_Node000003" title=" " alt="" coords="65,114,97,114,97,120,65,120"/>
-<area shape="rect" id="Node000004" href="$classPomodoroApp.html" title="Simple pomodoro timer application." alt="" coords="102,153,206,179"/>
-<area shape="poly" id="edge4_Node000000_Node000004" title=" " alt="" coords="65,128,120,150,118,155,63,133"/>
-<area shape="rect" id="Node000005" href="$classSettingsApp.html" title="Application for managing settings, including WiFi configuration." alt="" coords="108,203,200,228"/>
-<area shape="poly" id="edge5_Node000000_Node000005" title=" " alt="" coords="50,140,72,166,99,189,117,200,115,204,96,194,68,169,46,144"/>
+<area shape="poly" id="edge3_Node000000_Node000003" title=" " alt="" coords="64,132,97,126,98,131,65,137"/>
+<area shape="rect" id="Node000004" href="$classMatrixApp.html" title=" " alt="" coords="114,153,194,179"/>
+<area shape="poly" id="edge4_Node000000_Node000004" title=" " alt="" coords="65,147,114,156,113,161,64,152"/>
+<area shape="rect" id="Node000005" href="$classPomodoroApp.html" title="Simple pomodoro timer application." alt="" coords="102,203,206,228"/>
+<area shape="poly" id="edge5_Node000000_Node000005" title=" " alt="" coords="59,162,99,189,120,200,118,205,96,194,56,167"/>
+<area shape="rect" id="Node000006" href="$classSettingsApp.html" title="Application for managing settings, including WiFi configuration." alt="" coords="108,252,200,278"/>
+<area shape="poly" id="edge6_Node000000_Node000006" title=" " alt="" coords="44,167,67,204,99,239,116,249,113,254,96,243,63,207,40,170"/>
 </map>

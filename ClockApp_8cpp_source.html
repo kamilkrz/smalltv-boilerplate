@@ -173,105 +173,122 @@ $(function(){initNavTree('ClockApp_8cpp_source.html',''); initResizable(true); }
 <div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classClockApp.html#a8fb1111a20556ae821e8081155e43d81">   18</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classClockApp.html#a8fb1111a20556ae821e8081155e43d81">ClockApp::init</a>() {</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  shouldExitApp = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  ntpClient.setTimeOffset(<a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="Settings_8h.html#a02dfe5294ac309b4c593a22a5c62d303">timezoneOffset</a> * 3600);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <span class="comment">// Retrieve WiFi credentials from SettingsApp</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillScreen(TFT_BLACK);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextColor(TFT_WHITE);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextFont(4);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextDatum(MC_DATUM);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.drawString(<span class="stringliteral">&quot;Connecting to WiFi...&quot;</span>, <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.width() / 2, <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.height() / 2);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextDatum(TL_DATUM);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  timezoneOffset = <a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_function" href="structSettings.html#aa846f5ae4aa6b14ef699f82935c77852">getSetting</a>(<span class="stringliteral">&quot;ClockApp_timezoneOffset&quot;</span>).toInt();  <span class="comment">// Retrieve timezoneOffset from settings</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  ntpClient.setTimeOffset(timezoneOffset * 3600);  <span class="comment">// Use local timezoneOffset</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.<a class="code hl_function" href="classdisplay.html#a9deb46d4815abb300622a3c3fcb11595">drawSplashScreen</a>(<span class="stringliteral">&quot;Clock&quot;</span>, <span class="stringliteral">&quot;Getting Time...&quot;</span>);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  <span class="comment">// Attempt to connect using saved credentials</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  WiFi.begin();</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> startAttemptTime = millis();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> timeout = 30000;  <span class="comment">// 30 seconds timeout</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <span class="comment">// Attempt to connect using saved credentials</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  WiFi.begin();</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> startAttemptTime = millis();</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> timeout = 30000;  <span class="comment">// 30 seconds timeout</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <span class="keywordflow">while</span> (WiFi.status() != WL_CONNECTED &amp;&amp; millis() - startAttemptTime &lt; timeout) {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    delay(500);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  }</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <span class="keywordflow">if</span> (WiFi.status() != WL_CONNECTED) {</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="comment">// Connection failed, display timeout message and exit app</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillScreen(TFT_BLACK);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.drawString(<span class="stringliteral">&quot;WiFi Timeout!&quot;</span>, <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.width() / 2, <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.height() / 2);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    delay(3000);  <span class="comment">// Show timeout message for 3 seconds</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    shouldExitApp = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <span class="keywordflow">while</span> (WiFi.status() != WL_CONNECTED &amp;&amp; millis() - startAttemptTime &lt; timeout) {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    delay(500);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <span class="keywordflow">if</span> (WiFi.status() != WL_CONNECTED) {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="comment">// Connection failed, display timeout message and exit app</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillScreen(TFT_BLACK);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.drawString(<span class="stringliteral">&quot;WiFi Timeout!&quot;</span>, <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.width() / 2, <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.height() / 2);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    delay(3000);  <span class="comment">// Show timeout message for 3 seconds</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    shouldExitApp = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="comment">// Connection successful</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillScreen(TFT_BLACK);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  ntpClient.begin();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  ntpClient.update();</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  <span class="comment">// Connection successful</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillScreen(TFT_BLACK);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  ntpClient.begin();</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  ntpClient.update();</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.attachClick([]() {</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_variable" href="Piezo_8cpp.html#a3ef5b7eb7cffe920e96ef5d7bedf0b5b">Piezo</a>.<a class="code hl_function" href="classpiezo.html#abc0f293053b436f6d2fbd2478284987a">err</a>();</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  });</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.attachLongPressStart([]() {</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_variable" href="Piezo_8cpp.html#a3ef5b7eb7cffe920e96ef5d7bedf0b5b">Piezo</a>.<a class="code hl_function" href="classpiezo.html#a484306078dc70dacfa171ba4cfe1c356">ack</a>();</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_function" href="classClockApp.html#a73774dfe18b0237cf668bf1dc848cfad">ClockApp::getInstance</a>().shouldExitApp = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  });</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.attachClick([]() {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_variable" href="Piezo_8cpp.html#a3ef5b7eb7cffe920e96ef5d7bedf0b5b">Piezo</a>.<a class="code hl_function" href="classpiezo.html#abc0f293053b436f6d2fbd2478284987a">err</a>();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  });</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.attachLongPressStart([]() {</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_variable" href="Piezo_8cpp.html#a3ef5b7eb7cffe920e96ef5d7bedf0b5b">Piezo</a>.<a class="code hl_function" href="classpiezo.html#a484306078dc70dacfa171ba4cfe1c356">ack</a>();</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_function" href="classClockApp.html#a73774dfe18b0237cf668bf1dc848cfad">ClockApp::getInstance</a>().shouldExitApp = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  });</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>}</div>
+</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="foldopen" id="foldopen00056" data-start="{" data-end="}">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classClockApp.html#a0d6896a0043c34909f0eb70999d7cc47">   56</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classClockApp.html#a0d6896a0043c34909f0eb70999d7cc47">ClockApp::update</a>() {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  ntpClient.update();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.tick();</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>}</div>
 </div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
 <div class="foldopen" id="foldopen00061" data-start="{" data-end="}">
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classClockApp.html#a0d6896a0043c34909f0eb70999d7cc47">   61</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classClockApp.html#a0d6896a0043c34909f0eb70999d7cc47">ClockApp::update</a>() {</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  ntpClient.update();</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  <a class="code hl_variable" href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a>.tick();</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>}</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classClockApp.html#acba09475c4c04f401926857ab751308f">   61</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classClockApp.html#acba09475c4c04f401926857ab751308f">ClockApp::render</a>() {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  displayTime(ntpClient.getFormattedTime());</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}</div>
 </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="foldopen" id="foldopen00066" data-start="{" data-end="}">
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classClockApp.html#acba09475c4c04f401926857ab751308f">   66</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classClockApp.html#acba09475c4c04f401926857ab751308f">ClockApp::render</a>() {</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  displayTime(ntpClient.getFormattedTime());</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classClockApp.html#aa0065d3b5ca7109f2aefacd84b1d0ee1">   65</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classClockApp.html#aa0065d3b5ca7109f2aefacd84b1d0ee1">ClockApp::shouldExit</a>() {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>  <span class="keywordflow">return</span> shouldExitApp;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>}</div>
 </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classClockApp.html#aa0065d3b5ca7109f2aefacd84b1d0ee1">   70</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classClockApp.html#aa0065d3b5ca7109f2aefacd84b1d0ee1">ClockApp::shouldExit</a>() {</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  <span class="keywordflow">return</span> shouldExitApp;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>}</div>
-</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>ClockApp::ClockApp() : <a class="code hl_class" href="classApp.html">App</a>(<span class="stringliteral">&quot;Clock&quot;</span>),</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                       digi(</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                           [](int x0, int x1, int y, int c) { <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.drawFastHLine(x0, y, x1 - x0 + 1, c); },</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                           [](<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y0, <span class="keywordtype">int</span> y1, <span class="keywordtype">int</span> c) { <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.drawFastVLine(x, y0, y1 - y0 + 1, c); },</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                           [](<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h, <span class="keywordtype">int</span> c) { <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillRect(x, y, w, h, c); }) {</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  <span class="comment">// Set time offset to UTC+1</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>ClockApp::~ClockApp() {</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>}</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keywordtype">void</span> ClockApp::displayTime(<span class="keyword">const</span> String&amp; time) {</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>  <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> lastUpdateTime = 0;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> currentMillis = millis();</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  <span class="keywordflow">if</span> (currentMillis - lastUpdateTime &lt; 1000) <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  lastUpdateTime = currentMillis;</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  <span class="comment">//   Display.fillScreen(TFT_BLACK);</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  <span class="keywordtype">int</span> w = <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.width();</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  <span class="keywordtype">int</span> h = <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.height();</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  uint8_t th = 10;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  uint8_t wd = (w - th - 10) / 5;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  uint8_t yd = h / 2;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  digi.setSize1(wd - 3, yd, th);</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  <span class="keywordtype">int</span> y = digi.getHeight() / 2;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>  digi.setColors(TFT_WHITE, TFT_BLACK);</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>  digi.drawDigit1(time[0], 0 * wd, y);</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  digi.drawDigit1(time[1], 1 * wd, y);</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  digi.setColors(((currentMillis / 1000) % 2) ? TFT_WHITE : TFT_BLACK, TFT_BLACK);</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>  digi.drawDigit1(time[2], (2 * wd) + (digi.getWidth() / 2), y);</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>  digi.setColors(TFT_WHITE, TFT_BLACK);</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>  digi.drawDigit1(time[3], 3 * wd, y);</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  digi.drawDigit1(time[4], 4 * wd, y);</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>  <span class="comment">//   for (size_t i = 0; i &lt; time.length(); ++i) {</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>  <span class="comment">//   }</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>ClockApp::ClockApp() : <a class="code hl_class" href="classApp.html">App</a>(<span class="stringliteral">&quot;Clock&quot;</span>),</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                       digi(</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                           [](int x0, int x1, int y, int c) { <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.drawFastHLine(x0, y, x1 - x0 + 1, c); },</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                           [](<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y0, <span class="keywordtype">int</span> y1, <span class="keywordtype">int</span> c) { <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.drawFastVLine(x, y0, y1 - y0 + 1, c); },</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                           [](<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h, <span class="keywordtype">int</span> c) { <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillRect(x, y, w, h, c); }) {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  <a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_function" href="structSettings.html#af054cc1cdb51e9ac99f47c073876e8e0">registerSetting</a>(<span class="stringliteral">&quot;ClockApp_timezoneOffset&quot;</span>, <span class="stringliteral">&quot;0&quot;</span>, <span class="stringliteral">&quot;Timezone Offset (hours)&quot;</span>);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_function" href="structSettings.html#af054cc1cdb51e9ac99f47c073876e8e0">registerSetting</a>(<span class="stringliteral">&quot;ClockApp_use24HourFormat&quot;</span>, <span class="stringliteral">&quot;1&quot;</span>, <span class="stringliteral">&quot;Use 24-hour Format (0-1)&quot;</span>);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>}</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>ClockApp::~ClockApp() {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>}</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keywordtype">void</span> ClockApp::displayTime(<span class="keyword">const</span> String&amp; time) {</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> lastUpdateTime = 0;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> currentMillis = millis();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  <span class="keywordflow">if</span> (currentMillis - lastUpdateTime &lt; 1000) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  lastUpdateTime = currentMillis;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  String formattedTime = time;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  String ampm = <span class="stringliteral">&quot;AM&quot;</span>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  <span class="comment">// Check if 24-hour format is disabled</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_function" href="structSettings.html#aa846f5ae4aa6b14ef699f82935c77852">getSetting</a>(<span class="stringliteral">&quot;ClockApp_use24HourFormat&quot;</span>).toInt() == 0) {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">int</span> hours = time.substring(0, 2).toInt();</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">bool</span> isPM = hours &gt;= 12;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordflow">if</span> (hours == 0) {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>      hours = 12;  <span class="comment">// Midnight</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (hours &gt; 12) {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>      hours -= 12;  <span class="comment">// Convert to 12-hour format</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    formattedTime = (hours &lt; 10 ? <span class="stringliteral">&quot;0&quot;</span> : <span class="stringliteral">&quot;&quot;</span>) + String(hours) + time.substring(2);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    ampm = isPM ? <span class="stringliteral">&quot;PM&quot;</span> : <span class="stringliteral">&quot;AM&quot;</span>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  }</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>  <span class="keywordtype">int</span> w = <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.width();</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  <span class="keywordtype">int</span> h = <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.height();</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  uint8_t th = 10;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>  uint8_t wd = (w - th - 10) / 5;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>  uint8_t yd = h / 2;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>  digi.setSize1(wd - 3, yd, th);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  <span class="keywordtype">int</span> y = digi.getHeight() / 2;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>  digi.setColors(TFT_WHITE, TFT_BLACK);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>  digi.drawDigit1(formattedTime[0], 0 * wd, y);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  digi.drawDigit1(formattedTime[1], 1 * wd, y);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>  digi.setColors(((currentMillis / 1000) % 2) ? TFT_WHITE : TFT_BLACK, TFT_BLACK);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>  digi.drawDigit1(formattedTime[2], (2 * wd) + (digi.getWidth() / 2), y);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>  digi.setColors(TFT_WHITE, TFT_BLACK);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>  digi.drawDigit1(formattedTime[3], 3 * wd, y);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>  digi.drawDigit1(formattedTime[4], 4 * wd, y);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>  <span class="comment">// Display AM/PM if in 12-hour format</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_function" href="structSettings.html#aa846f5ae4aa6b14ef699f82935c77852">getSetting</a>(<span class="stringliteral">&quot;ClockApp_use24HourFormat&quot;</span>).toInt() == 0) {</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextColor(TFT_WHITE, TFT_BLACK);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextFont(4);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextDatum(MR_DATUM);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.drawString(ampm, <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.width()-20, <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.height()/2 + digi.getHeight()/2 + <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fontHeight());</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextDatum(TL_DATUM);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>  }</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>}</div>
 <div class="ttc" id="aButton_8cpp_html_a89604eb1a3848a6a2b17aa10105bb0e3"><div class="ttname"><a href="Button_8cpp.html#a89604eb1a3848a6a2b17aa10105bb0e3">Button</a></div><div class="ttdeci">button Button</div><div class="ttdef"><b>Definition</b> <a href="Button_8cpp_source.html#l00003">Button.cpp:3</a></div></div>
 <div class="ttc" id="aClockApp_8cpp_html_a22f33e7e05df58bb6145bb6e543e232a"><div class="ttname"><a href="ClockApp_8cpp.html#a22f33e7e05df58bb6145bb6e543e232a">ntpUDP</a></div><div class="ttdeci">WiFiUDP ntpUDP</div><div class="ttdef"><b>Definition</b> <a href="#l00010">ClockApp.cpp:10</a></div></div>
 <div class="ttc" id="aClockApp_8cpp_html_af88393bbf422e49eed5bf65fccc9fb40"><div class="ttname"><a href="ClockApp_8cpp.html#af88393bbf422e49eed5bf65fccc9fb40">ntpClient</a></div><div class="ttdeci">NTPClient ntpClient(ntpUDP, &quot;pool.ntp.org&quot;)</div></div>
@@ -279,18 +296,20 @@ $(function(){initNavTree('ClockApp_8cpp_source.html',''); initResizable(true); }
 <div class="ttc" id="aDisplay_8cpp_html_a7c1c3113ffca0cf79e39a492bf0234f8"><div class="ttname"><a href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a></div><div class="ttdeci">display Display</div><div class="ttdef"><b>Definition</b> <a href="Display_8cpp_source.html#l00018">Display.cpp:18</a></div></div>
 <div class="ttc" id="aHardware_8h_html"><div class="ttname"><a href="Hardware_8h.html">Hardware.h</a></div></div>
 <div class="ttc" id="aPiezo_8cpp_html_a3ef5b7eb7cffe920e96ef5d7bedf0b5b"><div class="ttname"><a href="Piezo_8cpp.html#a3ef5b7eb7cffe920e96ef5d7bedf0b5b">Piezo</a></div><div class="ttdeci">piezo Piezo(PIEZO_PIN)</div></div>
-<div class="ttc" id="aSettings_8cpp_html_a19276c778f3034b94881cf1f8614dbb2"><div class="ttname"><a href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a></div><div class="ttdeci">Settings settings</div><div class="ttdef"><b>Definition</b> <a href="Settings_8cpp_source.html#l00006">Settings.cpp:6</a></div></div>
+<div class="ttc" id="aSettings_8cpp_html_a19276c778f3034b94881cf1f8614dbb2"><div class="ttname"><a href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a></div><div class="ttdeci">Settings settings</div><div class="ttdoc">Global instance of the Settings structure.</div><div class="ttdef"><b>Definition</b> <a href="Settings_8cpp_source.html#l00006">Settings.cpp:6</a></div></div>
 <div class="ttc" id="aSettings_8h_html"><div class="ttname"><a href="Settings_8h.html">Settings.h</a></div></div>
-<div class="ttc" id="aSettings_8h_html_a02dfe5294ac309b4c593a22a5c62d303"><div class="ttname"><a href="Settings_8h.html#a02dfe5294ac309b4c593a22a5c62d303">Settings::timezoneOffset</a></div><div class="ttdeci">uint8_t timezoneOffset</div><div class="ttdef"><b>Definition</b> <a href="Settings_8h_source.html#l00008">Settings.h:8</a></div></div>
 <div class="ttc" id="aclassApp_html"><div class="ttname"><a href="classApp.html">App</a></div><div class="ttdoc">Abstract base class for applications.</div><div class="ttdef"><b>Definition</b> <a href="App_8h_source.html#l00019">App.h:19</a></div></div>
-<div class="ttc" id="aclassClockApp_html"><div class="ttname"><a href="classClockApp.html">ClockApp</a></div><div class="ttdoc">Simple clock application.</div><div class="ttdef"><b>Definition</b> <a href="ClockApp_8h_source.html#l00020">ClockApp.h:20</a></div></div>
-<div class="ttc" id="aclassClockApp_html_a0d6896a0043c34909f0eb70999d7cc47"><div class="ttname"><a href="classClockApp.html#a0d6896a0043c34909f0eb70999d7cc47">ClockApp::update</a></div><div class="ttdeci">void update() override</div><div class="ttdoc">Update the application logic.</div><div class="ttdef"><b>Definition</b> <a href="#l00061">ClockApp.cpp:61</a></div></div>
+<div class="ttc" id="aclassClockApp_html"><div class="ttname"><a href="classClockApp.html">ClockApp</a></div><div class="ttdoc">Simple clock application.</div><div class="ttdef"><b>Definition</b> <a href="ClockApp_8h_source.html#l00019">ClockApp.h:19</a></div></div>
+<div class="ttc" id="aclassClockApp_html_a0d6896a0043c34909f0eb70999d7cc47"><div class="ttname"><a href="classClockApp.html#a0d6896a0043c34909f0eb70999d7cc47">ClockApp::update</a></div><div class="ttdeci">void update() override</div><div class="ttdoc">Update the application logic.</div><div class="ttdef"><b>Definition</b> <a href="#l00056">ClockApp.cpp:56</a></div></div>
 <div class="ttc" id="aclassClockApp_html_a73774dfe18b0237cf668bf1dc848cfad"><div class="ttname"><a href="classClockApp.html#a73774dfe18b0237cf668bf1dc848cfad">ClockApp::getInstance</a></div><div class="ttdeci">static ClockApp &amp; getInstance()</div><div class="ttdef"><b>Definition</b> <a href="#l00013">ClockApp.cpp:13</a></div></div>
 <div class="ttc" id="aclassClockApp_html_a8fb1111a20556ae821e8081155e43d81"><div class="ttname"><a href="classClockApp.html#a8fb1111a20556ae821e8081155e43d81">ClockApp::init</a></div><div class="ttdeci">void init() override</div><div class="ttdoc">Initialize the application.</div><div class="ttdef"><b>Definition</b> <a href="#l00018">ClockApp.cpp:18</a></div></div>
-<div class="ttc" id="aclassClockApp_html_aa0065d3b5ca7109f2aefacd84b1d0ee1"><div class="ttname"><a href="classClockApp.html#aa0065d3b5ca7109f2aefacd84b1d0ee1">ClockApp::shouldExit</a></div><div class="ttdeci">bool shouldExit() override</div><div class="ttdoc">Check if the application should exit.</div><div class="ttdef"><b>Definition</b> <a href="#l00070">ClockApp.cpp:70</a></div></div>
-<div class="ttc" id="aclassClockApp_html_acba09475c4c04f401926857ab751308f"><div class="ttname"><a href="classClockApp.html#acba09475c4c04f401926857ab751308f">ClockApp::render</a></div><div class="ttdeci">void render() override</div><div class="ttdoc">Render the application's output.</div><div class="ttdef"><b>Definition</b> <a href="#l00066">ClockApp.cpp:66</a></div></div>
+<div class="ttc" id="aclassClockApp_html_aa0065d3b5ca7109f2aefacd84b1d0ee1"><div class="ttname"><a href="classClockApp.html#aa0065d3b5ca7109f2aefacd84b1d0ee1">ClockApp::shouldExit</a></div><div class="ttdeci">bool shouldExit() override</div><div class="ttdoc">Check if the application should exit.</div><div class="ttdef"><b>Definition</b> <a href="#l00065">ClockApp.cpp:65</a></div></div>
+<div class="ttc" id="aclassClockApp_html_acba09475c4c04f401926857ab751308f"><div class="ttname"><a href="classClockApp.html#acba09475c4c04f401926857ab751308f">ClockApp::render</a></div><div class="ttdeci">void render() override</div><div class="ttdoc">Render the application's output.</div><div class="ttdef"><b>Definition</b> <a href="#l00061">ClockApp.cpp:61</a></div></div>
+<div class="ttc" id="aclassdisplay_html_a9deb46d4815abb300622a3c3fcb11595"><div class="ttname"><a href="classdisplay.html#a9deb46d4815abb300622a3c3fcb11595">display::drawSplashScreen</a></div><div class="ttdeci">void drawSplashScreen(const String &amp;text, const String &amp;secondLine)</div><div class="ttdef"><b>Definition</b> <a href="Display_8h_source.html#l00041">Display.h:41</a></div></div>
 <div class="ttc" id="aclasspiezo_html_a484306078dc70dacfa171ba4cfe1c356"><div class="ttname"><a href="classpiezo.html#a484306078dc70dacfa171ba4cfe1c356">piezo::ack</a></div><div class="ttdeci">void ack()</div><div class="ttdoc">Plays an acknowledgment sound.</div><div class="ttdef"><b>Definition</b> <a href="Piezo_8cpp_source.html#l00011">Piezo.cpp:11</a></div></div>
 <div class="ttc" id="aclasspiezo_html_abc0f293053b436f6d2fbd2478284987a"><div class="ttname"><a href="classpiezo.html#abc0f293053b436f6d2fbd2478284987a">piezo::err</a></div><div class="ttdeci">void err()</div><div class="ttdoc">Plays an error sound.</div><div class="ttdef"><b>Definition</b> <a href="Piezo_8cpp_source.html#l00027">Piezo.cpp:27</a></div></div>
+<div class="ttc" id="astructSettings_html_aa846f5ae4aa6b14ef699f82935c77852"><div class="ttname"><a href="structSettings.html#aa846f5ae4aa6b14ef699f82935c77852">Settings::getSetting</a></div><div class="ttdeci">String getSetting(const String &amp;key, const String &amp;fallback=&quot;&quot;) const</div><div class="ttdoc">Retrieve a setting value, or return a fallback if not found.</div><div class="ttdef"><b>Definition</b> <a href="Settings_8cpp_source.html#l00015">Settings.cpp:15</a></div></div>
+<div class="ttc" id="astructSettings_html_af054cc1cdb51e9ac99f47c073876e8e0"><div class="ttname"><a href="structSettings.html#af054cc1cdb51e9ac99f47c073876e8e0">Settings::registerSetting</a></div><div class="ttdeci">void registerSetting(const String &amp;key, const String &amp;defaultValue, const String &amp;description)</div><div class="ttdoc">Register a setting with a default value and description.</div><div class="ttdef"><b>Definition</b> <a href="Settings_8cpp_source.html#l00008">Settings.cpp:8</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

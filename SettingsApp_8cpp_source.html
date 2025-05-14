@@ -156,92 +156,137 @@ $(function(){initNavTree('SettingsApp_8cpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="Settings_8h.html">core/Settings.h</a>&quot;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="Hardware_8h.html">hardware/Hardware.h</a>&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="foldopen" id="foldopen00006" data-start="{" data-end="}">
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="classSettingsApp.html#a9302a881c8b6c8214f9f54fc6505a68d">    6</a></span><a class="code hl_class" href="classSettingsApp.html">SettingsApp</a>&amp; <a class="code hl_function" href="classSettingsApp.html#a9302a881c8b6c8214f9f54fc6505a68d">SettingsApp::getInstance</a>() {</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>  <span class="keyword">static</span> <a class="code hl_class" href="classSettingsApp.html">SettingsApp</a> instance;</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>  <span class="keywordflow">return</span> instance;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>}</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// Add this at the top of the file or in the class header (not shown here):</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="SettingsApp_8cpp.html#a438aa576e1878a135600445b91b6c3cd">    7</a></span>std::vector&lt;String&gt; <a class="code hl_variable" href="SettingsApp_8cpp.html#a438aa576e1878a135600445b91b6c3cd">parameterLabels</a>;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="}">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classSettingsApp.html#a9302a881c8b6c8214f9f54fc6505a68d">    9</a></span><a class="code hl_class" href="classSettingsApp.html">SettingsApp</a>&amp; <a class="code hl_function" href="classSettingsApp.html#a9302a881c8b6c8214f9f54fc6505a68d">SettingsApp::getInstance</a>() {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>  <span class="keyword">static</span> <a class="code hl_class" href="classSettingsApp.html">SettingsApp</a> instance;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>  <span class="keywordflow">return</span> instance;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>}</div>
 </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>SettingsApp::SettingsApp() : <a class="code hl_class" href="classApp.html">App</a>(<span class="stringliteral">&quot;Settings&quot;</span>) {}</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>SettingsApp::~SettingsApp() {}</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="foldopen" id="foldopen00015" data-start="{" data-end="}">
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classSettingsApp.html#a8f08106727cc36923c8f3b75ce1ce05b">   15</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classSettingsApp.html#a8f08106727cc36923c8f3b75ce1ce05b">SettingsApp::init</a>() {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  exitApp = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <span class="comment">// Configure WiFiManager</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  WiFiManagerParameter brightnessParam(<span class="stringliteral">&quot;brightness&quot;</span>, <span class="stringliteral">&quot;Display Brightness&quot;</span>, String(<a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="Settings_8h.html#ac69687603ef12a76a55fe103789eca9d">displayBrightness</a>).c_str(), 3);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  WiFiManagerParameter timezoneParam(<span class="stringliteral">&quot;timezone&quot;</span>, <span class="stringliteral">&quot;Timezone Offset&quot;</span>, String(<a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="Settings_8h.html#a02dfe5294ac309b4c593a22a5c62d303">timezoneOffset</a>).c_str(), 4);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  WiFiManagerParameter formatParam(<span class="stringliteral">&quot;format&quot;</span>, <span class="stringliteral">&quot;24-Hour Format (1/0)&quot;</span>, String(<a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="Settings_8h.html#ab0da5bfd8e7ad7338eb916a2fa50a8d5">use24HourFormat</a>).c_str(), 2);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"></span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">  /// @todo refactor this to dynamically use settings from Settings.h</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"></span>  wifiManager.addParameter(&amp;brightnessParam);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  wifiManager.addParameter(&amp;timezoneParam);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  wifiManager.addParameter(&amp;formatParam);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  <span class="comment">// Set callback to save parameters on change</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  wifiManager.setSaveParamsCallback([&amp;]() {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="Settings_8h.html#ac69687603ef12a76a55fe103789eca9d">displayBrightness</a> = atoi(brightnessParam.getValue());</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="Settings_8h.html#a02dfe5294ac309b4c593a22a5c62d303">timezoneOffset</a> = atoi(timezoneParam.getValue());</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="Settings_8h.html#ab0da5bfd8e7ad7338eb916a2fa50a8d5">use24HourFormat</a> = atoi(formatParam.getValue());</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_function" href="Settings_8cpp.html#ac7142ee2baa705d2dd402769467d5a4e">saveSettings</a>();</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    Serial.println(<span class="stringliteral">&quot;Settings saved from callback.&quot;</span>);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  });</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <span class="comment">// Start AP</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  String apName = <span class="stringliteral">&quot;ESP8266_Settings&quot;</span>;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  wifiManager.setAPCallback([](WiFiManager* wm) {</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillScreen(TFT_BLACK);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextColor(TFT_WHITE);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextFont(2);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setCursor(0, 0);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.println(<span class="stringliteral">&quot;AP Name: &quot;</span> + String(wm-&gt;getConfigPortalSSID()));</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.println(<span class="stringliteral">&quot;IP: &quot;</span> + WiFi.softAPIP().toString());</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  });</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  <span class="keywordflow">if</span> (!wifiManager.startConfigPortal(apName.c_str())) {</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    Serial.println(<span class="stringliteral">&quot;Conncection is closed&quot;</span>);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  }</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  exitApp = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>}</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>SettingsApp::SettingsApp() : <a class="code hl_class" href="classApp.html">App</a>(<span class="stringliteral">&quot;Settings&quot;</span>) {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>}</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>SettingsApp::~SettingsApp() {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>}</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classSettingsApp.html#a8f08106727cc36923c8f3b75ce1ce05b">   20</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classSettingsApp.html#a8f08106727cc36923c8f3b75ce1ce05b">SettingsApp::init</a>() {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  Serial.println(<span class="stringliteral">&quot;[SettingsApp] init() called&quot;</span>);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  exitApp = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.<a class="code hl_function" href="classdisplay.html#a9deb46d4815abb300622a3c3fcb11595">drawSplashScreen</a>(<span class="stringliteral">&quot;Settings&quot;</span>, <span class="stringliteral">&quot;connecting...&quot;</span>);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  wifiManager.setConfigPortalBlocking(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <span class="comment">// Dynamically create WiFiManager parameters based on registered settings</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keywordflow">if</span> (parameters.empty()) {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    Serial.println(<span class="stringliteral">&quot;[SettingsApp] Creating WiFiManager parameters:&quot;</span>);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_variable" href="SettingsApp_8cpp.html#a438aa576e1878a135600445b91b6c3cd">parameterLabels</a>.clear(); <span class="comment">// Ensure no stale pointers</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; pair : <a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#ac921099613c8511ee1f73eba6851af91">dynamicSettings</a>) {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>      String label = pair.first;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>      <span class="keyword">auto</span> descIt = <a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#aea3ab6a8c3c55e1e134f504eb251f8db">settingDescriptions</a>.find(pair.first);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>      <span class="keywordflow">if</span> (descIt != <a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#aea3ab6a8c3c55e1e134f504eb251f8db">settingDescriptions</a>.end()) {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        label = descIt-&gt;second;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>      }</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>      <a class="code hl_variable" href="SettingsApp_8cpp.html#a438aa576e1878a135600445b91b6c3cd">parameterLabels</a>.push_back(label); <span class="comment">// Store label to keep memory alive</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>      Serial.print(<span class="stringliteral">&quot;  Adding parameter: ID=&quot;</span>);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>      Serial.print(pair.first);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>      Serial.print(<span class="stringliteral">&quot;, Label=&quot;</span>);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>      Serial.print(label.c_str());</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>      Serial.print(<span class="stringliteral">&quot;, Default=&quot;</span>);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>      Serial.println(pair.second);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>      <span class="keyword">auto</span> param = std::make_unique&lt;WiFiManagerParameter&gt;(</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>          pair.first.c_str(), <a class="code hl_variable" href="SettingsApp_8cpp.html#a438aa576e1878a135600445b91b6c3cd">parameterLabels</a>.back().c_str(), pair.second.c_str(), 32);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>      wifiManager.addParameter(param.get());</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>      parameters.push_back(std::move(param));  <span class="comment">// Store unique_ptr in the vector</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <span class="comment">// Set callback to save parameters on change</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  wifiManager.setSaveParamsCallback([&amp;]() {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    Serial.println(<span class="stringliteral">&quot;[SettingsApp] SaveParamsCallback triggered&quot;</span>);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; param : parameters) {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>      Serial.print(<span class="stringliteral">&quot;  Saving parameter: ID=&quot;</span>);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>      Serial.print(param-&gt;getID());</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>      Serial.print(<span class="stringliteral">&quot;, Value=&quot;</span>);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>      Serial.println(param-&gt;getValue());</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>      <a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#ac921099613c8511ee1f73eba6851af91">dynamicSettings</a>[param-&gt;getID()] = param-&gt;getValue();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_function" href="structSettings.html#a4c5d90390125e939d5e6299340e586a1">saveSettings</a>();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    wifiManager.stopConfigPortal();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    exitApp = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  });</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  wifiManager.setWebServerCallback([]() {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillScreen(TFT_BLACK);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextColor(TFT_WHITE);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextFont(4);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setCursor(0, 0);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.println(<span class="stringliteral">&quot;Settings&quot;</span>);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextFont(2);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>      <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.println(<span class="stringliteral">&quot;WiFi Name: &quot;</span> + WiFi.SSID());</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>      <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.println(<span class="stringliteral">&quot;IP Address: &quot;</span> + WiFi.localIP().toString());</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.println(<span class="stringliteral">&quot;Settings:&quot;</span>);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; pair : <a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#ac921099613c8511ee1f73eba6851af91">dynamicSettings</a>) {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>      <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.println(pair.first + <span class="stringliteral">&quot;: &quot;</span> + pair.second);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  });</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  wifiManager.setAPCallback([](WiFiManager* wm) {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.fillScreen(TFT_BLACK);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextColor(TFT_WHITE);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextFont(4);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setCursor(0, 0);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.println(<span class="stringliteral">&quot;Settings&quot;</span>);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.setTextFont(2);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.println(<span class="stringliteral">&quot;AP Name: &quot;</span> + String(wm-&gt;getConfigPortalSSID()));</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.println(<span class="stringliteral">&quot;IP: &quot;</span> + WiFi.softAPIP().toString());</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.println(<span class="stringliteral">&quot;Settings:&quot;</span>);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; pair : <a class="code hl_variable" href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a>.<a class="code hl_variable" href="structSettings.html#ac921099613c8511ee1f73eba6851af91">dynamicSettings</a>) {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>      <a class="code hl_variable" href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>.println(pair.first + <span class="stringliteral">&quot;: &quot;</span> + pair.second);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    }</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  });</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  <span class="keywordflow">if</span> (wifiManager.autoConnect(<span class="stringliteral">&quot;ESP8266_Settings&quot;</span>)) {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    wifiManager.startConfigPortal();</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>}</div>
 </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classSettingsApp.html#a00c89d1e40564a7fc97640f49a1067a1">   55</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classSettingsApp.html#a00c89d1e40564a7fc97640f49a1067a1">SettingsApp::update</a>() {</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  <span class="comment">// No periodic updates needed</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>}</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="foldopen" id="foldopen00101" data-start="{" data-end="}">
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="classSettingsApp.html#a00c89d1e40564a7fc97640f49a1067a1">  101</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classSettingsApp.html#a00c89d1e40564a7fc97640f49a1067a1">SettingsApp::update</a>() {</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>}</div>
 </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="foldopen" id="foldopen00059" data-start="{" data-end="}">
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classSettingsApp.html#ae5f49b2a8fcce549a05a456473304c4d">   59</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classSettingsApp.html#ae5f49b2a8fcce549a05a456473304c4d">SettingsApp::render</a>() {</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  <span class="comment">// No rendering needed</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="foldopen" id="foldopen00104" data-start="{" data-end="}">
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classSettingsApp.html#ae5f49b2a8fcce549a05a456473304c4d">  104</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classSettingsApp.html#ae5f49b2a8fcce549a05a456473304c4d">SettingsApp::render</a>() {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>}</div>
 </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classSettingsApp.html#a56ffb0e1c93243d6612cd584a5d055cc">   63</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classSettingsApp.html#a56ffb0e1c93243d6612cd584a5d055cc">SettingsApp::shouldExit</a>() {</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  <span class="keywordflow">return</span> exitApp;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="foldopen" id="foldopen00107" data-start="{" data-end="}">
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="classSettingsApp.html#a56ffb0e1c93243d6612cd584a5d055cc">  107</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classSettingsApp.html#a56ffb0e1c93243d6612cd584a5d055cc">SettingsApp::shouldExit</a>() {</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  <span class="keywordflow">return</span> exitApp;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>}</div>
 </div>
 <div class="ttc" id="aDisplay_8cpp_html_a7c1c3113ffca0cf79e39a492bf0234f8"><div class="ttname"><a href="Display_8cpp.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a></div><div class="ttdeci">display Display</div><div class="ttdef"><b>Definition</b> <a href="Display_8cpp_source.html#l00018">Display.cpp:18</a></div></div>
 <div class="ttc" id="aHardware_8h_html"><div class="ttname"><a href="Hardware_8h.html">Hardware.h</a></div></div>
+<div class="ttc" id="aSettingsApp_8cpp_html_a438aa576e1878a135600445b91b6c3cd"><div class="ttname"><a href="SettingsApp_8cpp.html#a438aa576e1878a135600445b91b6c3cd">parameterLabels</a></div><div class="ttdeci">std::vector&lt; String &gt; parameterLabels</div><div class="ttdef"><b>Definition</b> <a href="#l00007">SettingsApp.cpp:7</a></div></div>
 <div class="ttc" id="aSettingsApp_8h_html"><div class="ttname"><a href="SettingsApp_8h.html">SettingsApp.h</a></div></div>
-<div class="ttc" id="aSettings_8cpp_html_a19276c778f3034b94881cf1f8614dbb2"><div class="ttname"><a href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a></div><div class="ttdeci">Settings settings</div><div class="ttdef"><b>Definition</b> <a href="Settings_8cpp_source.html#l00006">Settings.cpp:6</a></div></div>
-<div class="ttc" id="aSettings_8cpp_html_ac7142ee2baa705d2dd402769467d5a4e"><div class="ttname"><a href="Settings_8cpp.html#ac7142ee2baa705d2dd402769467d5a4e">saveSettings</a></div><div class="ttdeci">void saveSettings()</div><div class="ttdef"><b>Definition</b> <a href="Settings_8cpp_source.html#l00051">Settings.cpp:51</a></div></div>
+<div class="ttc" id="aSettings_8cpp_html_a19276c778f3034b94881cf1f8614dbb2"><div class="ttname"><a href="Settings_8cpp.html#a19276c778f3034b94881cf1f8614dbb2">settings</a></div><div class="ttdeci">Settings settings</div><div class="ttdoc">Global instance of the Settings structure.</div><div class="ttdef"><b>Definition</b> <a href="Settings_8cpp_source.html#l00006">Settings.cpp:6</a></div></div>
 <div class="ttc" id="aSettings_8h_html"><div class="ttname"><a href="Settings_8h.html">Settings.h</a></div></div>
-<div class="ttc" id="aSettings_8h_html_a02dfe5294ac309b4c593a22a5c62d303"><div class="ttname"><a href="Settings_8h.html#a02dfe5294ac309b4c593a22a5c62d303">Settings::timezoneOffset</a></div><div class="ttdeci">uint8_t timezoneOffset</div><div class="ttdef"><b>Definition</b> <a href="Settings_8h_source.html#l00008">Settings.h:8</a></div></div>
-<div class="ttc" id="aSettings_8h_html_ab0da5bfd8e7ad7338eb916a2fa50a8d5"><div class="ttname"><a href="Settings_8h.html#ab0da5bfd8e7ad7338eb916a2fa50a8d5">Settings::use24HourFormat</a></div><div class="ttdeci">bool use24HourFormat</div><div class="ttdef"><b>Definition</b> <a href="Settings_8h_source.html#l00009">Settings.h:9</a></div></div>
-<div class="ttc" id="aSettings_8h_html_ac69687603ef12a76a55fe103789eca9d"><div class="ttname"><a href="Settings_8h.html#ac69687603ef12a76a55fe103789eca9d">Settings::displayBrightness</a></div><div class="ttdeci">uint8_t displayBrightness</div><div class="ttdef"><b>Definition</b> <a href="Settings_8h_source.html#l00007">Settings.h:7</a></div></div>
 <div class="ttc" id="aclassApp_html"><div class="ttname"><a href="classApp.html">App</a></div><div class="ttdoc">Abstract base class for applications.</div><div class="ttdef"><b>Definition</b> <a href="App_8h_source.html#l00019">App.h:19</a></div></div>
-<div class="ttc" id="aclassSettingsApp_html"><div class="ttname"><a href="classSettingsApp.html">SettingsApp</a></div><div class="ttdoc">Application for managing settings, including WiFi configuration.</div><div class="ttdef"><b>Definition</b> <a href="SettingsApp_8h_source.html#l00016">SettingsApp.h:16</a></div></div>
-<div class="ttc" id="aclassSettingsApp_html_a00c89d1e40564a7fc97640f49a1067a1"><div class="ttname"><a href="classSettingsApp.html#a00c89d1e40564a7fc97640f49a1067a1">SettingsApp::update</a></div><div class="ttdeci">void update() override</div><div class="ttdoc">Update the application logic.</div><div class="ttdef"><b>Definition</b> <a href="#l00055">SettingsApp.cpp:55</a></div></div>
-<div class="ttc" id="aclassSettingsApp_html_a56ffb0e1c93243d6612cd584a5d055cc"><div class="ttname"><a href="classSettingsApp.html#a56ffb0e1c93243d6612cd584a5d055cc">SettingsApp::shouldExit</a></div><div class="ttdeci">bool shouldExit() override</div><div class="ttdoc">Check if the application should exit.</div><div class="ttdef"><b>Definition</b> <a href="#l00063">SettingsApp.cpp:63</a></div></div>
-<div class="ttc" id="aclassSettingsApp_html_a8f08106727cc36923c8f3b75ce1ce05b"><div class="ttname"><a href="classSettingsApp.html#a8f08106727cc36923c8f3b75ce1ce05b">SettingsApp::init</a></div><div class="ttdeci">void init() override</div><div class="ttdoc">Initialize the application.</div><div class="ttdef"><b>Definition</b> <a href="#l00015">SettingsApp.cpp:15</a></div></div>
-<div class="ttc" id="aclassSettingsApp_html_a9302a881c8b6c8214f9f54fc6505a68d"><div class="ttname"><a href="classSettingsApp.html#a9302a881c8b6c8214f9f54fc6505a68d">SettingsApp::getInstance</a></div><div class="ttdeci">static SettingsApp &amp; getInstance()</div><div class="ttdoc">Get the singleton instance of the SettingsApp.</div><div class="ttdef"><b>Definition</b> <a href="#l00006">SettingsApp.cpp:6</a></div></div>
-<div class="ttc" id="aclassSettingsApp_html_ae5f49b2a8fcce549a05a456473304c4d"><div class="ttname"><a href="classSettingsApp.html#ae5f49b2a8fcce549a05a456473304c4d">SettingsApp::render</a></div><div class="ttdeci">void render() override</div><div class="ttdoc">Render the application's output.</div><div class="ttdef"><b>Definition</b> <a href="#l00059">SettingsApp.cpp:59</a></div></div>
+<div class="ttc" id="aclassSettingsApp_html"><div class="ttname"><a href="classSettingsApp.html">SettingsApp</a></div><div class="ttdoc">Application for managing settings, including WiFi configuration.</div><div class="ttdef"><b>Definition</b> <a href="SettingsApp_8h_source.html#l00018">SettingsApp.h:18</a></div></div>
+<div class="ttc" id="aclassSettingsApp_html_a00c89d1e40564a7fc97640f49a1067a1"><div class="ttname"><a href="classSettingsApp.html#a00c89d1e40564a7fc97640f49a1067a1">SettingsApp::update</a></div><div class="ttdeci">void update() override</div><div class="ttdoc">Update the application logic.</div><div class="ttdef"><b>Definition</b> <a href="#l00101">SettingsApp.cpp:101</a></div></div>
+<div class="ttc" id="aclassSettingsApp_html_a56ffb0e1c93243d6612cd584a5d055cc"><div class="ttname"><a href="classSettingsApp.html#a56ffb0e1c93243d6612cd584a5d055cc">SettingsApp::shouldExit</a></div><div class="ttdeci">bool shouldExit() override</div><div class="ttdoc">Check if the application should exit.</div><div class="ttdef"><b>Definition</b> <a href="#l00107">SettingsApp.cpp:107</a></div></div>
+<div class="ttc" id="aclassSettingsApp_html_a8f08106727cc36923c8f3b75ce1ce05b"><div class="ttname"><a href="classSettingsApp.html#a8f08106727cc36923c8f3b75ce1ce05b">SettingsApp::init</a></div><div class="ttdeci">void init() override</div><div class="ttdoc">Initialize the application.</div><div class="ttdef"><b>Definition</b> <a href="#l00020">SettingsApp.cpp:20</a></div></div>
+<div class="ttc" id="aclassSettingsApp_html_a9302a881c8b6c8214f9f54fc6505a68d"><div class="ttname"><a href="classSettingsApp.html#a9302a881c8b6c8214f9f54fc6505a68d">SettingsApp::getInstance</a></div><div class="ttdeci">static SettingsApp &amp; getInstance()</div><div class="ttdoc">Get the singleton instance of the SettingsApp.</div><div class="ttdef"><b>Definition</b> <a href="#l00009">SettingsApp.cpp:9</a></div></div>
+<div class="ttc" id="aclassSettingsApp_html_ae5f49b2a8fcce549a05a456473304c4d"><div class="ttname"><a href="classSettingsApp.html#ae5f49b2a8fcce549a05a456473304c4d">SettingsApp::render</a></div><div class="ttdeci">void render() override</div><div class="ttdoc">Render the application's output.</div><div class="ttdef"><b>Definition</b> <a href="#l00104">SettingsApp.cpp:104</a></div></div>
+<div class="ttc" id="aclassdisplay_html_a9deb46d4815abb300622a3c3fcb11595"><div class="ttname"><a href="classdisplay.html#a9deb46d4815abb300622a3c3fcb11595">display::drawSplashScreen</a></div><div class="ttdeci">void drawSplashScreen(const String &amp;text, const String &amp;secondLine)</div><div class="ttdef"><b>Definition</b> <a href="Display_8h_source.html#l00041">Display.h:41</a></div></div>
+<div class="ttc" id="astructSettings_html_a4c5d90390125e939d5e6299340e586a1"><div class="ttname"><a href="structSettings.html#a4c5d90390125e939d5e6299340e586a1">Settings::saveSettings</a></div><div class="ttdeci">void saveSettings()</div><div class="ttdoc">Save settings to LittleFS.</div><div class="ttdef"><b>Definition</b> <a href="Settings_8cpp_source.html#l00077">Settings.cpp:77</a></div></div>
+<div class="ttc" id="astructSettings_html_ac921099613c8511ee1f73eba6851af91"><div class="ttname"><a href="structSettings.html#ac921099613c8511ee1f73eba6851af91">Settings::dynamicSettings</a></div><div class="ttdeci">std::map&lt; String, String &gt; dynamicSettings</div><div class="ttdoc">Dynamic settings storage.</div><div class="ttdef"><b>Definition</b> <a href="Settings_8h_source.html#l00039">Settings.h:39</a></div></div>
+<div class="ttc" id="astructSettings_html_aea3ab6a8c3c55e1e134f504eb251f8db"><div class="ttname"><a href="structSettings.html#aea3ab6a8c3c55e1e134f504eb251f8db">Settings::settingDescriptions</a></div><div class="ttdeci">std::map&lt; String, String &gt; settingDescriptions</div><div class="ttdoc">Descriptions for settings (key -&gt; description).</div><div class="ttdef"><b>Definition</b> <a href="Settings_8h_source.html#l00044">Settings.h:44</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

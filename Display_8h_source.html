@@ -191,15 +191,29 @@ $(function(){initNavTree('Display_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">   * @param brightness Brightness level (0-255).</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">   */</span></div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classdisplay.html#aeab7f9bf60d200db6c793c2ef7f28f75">setBacklight</a>(uint8_t brightness);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="}">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classdisplay.html#a9deb46d4815abb300622a3c3fcb11595">   41</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classdisplay.html#a9deb46d4815abb300622a3c3fcb11595">drawSplashScreen</a>(<span class="keyword">const</span> String&amp; text, <span class="keyword">const</span> String&amp; secondLine) {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    fillScreen(TFT_BLACK);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    setTextColor(TFT_WHITE);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    setTextFont(4);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    setTextDatum(MC_DATUM);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    drawString(text, width() / 2, height() / 2);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    setTextFont(2);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    drawString(secondLine, width() / 2, height() / 2 + fontHeight(4) + 5);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    setTextDatum(TL_DATUM);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  }</div>
 </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">extern</span> <a class="code hl_class" href="classdisplay.html">display</a> <a class="code hl_variable" href="Display_8h.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>;  <span class="comment">// Declare Display as extern</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#endif  </span><span class="comment">// DISPLAY_H</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>};</div>
+</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">extern</span> <a class="code hl_class" href="classdisplay.html">display</a> <a class="code hl_variable" href="Display_8h.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a>;  <span class="comment">// Declare Display as extern</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#endif  </span><span class="comment">// DISPLAY_H</span></div>
 <div class="ttc" id="aDisplay_8h_html_a7c1c3113ffca0cf79e39a492bf0234f8"><div class="ttname"><a href="Display_8h.html#a7c1c3113ffca0cf79e39a492bf0234f8">Display</a></div><div class="ttdeci">display Display</div><div class="ttdef"><b>Definition</b> <a href="Display_8cpp_source.html#l00018">Display.cpp:18</a></div></div>
 <div class="ttc" id="aclassdisplay_html"><div class="ttname"><a href="classdisplay.html">display</a></div><div class="ttdoc">Display class derived from TFT_eSPI to manage the display.</div><div class="ttdef"><b>Definition</b> <a href="#l00023">Display.h:23</a></div></div>
 <div class="ttc" id="aclassdisplay_html_a1385d21e9490cbf02de742f3e586d56a"><div class="ttname"><a href="classdisplay.html#a1385d21e9490cbf02de742f3e586d56a">display::display</a></div><div class="ttdeci">display()</div><div class="ttdoc">Constructor for the TFT class.</div><div class="ttdef"><b>Definition</b> <a href="Display_8cpp_source.html#l00003">Display.cpp:3</a></div></div>
+<div class="ttc" id="aclassdisplay_html_a9deb46d4815abb300622a3c3fcb11595"><div class="ttname"><a href="classdisplay.html#a9deb46d4815abb300622a3c3fcb11595">display::drawSplashScreen</a></div><div class="ttdeci">void drawSplashScreen(const String &amp;text, const String &amp;secondLine)</div><div class="ttdef"><b>Definition</b> <a href="#l00041">Display.h:41</a></div></div>
 <div class="ttc" id="aclassdisplay_html_aa0b94eb3cb43b47dc720542cf7d1da9b"><div class="ttname"><a href="classdisplay.html#aa0b94eb3cb43b47dc720542cf7d1da9b">display::init</a></div><div class="ttdeci">void init()</div><div class="ttdoc">Initialize the display and configure the backlight pin.</div><div class="ttdef"><b>Definition</b> <a href="Display_8cpp_source.html#l00005">Display.cpp:5</a></div></div>
 <div class="ttc" id="aclassdisplay_html_aeab7f9bf60d200db6c793c2ef7f28f75"><div class="ttname"><a href="classdisplay.html#aeab7f9bf60d200db6c793c2ef7f28f75">display::setBacklight</a></div><div class="ttdeci">void setBacklight(uint8_t brightness)</div><div class="ttdoc">Set the backlight brightness.</div><div class="ttdef"><b>Definition</b> <a href="Display_8cpp_source.html#l00010">Display.cpp:10</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

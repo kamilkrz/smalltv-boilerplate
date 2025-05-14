@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rgbto565_0',['RGBto565',['../Display_8h.html#a4273466b93b33e9d61d4ea0dc1e39fd0',1,'Display.h']]]
+  ['max_5fcolumns_0',['MAX_COLUMNS',['../MatrixApp_8h.html#a2cc6f39fc4594f0e734b2588129fba03',1,'MatrixApp.h']]]
 ];

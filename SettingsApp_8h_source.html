@@ -155,59 +155,66 @@ $(function(){initNavTree('SettingsApp_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define SETTINGS_APP_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;WiFiManager.h&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="App_8h.html">core/App.h</a>&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"></span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * @class SettingsApp</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * @brief Application for managing settings, including WiFi configuration.</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * This class is a singleton that provides functionality for initializing,</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * updating, rendering, and exiting the settings application.</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * @ingroup Apps</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> */</span></div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classSettingsApp.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="classSettingsApp.html">SettingsApp</a> : <span class="keyword">public</span> <a class="code hl_class" href="classApp.html">App</a> {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> <span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">  /**</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">   * @brief Get the singleton instance of the SettingsApp.</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">   * @return Reference to the singleton instance.</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">   */</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <span class="keyword">static</span> <a class="code hl_class" href="classSettingsApp.html">SettingsApp</a>&amp; <a class="code hl_function" href="classSettingsApp.html#a9302a881c8b6c8214f9f54fc6505a68d">getInstance</a>();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSettingsApp.html#a8f08106727cc36923c8f3b75ce1ce05b">init</a>() <span class="keyword">override</span>;        <span class="comment">// Inherited from App</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSettingsApp.html#a00c89d1e40564a7fc97640f49a1067a1">update</a>() <span class="keyword">override</span>;      <span class="comment">// Inherited from App</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSettingsApp.html#ae5f49b2a8fcce549a05a456473304c4d">render</a>() <span class="keyword">override</span>;      <span class="comment">// Inherited from App</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="classSettingsApp.html#a56ffb0e1c93243d6612cd584a5d055cc">shouldExit</a>() <span class="keyword">override</span>;  <span class="comment">// Inherited from App</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> <span class="keyword">private</span>:<span class="comment"></span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">  /**</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">   * @brief Private constructor for the singleton pattern.</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">   */</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <a class="code hl_class" href="classSettingsApp.html">SettingsApp</a>();</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"></span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">  /**</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">   * @brief Destructor for the SettingsApp.</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">   */</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <a class="code hl_class" href="classSettingsApp.html">~SettingsApp</a>();</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <a class="code hl_class" href="classSettingsApp.html">SettingsApp</a>(<span class="keyword">const</span> <a class="code hl_class" href="classSettingsApp.html">SettingsApp</a>&amp;) = <span class="keyword">delete</span>;             <span class="comment">// Inherited behavior</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  <a class="code hl_class" href="classSettingsApp.html">SettingsApp</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="classSettingsApp.html">SettingsApp</a>&amp;) = <span class="keyword">delete</span>;  <span class="comment">// Inherited behavior</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  <span class="keywordtype">bool</span> exitApp = <span class="keyword">false</span>;     <span class="comment">// Flag indicating whether the application should exit</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  WiFiManager wifiManager;  <span class="comment">// WiFiManager instance for managing WiFi settings</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>};</div>
-</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="App_8h.html">core/App.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"></span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * @class SettingsApp</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * @brief Application for managing settings, including WiFi configuration.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * This class is a singleton that provides functionality for initializing,</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * updating, rendering, and exiting the settings application.</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * @ingroup Apps</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classSettingsApp.html">   18</a></span><span class="keyword">class </span><a class="code hl_class" href="classSettingsApp.html">SettingsApp</a> : <span class="keyword">public</span> <a class="code hl_class" href="classApp.html">App</a> {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> <span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">  /**</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">   * @brief Get the singleton instance of the SettingsApp.</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">   * @return Reference to the singleton instance.</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">   */</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  <span class="keyword">static</span> <a class="code hl_class" href="classSettingsApp.html">SettingsApp</a>&amp; <a class="code hl_function" href="classSettingsApp.html#a9302a881c8b6c8214f9f54fc6505a68d">getInstance</a>();</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSettingsApp.html#a8f08106727cc36923c8f3b75ce1ce05b">init</a>() <span class="keyword">override</span>;        <span class="comment">// Inherited from App</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classSettingsApp.html#a2a134e577db45a9676ae5c62a6d3c065">   27</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="classSettingsApp.html#a2a134e577db45a9676ae5c62a6d3c065">connectToWiFi</a>();</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classSettingsApp.html#aaec272ff1f8a84fd8a386d28d3bc3dac">   28</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSettingsApp.html#aaec272ff1f8a84fd8a386d28d3bc3dac">startAPMode</a>();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSettingsApp.html#a00c89d1e40564a7fc97640f49a1067a1">update</a>() <span class="keyword">override</span>;      <span class="comment">// Inherited from App</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classSettingsApp.html#ae5f49b2a8fcce549a05a456473304c4d">render</a>() <span class="keyword">override</span>;      <span class="comment">// Inherited from App</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="classSettingsApp.html#a56ffb0e1c93243d6612cd584a5d055cc">shouldExit</a>() <span class="keyword">override</span>;  <span class="comment">// Inherited from App</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> <span class="keyword">private</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">  /**</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">   * @brief Private constructor for the singleton pattern.</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">   */</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <a class="code hl_class" href="classSettingsApp.html">SettingsApp</a>();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"></span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">  /**</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">   * @brief Destructor for the SettingsApp.</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">   */</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <a class="code hl_class" href="classSettingsApp.html">~SettingsApp</a>();</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  <a class="code hl_class" href="classSettingsApp.html">SettingsApp</a>(<span class="keyword">const</span> <a class="code hl_class" href="classSettingsApp.html">SettingsApp</a>&amp;) = <span class="keyword">delete</span>;             <span class="comment">// Inherited behavior</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <a class="code hl_class" href="classSettingsApp.html">SettingsApp</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_class" href="classSettingsApp.html">SettingsApp</a>&amp;) = <span class="keyword">delete</span>;  <span class="comment">// Inherited behavior</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#endif  </span><span class="comment">// SETTINGS_APP_H</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  <span class="keywordtype">bool</span> exitApp = <span class="keyword">false</span>;     <span class="comment">// Flag indicating whether the application should exit</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  WiFiManager wifiManager;  <span class="comment">// WiFiManager instance for managing WiFi settings</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  std::vector&lt;std::unique_ptr&lt;WiFiManagerParameter&gt;&gt; parameters; <span class="comment">// Store parameters persistently</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>};</div>
+</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#endif  </span><span class="comment">// SETTINGS_APP_H</span></div>
 <div class="ttc" id="aApp_8h_html"><div class="ttname"><a href="App_8h.html">App.h</a></div><div class="ttdoc">Abstract base class for applications.</div></div>
 <div class="ttc" id="aclassApp_html"><div class="ttname"><a href="classApp.html">App</a></div><div class="ttdoc">Abstract base class for applications.</div><div class="ttdef"><b>Definition</b> <a href="App_8h_source.html#l00019">App.h:19</a></div></div>
-<div class="ttc" id="aclassSettingsApp_html"><div class="ttname"><a href="classSettingsApp.html">SettingsApp</a></div><div class="ttdoc">Application for managing settings, including WiFi configuration.</div><div class="ttdef"><b>Definition</b> <a href="#l00016">SettingsApp.h:16</a></div></div>
-<div class="ttc" id="aclassSettingsApp_html_a00c89d1e40564a7fc97640f49a1067a1"><div class="ttname"><a href="classSettingsApp.html#a00c89d1e40564a7fc97640f49a1067a1">SettingsApp::update</a></div><div class="ttdeci">void update() override</div><div class="ttdoc">Update the application logic.</div><div class="ttdef"><b>Definition</b> <a href="SettingsApp_8cpp_source.html#l00055">SettingsApp.cpp:55</a></div></div>
-<div class="ttc" id="aclassSettingsApp_html_a56ffb0e1c93243d6612cd584a5d055cc"><div class="ttname"><a href="classSettingsApp.html#a56ffb0e1c93243d6612cd584a5d055cc">SettingsApp::shouldExit</a></div><div class="ttdeci">bool shouldExit() override</div><div class="ttdoc">Check if the application should exit.</div><div class="ttdef"><b>Definition</b> <a href="SettingsApp_8cpp_source.html#l00063">SettingsApp.cpp:63</a></div></div>
-<div class="ttc" id="aclassSettingsApp_html_a8f08106727cc36923c8f3b75ce1ce05b"><div class="ttname"><a href="classSettingsApp.html#a8f08106727cc36923c8f3b75ce1ce05b">SettingsApp::init</a></div><div class="ttdeci">void init() override</div><div class="ttdoc">Initialize the application.</div><div class="ttdef"><b>Definition</b> <a href="SettingsApp_8cpp_source.html#l00015">SettingsApp.cpp:15</a></div></div>
-<div class="ttc" id="aclassSettingsApp_html_a9302a881c8b6c8214f9f54fc6505a68d"><div class="ttname"><a href="classSettingsApp.html#a9302a881c8b6c8214f9f54fc6505a68d">SettingsApp::getInstance</a></div><div class="ttdeci">static SettingsApp &amp; getInstance()</div><div class="ttdoc">Get the singleton instance of the SettingsApp.</div><div class="ttdef"><b>Definition</b> <a href="SettingsApp_8cpp_source.html#l00006">SettingsApp.cpp:6</a></div></div>
-<div class="ttc" id="aclassSettingsApp_html_ae5f49b2a8fcce549a05a456473304c4d"><div class="ttname"><a href="classSettingsApp.html#ae5f49b2a8fcce549a05a456473304c4d">SettingsApp::render</a></div><div class="ttdeci">void render() override</div><div class="ttdoc">Render the application's output.</div><div class="ttdef"><b>Definition</b> <a href="SettingsApp_8cpp_source.html#l00059">SettingsApp.cpp:59</a></div></div>
+<div class="ttc" id="aclassSettingsApp_html"><div class="ttname"><a href="classSettingsApp.html">SettingsApp</a></div><div class="ttdoc">Application for managing settings, including WiFi configuration.</div><div class="ttdef"><b>Definition</b> <a href="#l00018">SettingsApp.h:18</a></div></div>
+<div class="ttc" id="aclassSettingsApp_html_a00c89d1e40564a7fc97640f49a1067a1"><div class="ttname"><a href="classSettingsApp.html#a00c89d1e40564a7fc97640f49a1067a1">SettingsApp::update</a></div><div class="ttdeci">void update() override</div><div class="ttdoc">Update the application logic.</div><div class="ttdef"><b>Definition</b> <a href="SettingsApp_8cpp_source.html#l00101">SettingsApp.cpp:101</a></div></div>
+<div class="ttc" id="aclassSettingsApp_html_a2a134e577db45a9676ae5c62a6d3c065"><div class="ttname"><a href="classSettingsApp.html#a2a134e577db45a9676ae5c62a6d3c065">SettingsApp::connectToWiFi</a></div><div class="ttdeci">bool connectToWiFi()</div></div>
+<div class="ttc" id="aclassSettingsApp_html_a56ffb0e1c93243d6612cd584a5d055cc"><div class="ttname"><a href="classSettingsApp.html#a56ffb0e1c93243d6612cd584a5d055cc">SettingsApp::shouldExit</a></div><div class="ttdeci">bool shouldExit() override</div><div class="ttdoc">Check if the application should exit.</div><div class="ttdef"><b>Definition</b> <a href="SettingsApp_8cpp_source.html#l00107">SettingsApp.cpp:107</a></div></div>
+<div class="ttc" id="aclassSettingsApp_html_a8f08106727cc36923c8f3b75ce1ce05b"><div class="ttname"><a href="classSettingsApp.html#a8f08106727cc36923c8f3b75ce1ce05b">SettingsApp::init</a></div><div class="ttdeci">void init() override</div><div class="ttdoc">Initialize the application.</div><div class="ttdef"><b>Definition</b> <a href="SettingsApp_8cpp_source.html#l00020">SettingsApp.cpp:20</a></div></div>
+<div class="ttc" id="aclassSettingsApp_html_a9302a881c8b6c8214f9f54fc6505a68d"><div class="ttname"><a href="classSettingsApp.html#a9302a881c8b6c8214f9f54fc6505a68d">SettingsApp::getInstance</a></div><div class="ttdeci">static SettingsApp &amp; getInstance()</div><div class="ttdoc">Get the singleton instance of the SettingsApp.</div><div class="ttdef"><b>Definition</b> <a href="SettingsApp_8cpp_source.html#l00009">SettingsApp.cpp:9</a></div></div>
+<div class="ttc" id="aclassSettingsApp_html_aaec272ff1f8a84fd8a386d28d3bc3dac"><div class="ttname"><a href="classSettingsApp.html#aaec272ff1f8a84fd8a386d28d3bc3dac">SettingsApp::startAPMode</a></div><div class="ttdeci">void startAPMode()</div></div>
+<div class="ttc" id="aclassSettingsApp_html_ae5f49b2a8fcce549a05a456473304c4d"><div class="ttname"><a href="classSettingsApp.html#ae5f49b2a8fcce549a05a456473304c4d">SettingsApp::render</a></div><div class="ttdeci">void render() override</div><div class="ttdoc">Render the application's output.</div><div class="ttdef"><b>Definition</b> <a href="SettingsApp_8cpp_source.html#l00104">SettingsApp.cpp:104</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
