@@ -5,6 +5,7 @@ var annotated_dup =
     [ "AppLauncher", "classAppLauncher.html", "classAppLauncher" ],
     [ "button", "classbutton.html", "classbutton" ],
     [ "ClockApp", "classClockApp.html", "classClockApp" ],
+    [ "CurrencyConverterApp", "classCurrencyConverterApp.html", "classCurrencyConverterApp" ],
     [ "display", "classdisplay.html", "classdisplay" ],
     [ "GooglyEyesApp", "classGooglyEyesApp.html", "classGooglyEyesApp" ],
     [ "MatrixApp", "classMatrixApp.html", "classMatrixApp" ],

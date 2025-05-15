@@ -4,5 +4,8 @@ var searchData=
   ['clockapp_1',['ClockApp',['../classClockApp.html',1,'']]],
   ['clockapp_2ecpp_2',['ClockApp.cpp',['../ClockApp_8cpp.html',1,'']]],
   ['clockapp_2eh_3',['ClockApp.h',['../ClockApp_8h.html',1,'']]],
-  ['connecttowifi_4',['connectToWiFi',['../classSettingsApp.html#a2a134e577db45a9676ae5c62a6d3c065',1,'SettingsApp']]]
+  ['connecttowifi_4',['connectToWiFi',['../classSettingsApp.html#a2a134e577db45a9676ae5c62a6d3c065',1,'SettingsApp']]],
+  ['currencyconverterapp_5',['CurrencyConverterApp',['../classCurrencyConverterApp.html',1,'']]],
+  ['currencyconverterapp_2ecpp_6',['CurrencyConverterApp.cpp',['../CurrencyConverterApp_8cpp.html',1,'']]],
+  ['currencyconverterapp_2eh_7',['CurrencyConverterApp.h',['../CurrencyConverterApp_8h.html',1,'']]]
 ];

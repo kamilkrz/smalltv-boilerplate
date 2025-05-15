@@ -1,26 +1,31 @@
 <map id="src/apps" name="src/apps">
-<area shape="rect" id="node1" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html" title="core" alt="" coords="241,137,287,162"/>
-<area shape="rect" id="node2" href="dir_59b1e980a670de987a696efba6dbbdbc.html" title="hardware" alt="" coords="323,137,397,162"/>
-<area shape="rect" id="node4" href="dir_e6ad3259da54d08d07754a1becc76e09.html" title="ClockApp" alt="" coords="112,63,189,89"/>
-<area shape="poly" id="edge2" href="dir_000003_000004.html" alt="" coords="171,87,233,126,230,130,168,91"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000003_000004.html" title="2" alt="" coords="230,112,237,127"/>
-<area shape="poly" id="edge1" href="dir_000003_000007.html" alt="" coords="178,87,204,97,309,131,308,136,202,102,176,92"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000003_000007.html" title="1" alt="" coords="304,117,311,132"/>
-<area shape="rect" id="node5" href="dir_c3eebdab689fc73e234e24e1b6441548.html" title="GooglyEyes" alt="" coords="214,63,303,89"/>
-<area shape="poly" id="edge4" href="dir_000006_000004.html" alt="" coords="262,89,265,121,259,121,257,89"/>
-<area shape="rect" id="edge4-headlabel" href="dir_000006_000004.html" title="1" alt="" coords="267,110,274,125"/>
-<area shape="poly" id="edge3" href="dir_000006_000007.html" alt="" coords="277,87,332,125,329,129,274,91"/>
-<area shape="rect" id="edge3-headlabel" href="dir_000006_000007.html" title="1" alt="" coords="329,111,336,126"/>
-<area shape="rect" id="node6" href="dir_1464269eb44042bfebfb013b34bf5951.html" title="MatrixApp" alt="" coords="327,63,406,89"/>
-<area shape="poly" id="edge6" href="dir_000008_000004.html" alt="" coords="351,91,295,130,292,125,348,87"/>
-<area shape="rect" id="edge6-headlabel" href="dir_000008_000004.html" title="1" alt="" coords="298,125,305,140"/>
-<area shape="poly" id="edge5" href="dir_000008_000007.html" alt="" coords="368,89,365,121,360,121,363,89"/>
-<area shape="rect" id="edge5-headlabel" href="dir_000008_000007.html" title="2" alt="" coords="368,111,375,126"/>
-<area shape="rect" id="node7" href="dir_2c1da89830bcf7ef891ce242d953faa8.html" title="PomodoroApp" alt="" coords="431,63,534,89"/>
-<area shape="poly" id="edge8" href="dir_000010_000004.html" alt="" coords="449,92,420,102,303,139,301,134,418,97,447,87"/>
-<area shape="rect" id="edge8-headlabel" href="dir_000010_000004.html" title="1" alt="" coords="304,136,311,151"/>
-<area shape="poly" id="edge7" href="dir_000010_000007.html" alt="" coords="463,92,395,131,392,126,461,87"/>
-<area shape="rect" id="edge7-headlabel" href="dir_000010_000007.html" title="1" alt="" coords="397,127,404,142"/>
-<area shape="rect" id="clust2" href="dir_53adf0b982dc8545998aae3f283a5a58.html" alt="" coords="27,52,545,99"/>
-<area shape="rect" id="clust1" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html" title="src" alt="" coords="16,16,556,173"/>
+<area shape="rect" id="node1" href="dir_aebb8dcc11953d78e620bbef0b9e2183.html" title="core" alt="" coords="316,137,362,162"/>
+<area shape="rect" id="node2" href="dir_59b1e980a670de987a696efba6dbbdbc.html" title="hardware" alt="" coords="386,137,460,162"/>
+<area shape="rect" id="node4" href="dir_e6ad3259da54d08d07754a1becc76e09.html" title="ClockApp" alt="" coords="343,63,420,89"/>
+<area shape="poly" id="edge2" href="dir_000003_000004.html" alt="" coords="377,90,356,125,351,122,372,88"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000003_000004.html" title="2" alt="" coords="359,118,366,133"/>
+<area shape="poly" id="edge1" href="dir_000003_000008.html" alt="" coords="390,88,410,122,406,125,386,90"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000003_000008.html" title="1" alt="" coords="410,109,417,124"/>
+<area shape="rect" id="node5" href="dir_683fcc6bf6e4034b7539b7524f4cb9f9.html" title="CurrencyConverterApp" alt="" coords="444,63,596,89"/>
+<area shape="poly" id="edge4" href="dir_000005_000004.html" alt="" coords="490,92,377,136,375,131,488,87"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000005_000004.html" title="2" alt="" coords="379,133,386,148"/>
+<area shape="poly" id="edge3" href="dir_000005_000008.html" alt="" coords="505,91,453,130,449,125,502,87"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000005_000008.html" title="1" alt="" coords="455,125,462,140"/>
+<area shape="rect" id="node6" href="dir_c3eebdab689fc73e234e24e1b6441548.html" title="GooglyEyes" alt="" coords="619,63,709,89"/>
+<area shape="poly" id="edge6" href="dir_000007_000004.html" alt="" coords="638,92,609,102,546,116,495,122,443,127,378,139,377,134,442,122,494,116,545,110,607,97,636,87"/>
+<area shape="rect" id="edge6-headlabel" href="dir_000007_000004.html" title="1" alt="" coords="378,136,385,151"/>
+<area shape="poly" id="edge5" href="dir_000007_000008.html" alt="" coords="637,92,609,102,476,139,474,134,607,97,635,87"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000007_000008.html" title="1" alt="" coords="476,136,483,151"/>
+<area shape="rect" id="node7" href="dir_1464269eb44042bfebfb013b34bf5951.html" title="MatrixApp" alt="" coords="111,63,190,89"/>
+<area shape="poly" id="edge8" href="dir_000009_000004.html" alt="" coords="179,87,204,97,301,133,300,138,202,102,177,92"/>
+<area shape="rect" id="edge8-headlabel" href="dir_000009_000004.html" title="1" alt="" coords="297,119,304,134"/>
+<area shape="poly" id="edge7" href="dir_000009_000008.html" alt="" coords="177,87,203,97,285,117,371,133,370,139,284,123,202,102,175,92"/>
+<area shape="rect" id="edge7-headlabel" href="dir_000009_000008.html" title="2" alt="" coords="366,120,373,135"/>
+<area shape="rect" id="node8" href="dir_2c1da89830bcf7ef891ce242d953faa8.html" title="PomodoroApp" alt="" coords="215,63,318,89"/>
+<area shape="poly" id="edge10" href="dir_000011_000004.html" alt="" coords="280,87,318,124,314,127,277,91"/>
+<area shape="rect" id="edge10-headlabel" href="dir_000011_000004.html" title="1" alt="" coords="316,110,323,125"/>
+<area shape="poly" id="edge9" href="dir_000011_000008.html" alt="" coords="294,87,383,127,381,132,292,92"/>
+<area shape="rect" id="edge9-headlabel" href="dir_000011_000008.html" title="1" alt="" coords="380,113,387,128"/>
+<area shape="rect" id="clust2" href="dir_53adf0b982dc8545998aae3f283a5a58.html" alt="" coords="27,52,720,99"/>
+<area shape="rect" id="clust1" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html" title="src" alt="" coords="16,16,731,173"/>
 </map>

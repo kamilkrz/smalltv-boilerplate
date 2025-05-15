@@ -3,6 +3,7 @@ var hierarchy =
     [ "App", "classApp.html", [
       [ "AppLauncher", "classAppLauncher.html", null ],
       [ "ClockApp", "classClockApp.html", null ],
+      [ "CurrencyConverterApp", "classCurrencyConverterApp.html", null ],
       [ "GooglyEyesApp", "classGooglyEyesApp.html", null ],
       [ "MatrixApp", "classMatrixApp.html", null ],
       [ "PomodoroApp", "classPomodoroApp.html", null ],

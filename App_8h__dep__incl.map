@@ -1,38 +1,43 @@
 <map id="src/core/App.h" name="src/core/App.h">
-<area shape="rect" id="Node000001" title="Abstract base class for applications." alt="" coords="596,5,702,31"/>
-<area shape="rect" id="Node000002" href="$ClockApp_8h.html" title=" " alt="" coords="20,86,222,112"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="581,31,233,82,191,88,190,83,233,76,580,26"/>
-<area shape="rect" id="Node000005" href="$GooglyEyes_8h.html" title=" " alt="" coords="245,79,389,120"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="584,38,390,84,389,78,582,32"/>
-<area shape="rect" id="Node000007" href="$MatrixApp_8h.html" title=" " alt="" coords="413,79,546,120"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="610,40,523,81,521,76,608,35"/>
-<area shape="rect" id="Node000009" href="$PomodoroApp_8h.html" title=" " alt="" coords="570,79,728,120"/>
-<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="652,46,652,79,646,79,646,46"/>
-<area shape="rect" id="Node000011" href="$AppCollection_8h.html" title=" " alt="" coords="925,86,1088,112"/>
-<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="717,32,952,83,951,88,716,37"/>
-<area shape="rect" id="Node000013" href="$AppLauncher_8h.html" title=" " alt="" coords="752,79,901,120"/>
-<area shape="poly" id="edge16_Node000001_Node000013" title=" " alt="" coords="691,35,783,76,781,81,689,40"/>
-<area shape="rect" id="Node000014" href="$SettingsApp_8h.html" title=" " alt="" coords="1112,79,1255,120"/>
-<area shape="poly" id="edge19_Node000001_Node000014" title=" " alt="" coords="718,24,892,45,1100,76,1112,79,1111,84,1099,82,891,50,717,29"/>
+<area shape="rect" id="Node000001" title="Abstract base class for applications." alt="" coords="738,5,843,31"/>
+<area shape="rect" id="Node000002" href="$ClockApp_8h.html" title=" " alt="" coords="35,86,236,112"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="722,28,510,50,248,82,203,89,203,83,247,76,510,44,722,23"/>
+<area shape="rect" id="Node000005" href="$CurrencyConverterApp_8h.html" title=" " alt="" coords="260,79,448,120"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="723,34,460,82,450,84,449,78,459,76,722,29"/>
+<area shape="rect" id="Node000007" href="$GooglyEyes_8h.html" title=" " alt="" coords="472,79,615,120"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="739,39,606,81,604,76,737,34"/>
+<area shape="rect" id="Node000009" href="$MatrixApp_8h.html" title=" " alt="" coords="640,79,773,120"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="768,44,729,81,725,77,765,40"/>
+<area shape="rect" id="Node000011" href="$PomodoroApp_8h.html" title=" " alt="" coords="797,79,954,120"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="816,40,856,77,853,81,813,44"/>
+<area shape="rect" id="Node000013" href="$AppCollection_8h.html" title=" " alt="" coords="978,86,1141,112"/>
+<area shape="poly" id="edge16_Node000001_Node000013" title=" " alt="" coords="847,33,1019,83,1017,88,846,38"/>
+<area shape="rect" id="Node000015" href="$AppLauncher_8h.html" title=" " alt="" coords="1165,79,1314,120"/>
+<area shape="poly" id="edge19_Node000001_Node000015" title=" " alt="" coords="859,27,1153,76,1165,79,1164,84,1153,82,858,32"/>
+<area shape="rect" id="Node000016" href="$SettingsApp_8h.html" title=" " alt="" coords="1339,79,1482,120"/>
+<area shape="poly" id="edge22_Node000001_Node000016" title=" " alt="" coords="859,22,1068,42,1197,57,1327,76,1339,78,1338,84,1326,82,1197,62,1068,47,858,27"/>
 <area shape="rect" id="Node000003" href="$ClockApp_8cpp.html" title=" " alt="" coords="5,175,221,201"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="121,128,117,175,111,175,116,127"/>
-<area shape="rect" id="Node000004" href="$main_8cpp.html" title=" " alt="" coords="752,175,847,201"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="203,113,233,117,376,131,487,135,599,143,740,165,766,172,765,177,739,170,598,148,487,141,375,136,233,122,202,118"/>
-<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="404,117,500,131,574,139,648,148,740,165,766,172,764,177,739,170,647,153,574,144,499,137,404,123"/>
-<area shape="rect" id="Node000006" href="$GooglyEyes_8cpp.html" title=" " alt="" coords="245,168,389,208"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="320,135,320,167,314,167,314,135"/>
-<area shape="poly" id="edge9_Node000007_Node000004" title=" " alt="" coords="562,118,740,165,764,172,762,177,739,170,561,123"/>
-<area shape="rect" id="Node000008" href="$MatrixApp_8cpp.html" title=" " alt="" coords="413,168,546,208"/>
-<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="482,135,482,167,477,167,477,135"/>
-<area shape="poly" id="edge12_Node000009_Node000004" title=" " alt="" coords="698,125,780,172,777,177,695,130"/>
-<area shape="rect" id="Node000010" href="$PomodoroApp_8cpp.html" title=" " alt="" coords="570,168,728,208"/>
-<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="652,135,652,167,646,167,646,135"/>
-<area shape="poly" id="edge15_Node000011_Node000004" title=" " alt="" coords="964,121,830,177,828,172,962,116"/>
-<area shape="rect" id="Node000012" href="$AppLauncher_8cpp.html" title=" " alt="" coords="902,168,1052,208"/>
-<area shape="poly" id="edge14_Node000011_Node000012" title=" " alt="" coords="1000,128,986,168,981,167,995,126"/>
-<area shape="poly" id="edge18_Node000013_Node000004" title=" " alt="" coords="818,136,806,176,801,174,813,134"/>
-<area shape="poly" id="edge17_Node000013_Node000012" title=" " alt="" coords="875,125,944,165,942,170,872,130"/>
-<area shape="poly" id="edge21_Node000014_Node000004" title=" " alt="" coords="1098,123,849,179,847,173,1096,118"/>
-<area shape="rect" id="Node000015" href="$SettingsApp_8cpp.html" title=" " alt="" coords="1112,168,1255,208"/>
-<area shape="poly" id="edge20_Node000014_Node000015" title=" " alt="" coords="1186,135,1186,167,1181,167,1181,135"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="131,128,119,175,114,174,126,126"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html" title=" " alt="" coords="797,175,893,201"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="217,113,248,117,399,131,517,135,636,142,705,151,786,165,812,172,810,177,784,170,704,156,635,147,517,140,399,136,247,122,216,118"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="464,118,627,138,697,147,786,165,811,172,810,177,784,170,696,153,626,143,464,123"/>
+<area shape="rect" id="Node000006" href="$CurrencyConverterApp_8cpp.html" title=" " alt="" coords="245,168,448,208"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="354,136,351,167,345,167,348,135"/>
+<area shape="poly" id="edge9_Node000007_Node000004" title=" " alt="" coords="631,121,786,165,808,172,807,177,784,170,629,126"/>
+<area shape="rect" id="Node000008" href="$GooglyEyes_8cpp.html" title=" " alt="" coords="472,168,615,208"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="546,135,546,167,541,167,541,135"/>
+<area shape="poly" id="edge12_Node000009_Node000004" title=" " alt="" coords="752,126,827,172,824,177,749,131"/>
+<area shape="rect" id="Node000010" href="$MatrixApp_8cpp.html" title=" " alt="" coords="640,168,773,208"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="709,135,709,167,704,167,704,135"/>
+<area shape="poly" id="edge15_Node000011_Node000004" title=" " alt="" coords="866,135,852,176,847,174,861,133"/>
+<area shape="rect" id="Node000012" href="$PomodoroApp_8cpp.html" title=" " alt="" coords="917,168,1074,208"/>
+<area shape="poly" id="edge14_Node000011_Node000012" title=" " alt="" coords="917,127,970,165,967,169,914,131"/>
+<area shape="poly" id="edge18_Node000013_Node000004" title=" " alt="" coords="1016,121,876,177,874,172,1014,116"/>
+<area shape="rect" id="Node000014" href="$AppLauncher_8cpp.html" title=" " alt="" coords="1132,168,1281,208"/>
+<area shape="poly" id="edge17_Node000013_Node000014" title=" " alt="" coords="1094,118,1175,165,1172,170,1092,123"/>
+<area shape="poly" id="edge21_Node000015_Node000004" title=" " alt="" coords="1150,123,1026,145,906,170,882,177,880,172,904,165,1025,140,1149,118"/>
+<area shape="poly" id="edge20_Node000015_Node000014" title=" " alt="" coords="1229,135,1216,168,1211,166,1224,133"/>
+<area shape="poly" id="edge24_Node000016_Node000004" title=" " alt="" coords="1324,123,1205,137,1112,143,1020,151,906,170,880,177,878,172,904,165,1020,146,1112,138,1205,132,1323,117"/>
+<area shape="rect" id="Node000017" href="$SettingsApp_8cpp.html" title=" " alt="" coords="1339,168,1482,208"/>
+<area shape="poly" id="edge23_Node000016_Node000017" title=" " alt="" coords="1413,135,1413,167,1408,167,1408,135"/>
 </map>
