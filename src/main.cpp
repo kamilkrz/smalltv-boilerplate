@@ -16,6 +16,7 @@
 #include "apps/GooglyEyes/GooglyEyes.h"
 #include "apps/PomodoroApp/PomodoroApp.h"
 #include "apps/MatrixApp/MatrixApp.h"
+#include "apps/CurrencyConverterApp/CurrencyConverterApp.h"
 
 void setup() {
   // SERIAL
@@ -46,6 +47,7 @@ void setup() {
   // Then add other app
   appCollection.addApp(&ClockApp::getInstance());
   appCollection.addApp(&PomodoroApp::getInstance());
+  appCollection.addApp(&CurrencyConverterApp::getInstance());
   appCollection.addApp(&GooglyEyesApp::getInstance());
   appCollection.addApp(&MatrixApp::getInstance());
 
