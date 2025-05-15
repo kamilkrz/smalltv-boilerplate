@@ -23,6 +23,8 @@ class CurrencyConverterApp : public App {
   const unsigned long apiCallInterval = 3600000;  // 1 hour in milliseconds
   void fetchExchangeRate();
   bool shouldExitApp = false;
+  unsigned long lastRenderMillis = 0;
+  bool forceUpdate = false;
 };
 
 #endif  // CURRENCY_CONVERTER_APP_H

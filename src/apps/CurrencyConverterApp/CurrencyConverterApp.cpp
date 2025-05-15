@@ -8,6 +8,8 @@
 #include "core/Settings.h"
 #include <ESP8266WiFi.h>
 #include <LittleFS.h>
+#include <NTPClient.h>
+#include <WiFiUdp.h>
 
 CurrencyConverterApp& CurrencyConverterApp::getInstance() {
   static CurrencyConverterApp instance;
@@ -24,6 +26,7 @@ CurrencyConverterApp::~CurrencyConverterApp() {}
 
 void CurrencyConverterApp::init() {
   shouldExitApp = false;
+  forceUpdate = true;
   Display.drawSplashScreen("Currency Converter", "Initializing...");
   WiFi.begin();
   unsigned long startAttemptTime = millis();
@@ -57,25 +60,23 @@ void CurrencyConverterApp::update() {
 }
 
 void CurrencyConverterApp::render() {
-  static unsigned long lastRenderMillis = 0;
-  static float lastRenderedRate = -1;
+  
   unsigned long currentMillis = millis();
   String fromCurrency = settings.getSetting("currency_from", "VES");
   String toCurrency = settings.getSetting("currency_to", "PLN");
 
   if (exchangeRate > 0) {
     // Redraw only if an hour has passed or the rate has changed
-    if ((currentMillis - lastRenderMillis >= 3600000UL) || (exchangeRate != lastRenderedRate)) {
-      Display.drawSplashScreen(String(exchangeRate,7), fromCurrency + " to " + toCurrency + ":");
+    if ((currentMillis - lastRenderMillis >= 3600000UL) || forceUpdate) {
+      Display.drawSplashScreen(String(exchangeRate,7), fromCurrency + " to " + toCurrency);
       lastRenderMillis = currentMillis;
-      lastRenderedRate = exchangeRate;
+      forceUpdate = false;
     }
     // else: do not redraw
   } else {
     // If rate is not known, allow normal rendering (e.g., during fetch)
     Display.drawSplashScreen("Currency Converter", "Fetching rate...");
     lastRenderMillis = currentMillis; // reset timer so next known rate will show immediately
-    lastRenderedRate = -1;
   }
 }
 
@@ -88,23 +89,33 @@ void CurrencyConverterApp::fetchExchangeRate() {
   String fromCurrency = settings.getSetting("currency_from", "VES");
   String toCurrency = settings.getSetting("currency_to", "PLN");
 
-
   // Try to use cached JSON if less than 1 hour old
   const char* cacheFile = "/currency_cache.json";
   String payload;
   bool usedCache = false;
+
+  // Get current epoch time via NTP (like in ClockApp)
+  WiFiUDP ntpUDP;
+  NTPClient ntpClient(ntpUDP, "pool.ntp.org");
+  ntpClient.begin();
+  ntpClient.update();
+  unsigned long currentEpoch = ntpClient.getEpochTime();
+
   if (LittleFS.begin()) {
     if (LittleFS.exists(cacheFile)) {
       File f = LittleFS.open(cacheFile, "r");
       if (f) {
-        String line = f.readStringUntil('\n');
-        unsigned long cachedMillis = line.toInt();
-        payload = f.readString(); // read the rest as JSON
+        payload = f.readString();
         f.close();
-        unsigned long now = millis();
-        if (now >= cachedMillis && (now - cachedMillis < 3600000UL)) {
-          Serial.println("  Using cached JSON from LittleFS.");
-          usedCache = true;
+        // Parse JSON to get timestamp
+        JsonDocument tempDoc;
+        DeserializationError tempError = deserializeJson(tempDoc, payload);
+        if (!tempError && tempDoc["timestamp"].is<unsigned long>()) {
+          unsigned long cachedTimestamp = tempDoc["timestamp"].as<unsigned long>();
+          if (currentEpoch > 0 && cachedTimestamp > 0 && (currentEpoch - cachedTimestamp < 3600)) {
+            Serial.println("  Using cached JSON from LittleFS.");
+            usedCache = true;
+          }
         }
       }
     }
@@ -112,10 +123,14 @@ void CurrencyConverterApp::fetchExchangeRate() {
   }
 
   if (!usedCache) {
+    Serial.println("  Fetching fresh JSON from OpenExchangeRates API.");
     if (appId.length() == 0) {
       Serial.println("  No APP_ID set, aborting fetch.");
       exchangeRate = -1;
       lastApiCall = millis();
+      Display.drawSplashScreen("No APP_ID set", "Please configure in settings.");
+      delay(3000);
+      shouldExitApp = true;
       return;
     }
 
@@ -132,12 +147,11 @@ void CurrencyConverterApp::fetchExchangeRate() {
     if (httpCode == HTTP_CODE_OK) {
       payload = http.getString();
 
-      // Store to LittleFS with timestamp and JSON
+      // Store bare JSON to LittleFS
       if (LittleFS.begin()) {
         File f = LittleFS.open(cacheFile, "w");
         if (f) {
-          f.println(String(millis()));
-          f.print(payload); // no extra newline
+          f.print(payload);
           f.close();
         }
         LittleFS.end();
@@ -157,24 +171,11 @@ void CurrencyConverterApp::fetchExchangeRate() {
   DeserializationError error = deserializeJson(doc, payload);
 
   if (!error) {
+    // Also update cache validation logic when we successfully parse JSON
     float fromToUsd = doc["rates"][fromCurrency];
     float toToUsd = doc["rates"][toCurrency];
-    Serial.print("  ");
-    Serial.print(fromCurrency);
-    Serial.print(" to USD: ");
-    Serial.println(fromToUsd, 6);
-    Serial.print("  ");
-    Serial.print(toCurrency);
-    Serial.print(" to USD: ");
-    Serial.println(toToUsd, 6);
     if (fromToUsd > 0 && toToUsd > 0) {
       exchangeRate = toToUsd / fromToUsd;
-      Serial.print("  Calculated ");
-      Serial.print(fromCurrency);
-      Serial.print(" to ");
-      Serial.print(toCurrency);
-      Serial.print(" rate: ");
-      Serial.println(exchangeRate, 6);
     } else {
       Serial.println("  Invalid rates received.");
     }
