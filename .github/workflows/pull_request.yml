@@ -9,6 +9,7 @@ on:
 env:
   PLATFORMIO_BUILD_FILE: platformio-build.output
   PLATFORMIO_BUILD_STDOUTERR_FILE: platformio-build.stdouterr
+  COVERXYGEN_OUTPUT_FILE: coverxygen.output
   GITHUB_WORKFLOW_RUN_URL: >-
     ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/attempts/${{ github.run_attempt }}
 jobs:
@@ -29,8 +30,17 @@ jobs:
           key: ${{ runner.os }}-pio
       - name: Install PlatformIO Core
         run: pip install --upgrade platformio
+      - name: Install Coverxygen
+        run: pip install --upgrade coverxygen
       - name: Build PlatformIO Project
         run: pio run 2> >(tee "${PLATFORMIO_BUILD_STDOUTERR_FILE}" >&2) | tee "${PLATFORMIO_BUILD_FILE}"
+      - name: Generate docs for xml evaluation
+        uses: mattnotmitt/doxygen-action@v1.12.0
+        with:
+          doxyfile-path: documentation/Doxyfile
+      - name: Generate Coverxygen Markdown Summary
+        run: |
+          python3 -m coverxygen --xml-dir docs/xml --src-dir . --exclude README.md --output "${COVERXYGEN_OUTPUT_FILE}" --format markdown-summary
       - name: Post build output as PR comment
         uses: actions/github-script@v7
         if: always()
@@ -82,6 +92,59 @@ jobs:
             const buildLink = `[View Workflow Run #${githubRunNumber} (Attempt ${githubRunAttempt})](${githubWorkflowRunUrl})`;
             const commentHeader = '### :rocket: Build Output :rocket:\n\n**Summary:**\n';
             const commentBody = `${commentHeader}${decoratedSummaryLine}\n\n${markdownTable}\n\n${buildLink}\n`;
+            const { data: comments } = await github.rest.issues.listComments({
+              ...context.repo,
+              issue_number: context.issue.number
+            });
+            const existingComment = comments.find(comment => 
+              comment.user.login === 'github-actions[bot]' && 
+              comment.body.startsWith(commentHeader)
+            );
+            if (existingComment) {
+              await github.rest.issues.updateComment({
+                  ...context.repo,
+                  comment_id: existingComment.id,
+                  body: commentBody
+              });
+            } else {
+              await github.rest.issues.createComment({
+                  ...context.repo,
+                  issue_number: context.issue.number,
+                  body: commentBody
+              });
+            }
+      - name: Post Coverxygen summary as PR comment
+        uses: actions/github-script@v7
+        if: always()
+        continue-on-error: true
+        with:
+          script: |
+            const fs = require('fs');
+            const coverxygenFile = process.env.COVERXYGEN_OUTPUT_FILE;
+            let coverxygenOutput = '';
+            try {
+              coverxygenOutput = fs.readFileSync(coverxygenFile, 'utf8');
+            } catch (e) {
+              coverxygenOutput = ':warning: No Coverxygen output found.';
+            }
+
+            // Colorize coverage percentages using LaTeX color hack
+            function colorizeCoverage(text) {
+              // Match percentages like 45%, 100%, 22.5%, 0.0%, etc.
+              return text.replace(/(\d{1,3}(?:\.\d+)?)%/g, function(match, p1) {
+                const percent = parseFloat(p1);
+                let color = 'red';
+                if (percent >= 67) color = 'green';
+                else if (percent >= 34) color = 'yellow';
+                // Double escape percent for LaTeX: 45% -> 45\%
+                const latexPercent = match.replace('%', '\\\\%');
+                return '$${\\color{' + color + '}' + latexPercent + '}$$';
+              });
+            }
+
+            const commentHeader = '### :bar_chart: Documentation Coverage Summary :bar_chart:\n\n';
+            const coloredOutput = colorizeCoverage(coverxygenOutput);
+            const commentBody = commentHeader + coloredOutput + '\n';
             const { data: comments } = await github.rest.issues.listComments({
               ...context.repo,
               issue_number: context.issue.number

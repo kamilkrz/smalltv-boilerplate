@@ -8,14 +8,14 @@ OPTIMIZE_FOR_FORTRAN   = NO
 OPTIMIZE_OUTPUT_VHDL   = NO
 
 # Input settings
-INPUT                  = src README.md
+INPUT                  = ./src ./README.md
 USE_MDFILE_AS_MAINPAGE = README.md
 FILE_PATTERNS          = *.cpp *.h *.md
 RECURSIVE              = YES
 EXCLUDE                = 
 EXCLUDE_PATTERNS       = 
 EXCLUDE_SYMLINKS       = NO
-BUILTIN_STL_SUPPORT    = YES
+BUILTIN_STL_SUPPORT    = NO
 
 
 # Build settings
@@ -48,7 +48,7 @@ HTML_EXTRA_STYLESHEET  = documentation/doxygen-awesome-css/doxygen-awesome.css \
                         documentation/doxygen-awesome-css/doxygen-awesome-sidebar-only.css \
                         documentation/doxygen-awesome-css/doxygen-awesome-sidebar-only-darkmode-toggle.css
 GENERATE_MAN           = NO
-GENERATE_XML           = NO
+GENERATE_XML           = YES
 GENERATE_DOCBOOK       = NO
 
 # Source browser settings
