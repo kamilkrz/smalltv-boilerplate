@@ -78,17 +78,19 @@ jobs:
     permissions:
       contents: write
     needs: [generate_sem_version, build]
+    env:
+      DOXYFILE_PATH: documentation/Doxyfile
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           submodules: true
       - name: Set version number
-        run: echo "PROJECT_NUMBER = ${{needs.generate_sem_version.outputs.semVersion}}" >> Doxyfile
+        run: echo "PROJECT_NUMBER = ${{needs.generate_sem_version.outputs.semVersion}}" >> $DOXYFILE_PATH
       - name: Generate docs
         uses: mattnotmitt/doxygen-action@v1.12.0
         with:
-          doxyfile-path: documentation/Doxyfile
+          doxyfile-path: ${{ env.DOXYFILE_PATH }}
       - name: Publish
         uses: JamesIves/github-pages-deploy-action@v4.3.0
         with:
